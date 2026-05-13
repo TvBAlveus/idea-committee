@@ -2360,13 +2360,12 @@ renderPipelineGrid();
 // =====================================================================
 const holdRanking = [
   // ---- DAILY-RUN 08.05.2026 ----
-  {n:"WEG-Verwaltung AI-Copilot", r:"08.05 Daily", cat:"Software/B2B", c:{
-    b:[16,"pass","high","WEG-Verwalter 8-15h/Wo Doku-Last; Inhaber als Buyer mit klarem ROI-Hebel über Personalkosten."],
-    m:[14,"pass","medium","AI-Plug-in mit Brief- und Heizkosten-Workflows in 7 Mo machbar; Domus/Karthago-Schnittstelle ist Friktion, kein Killer."],
-    t:[16,"pass","medium","~20k Verwaltungen DE, Inhaber-geführt, 1-3 Mo Cycles; VDIV-Verband als Channel."],
-    k:[11,"unknown","medium","Brief-Drafting profitiert klar, aber kein proprietärer Daten-Lock-in; austauschbar wenn Inkumbent Modul nachrüstet."],
-    e:[16,"pass","medium","1-3 €/WE × 100k WE-Ziel ergibt 3 Mio ARR-Pfad; SaaS-Marge 70-85%; bootstrappbar."],
-    w:[10,"unknown","medium","Aareon (immoware24, Wodis Sigma) als Workflow-Eigentümer; kein direkter AI-Copilot-Wettbewerber DE, aber Aareon-Adaption plausibel."]
+  {n:"WEG-Verwaltung AI-Copilot", r:"08.05 Daily", cat:"Software/B2B", c:{b:[15,"pass","high","WEG-Verwalter 8-15h/Wo Doku-Last; Pain durch AI-Adoption der Inkumbenten 2024-25 belegt (Aareon Edition plus 2026 mit Copilot; Immoware24 60% Zeitersparnis pro vermieter-ratgeber.de)."],
+    m:[13,"pass","medium","AI-Plug-in machbar in 7 Mo; aber Inkumbenten-API-Zugang fragil (Aareon Wodis Sigma, immoware24 closed), Standalone-MVP nur als Browser-Plugin oder eigene Verwaltungs-SW."],
+    t:[12,"unknown","medium","~20k Verwaltungen DE; VDIV-Verband als Channel; Inhaber-geführt — aber Marketing gegen Aareon-Marktanteil (60%+) und Native-AI-Player MANAGBL.AI sehr hart."],
+    k:[9,"fail","medium","Brief-Drafting + Anfrage-Klassifizierung ist Commodity 2026 (Aareon, DOMUS mit ChatGPT integriert, casavi AI, MANAGBL.AI für Anrufe); kein proprietärer Daten-Lock-in als unabhängiger Anbieter."],
+    e:[11,"unknown","medium","1-3 EUR/WE × 100k WE-Ziel = 3 Mio ARR; aber CAC gegen Aareon + 5+ AI-fähige Wettbewerber zerstört Bootstrap-Profil."],
+    w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: 6+ direkte DE-Wettbewerber mit AI-Modul bestätigt: Aareon Edition plus 2026 mit Copilot (per connect-professional.de Test 2026), DOMUS 1000 mit ChatGPT-Integration, ETG24 KI-Hausverwaltung (per etg24.de), Immoware24 (AI 60% Zeitersparnis), casavi AI (per casavi.com), MANAGBL.AI (AI-Native, Call-Answering, integriert mit casavi). Hard-Fail-Trigger massiv erfüllt — Original-Annahme 'kein direkter AI-Copilot-Wettbewerber DE' ist 2025/2026 obsolet."]
   }},
   {n:"Pleo/Brex für Vereine", r:"08.05 Daily", cat:"Fintech/B2B", c:{
     b:[17,"pass","high","600k Vereine, Vorstandshaftung, Übergaben chaotisch; akutes Pain durch Generationswechsel im Ehrenamt."],
@@ -2376,13 +2375,12 @@ const holdRanking = [
     e:[7,"fail","medium","Banking-Compliance + Fixkosten brechen Bootstrap; 20-Mio-Pfad braucht ~50k zahlende Vereine = 8% Markt."],
     w:[14,"pass","medium","Easyverein verwaltet aber kein Banking; Sparkassen-Vereinskonto kein strategischer Fokus; kein direkter Wettbewerber."]
   }},
-  {n:"Nachlass-Concierge", r:"08.05 Daily", cat:"Service/B2C", c:{
-    b:[18,"pass","high","Akut, emotional, 50-100 Aufgaben pro Erbfall; hohe Zahlungsbereitschaft 1.500-5.000 €."],
-    m:[13,"pass","medium","Service-Plattform + Sachbearbeiter-Team mit 5-10 Pilot-Fällen in 7 Mo machbar; Operations-Anteil hoch."],
-    t:[11,"unknown","medium","B2C-Trauer-CAC heikel und teuer; B2B2C über Versicherer/Bank realistischer aber Sales 6-12 Mo."],
-    k:[12,"unknown","medium","KI hilft bei Behörden-Standard-Schreiben + Doku, aber kein klarer Daten-Lock-in; menschlicher Service-Anteil bleibt."],
-    e:[14,"pass","medium","Cash-positiv ab Fall 1; 30-50% Marge; 6-10k Fälle/Jahr = 20 Mio bei 2.500 € Ø Pauschale, ~3% Marktanteil."],
-    w:[16,"pass","medium","Kein dominanter DACH-Player; Notar/Anwalt fragmentiert; Pauschalpreis-Wedge defensiv."]
+  {n:"Nachlass-Concierge", r:"08.05 Daily", cat:"Service/B2C", c:{b:[17,"pass","high","Akut, emotional, 50-100 Aufgaben pro Erbfall; hohe Zahlungsbereitschaft 1.500-5.000 EUR; ~1 Mio Erbfälle/Jahr DE (Statistisches Bundesamt); Pain bestätigt durch Deutsche-Bank-Studie 'Erben und Vererben 2024'."],
+    m:[12,"pass","medium","Service-Plattform + Sachbearbeiter-Team mit 5-10 Pilot-Fällen in 7 Mo machbar; Behörden-Onboarding (Standesamt, Nachlassgericht, Grundbuch) braucht regionalisierten Setup."],
+    t:[11,"unknown","medium","B2C-Trauer-CAC heikel und teuer (SEO + SEM nur in akuter Phase); B2B2C über Banken/Versicherer realistischer (NachlassDialog/crossconsulting belegen B2B-Pfad)."],
+    k:[11,"unknown","medium","AI hilft bei Behörden-Standard-Schreiben + Doku-Sortierung — aber Standard 2026 (alle ähnlichen Services nutzen LLM); menschlicher Empathie-Service-Anteil dominiert."],
+    e:[13,"pass","medium","Cash-positiv ab Fall 1; 30-50% Marge; 6-10k Fälle/Jahr = 20 Mio bei 2.500 EUR Ø Pauschale, ~1% von 1 Mio Erbfällen — TAM-realistisch."],
+    w:[13,"unknown","medium","Markt fragmentiert: Diligentia Nachlass (Vollservice per diligentia-nachlass.com), Mein-Nachlass-Manager (mein-nachlass-manager.de), Mymoria-Nachlass-Erweiterung (Berlin, Bestatter+Nachlass-Content per mymoria.de/erbe), NachlassDialog (B2B Banken), crossconsulting (B2B Plattform Banken/Versicherer). 3+ Player aber kein dominanter B2C-Brand — Wedge 'Pauschalpreis-Vollservice mit AI-Skalierung' bleibt möglich."]
   }},
   {n:"SHK Field-Service-Plattform", r:"08.05 Daily", cat:"SaaS/B2B", c:{
     b:[17,"pass","high","SHK ersticken in Aufträgen (Wärmepumpen-Boom); 90er-SW; klarer Inhaber-Pain."],
@@ -2448,13 +2446,12 @@ const holdRanking = [
     e:[12,"unknown","medium","200 €/Mo × 8k Kanzleien = ~20 Mio ARR Theorie, aber gegen 5+ Inkumbenten realistisch nur 5-8% Marktanteil = 10-15 Mio Pfad; Bootstrap durch Marketing-Krieg gefährdet."],
     w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: 5+ direkte DE-Wettbewerber bestätigt: KYCnow (Mandant-Onboarding + DATEV-Export per kycnow.de), KanzleiDrive (Onboarding + KYC-Integration aus offiziellen Registern per kanzleidrive.de), Regpit (KYC/KYB + AML-Audit per regpit.com), DS|GwG (DATA Security Compliance mit Sanktions-/PEP-Listen per data-security.one), KanzleiFlow (Mandanten-Onboarding + Angebot + Vertrag + DATEV-Integration per taxandbytes.de Mai 2026), kanzlei.land. Hard-Fail-Trigger '3+ direkte DE-Wettbewerber' mehrfach erfüllt; 3-von-4-Test (gleicher Kunde, Problem, Lösung, Region) klar erfüllt."]
   }},
-  {n:"Acker-Workflow Pacht+GAP", r:"10.05 Daily", cat:"SaaS/B2B", c:{
-    b:[15,"pass","medium","Pachtordner-Chaos und Förder-Stress Top-3-Themen; aber Landwirte preissensibel."],
-    m:[14,"pass","medium","App + Web mit Geodaten + GAP-Logik in 7 Mo machbar; GAP-Regel-Updates jährlich."],
-    t:[13,"pass","medium","~70k Zielbetriebe DE/AT; Vertrieb über Maschinenringe + Landwirtschaftskammern langsam."],
-    k:[10,"unknown","medium","AI hilft bei GAP-Formularen + Düngeverordnung-Doku; Flächen-Stammdaten als möglicher Lock-in."],
-    e:[13,"pass","medium","30-100 €/Mo × 20k Betriebe = 6-24 Mio ARR; bootstrappbar; GAP-Anpassung als laufende Kosten."],
-    w:[13,"pass","medium","365FarmNet (Claas) und NextFarm decken Schlagkartei, nicht Pacht+GAP-Combo; nicht direkt nach 3-von-4."]
+  {n:"Acker-Workflow Pacht+GAP", r:"10.05 Daily", cat:"SaaS/B2B", c:{b:[13,"pass","medium","Pachtordner-Chaos und GAP-Antrags-Stress reale Top-3-Themen für 70k Zielbetriebe DE/AT; aber Landwirte preissensibel und Markt durch existierende Lösungen teilweise bedient."],
+    m:[13,"pass","medium","App + Web mit Geodaten + GAP-Logik in 7 Mo machbar; GAP-Regel-Updates jährlich als laufende Kosten."],
+    t:[10,"fail","medium","365FarmNet (Claas, gratis Basic-Modul) und NextFarming (AGCO-Konzern-Vertrieb) haben Marketing-Hebel die Bootstrap nicht matched; Maschinenringe/Landwirtschaftskammern langsame Channels."],
+    k:[9,"fail","medium","AI-GAP-Formular-Drafting + Düngeverordnung-Doku ist Commodity 2026; Flächen-Stammdaten als Lock-in hätte Sinn aber NextFarming/365FarmNet besitzen die Daten bereits."],
+    e:[10,"fail","medium","30-100 EUR/Mo × 20k Betriebe = 6-24 Mio ARR Theorie, aber 365FarmNet gratis Basic verzerrt Preismechanik; 20-Mio-Pfad gegen Konzern-Player unmöglich bootstrap."],
+    w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: 6+ direkte DE-Wettbewerber mit exaktem Featureset Pacht+GAP+Düngeverordnung: NextFarming (AGCO-Konzern, ex-FarmFacts/BayWa, dediziertes 'Lease and Area Management'-Modul per nextfarming.com/solutions/lease-and-area-management/), 365FarmNet (Claas-Konzern, gratis Basic + Premium-Module), AgrarCommander (AT mit AMA-Antrag/Pacht), GIS GmbH Flächensystem (Pachtverwaltung + GIS-Mapping per gis.gmbh), eLMID Liegenschaften+Pachtprogramm, agriPORT (Agricon), sotecon AGRAR, Farmdok. Hard-Fail-Trigger massiv erfüllt; NextFarming hat IDENTISCHES Featureset zur Ideenidee."]
   }},
   {n:"Verwaltungs-Triage-AI", r:"10.05 Daily", cat:"SaaS/B2B", c:{
     b:[17,"pass","high","Stadtverwaltungen ersticken in Posteingang; OZG-Druck + Personalmangel; politisch sichtbar."],
@@ -2742,13 +2739,12 @@ const holdRanking = [
     e:[12,"unknown","medium","30-50 €/Std × 15-25% Provision; 20-Mio-Pfad braucht 30k aktive Senioren."],
     w:[14,"pass","medium","Kein DACH-Anbieter; Caritas/Diakonie semi-professionell; Telekom/Vodafone könnten."]
   }},
-  {n:"AI-Tutor 60+ Tech-Lernen", r:"11.05 Senioren", cat:"🌅 SaaS/B2C", c:{
-    b:[14,"pass","medium","Lebenslang-Lernen-Pain real; aber primär Wunsch, nicht Zwang."],
-    m:[15,"pass","medium","Live-Kurse-Plattform + AI-Tutor in 7 Mo machbar."],
-    t:[11,"unknown","medium","B2C-Senior + Kinder-Gutschein-Multiplier; CAC senior-affin schwer."],
-    k:[14,"pass","medium","AI-Tutor profitiert massiv von besseren Modellen; Senior-Sprache als Spezial-Daten."],
-    e:[13,"pass","medium","19-39 €/Mo × 80k Subscriber für 20 Mio; ambitioniert aber denkbar."],
-    w:[13,"pass","medium","GetSetUp (US, $50M+) EU-Expansion wahrscheinlich; First-Mover-Window 12-24 Mo."]
+  {n:"AI-Tutor 60+ Tech-Lernen", r:"11.05 Senioren", cat:"🌅 SaaS/B2C", c:{b:[12,"unknown","medium","Lebenslang-Lernen-Pain real (16 Mio 60+ DE); aber durch NGO-Landschaft kostenlos gedeckt: Wege aus der Einsamkeit (Berlin/Hamburg, 700+ Anfragen/Kurs), Stiftung Digitale Chancen (seit 2002), Digitaler Engel (75k Senioren, 1.800+ Events seit 2020), ~400 lokale Senioren-Internet-Initiativen. Zahlungsbereitschaft B2C gegen Gratis-Angebote fraglich."],
+    m:[14,"pass","medium","Live-Kurs-Plattform + AI-Tutor in 7 Mo machbar; Deutsche Sprach-AI für Senioren als Feinabstimmung."],
+    t:[11,"unknown","medium","B2C-Senior + Kinder-Gutschein-Multiplier (StoryWorth-Modell); CAC senior-affin schwer; B2B2C über Pflegekassen/Stadtverwaltungen 12-18 Mo Cycle."],
+    k:[13,"pass","medium","AI-Tutor profitiert massiv von besseren Modellen; Senior-Sprache und Wiederholungs-Bedarf als Spezial-Daten als Wedge möglich; GetSetUp (2.2M Mitglieder 160 Länder per getsetup.io 2025) hat noch kein DACH-Launch."],
+    e:[11,"unknown","medium","19-39 EUR/Mo × 80k Subscriber = 18-37 Mio Pfad; GetSetUp-Modell ist gratis (sponsor-finanziert via State of NY etc), direkter B2C-Sub gegen Gratis-Konkurrenz hart; B2B2C über Pflegekassen plausibler."],
+    w:[11,"unknown","medium","GetSetUp (US, 10M USD Funding 2021, 2.2M Mitglieder, 160 Länder, Expansion UK/Canada/Singapore aber kein DACH bisher per prnewswire); DACH-Kommerz-Anbieter selten (Wege aus der Einsamkeit, Silbernetz, Stiftung Digitale Chancen sind NGO/non-profit). Wettbewerb indirect über NGO-Kostenlos-Angebote."]
   }},
   {n:"Begleitservice ärztliche Termine 80+", r:"11.05 Senioren", cat:"🌅 Service/B2C", c:{
     b:[16,"pass","medium","Demographie-Druck + Verhinderungspflege; Familie zahlt gerne."],
@@ -2783,13 +2779,12 @@ const holdRanking = [
   }},
 
   // ---- THEMEN-RUN TIER-SUPPLEMENTS 11.05.2026 ----
-  {n:"Hund Geriatrie-Komplettprogramm DACH", r:"11.05 Tiere", cat:"🐾 Sub/B2C", c:{
-    b:[15,"pass","medium","Senior-Hunde größtes Halter-Segment; zahlungsbereit; aber primär Wunsch."],
-    m:[14,"pass","medium","D2C-Sub + Box-Logistik + Vet-Konsultations-Partner in 7 Mo machbar."],
-    t:[13,"pass","medium","B2C über Instagram/Vet-Empfehlung; CAC moderat."],
-    k:[6,"unknown","low","AI peripher (Personalisierung); CPG-Sub-Business; kein Wedge."],
-    e:[13,"pass","medium","49-99 €/Mo × 30-40k Subscriber = 18-48 Mio ARR; 100-200k Lager-Vorhalt."],
-    w:[13,"pass","medium","Native Pet (US), Farmer's Dog (US) nicht DACH; Mars/Nestle könnten."]
+  {n:"Hund Geriatrie-Komplettprogramm DACH", r:"11.05 Tiere", cat:"🐾 Sub/B2C", c:{b:[13,"pass","medium","Senior-Hunde größtes Halter-Segment (~30% der 10 Mio DE-Hunde-Population per IVH/Statista); zahlungsbereit (Pain durch Vet-Kosten + Mobilität); aber primär Wunsch nicht akut/Pflicht."],
+    m:[13,"pass","medium","D2C-Sub + Box-Logistik + Vet-Konsultations-Partner in 7 Mo machbar; Tackenberg-Logistik-Modell vorbild."],
+    t:[12,"unknown","medium","B2C über Instagram/Vet-Empfehlung; CAC moderat aber 4-5 DACH-Anbieter (Pets Deli 953+ Trustpilot Reviews) konkurrieren um Sichtbarkeit; Vet-Channel langsam."],
+    k:[7,"unknown","low","AI peripher (Personalisierung über Gewicht/Rasse/Diagnose); CPG-Subscription-Business; kein technologischer Wedge."],
+    e:[11,"unknown","medium","49-99 EUR/Mo × 30-40k Subscriber = 18-48 Mio ARR Theorie; Senior-Segment Subset von ~3 Mio Senior-Hunden DE; 30k Subscriber = ~1% Marktanteil Senior-Segment, realistisch ambitioniert; Working Capital 100-200k EUR."],
+    w:[11,"unknown","medium","PerNaturam (Gödenroth DE, Perna Senior Linie per pernaturam.de), Tackenberg (Premium-Futter DE, Senior-BARF), Pets Deli (DE, Senior-Sortiment, 953+ Trustpilot Reviews per trustpilot.com), Bellfor (DE, Senior-Linie), Anifit (DE, Senior-Linie); Markt fragmentiert in Einzel-Produkt-Anbietern, kein direktes 'Geriatrie-Komplettprogramm' aber Inkumbenten können bündeln; Mars/Nestle-Risiko."]
   }},
   {n:"Vet-Empfehlungs-Plattform mit White-Label-Supp", r:"11.05 Tiere", cat:"🐾 Marketplace/B2B", c:{
     b:[16,"pass","medium","Tierärzte-Margen-Druck + neue Umsatzquelle; klares Pain."],
