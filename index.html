@@ -2390,13 +2390,12 @@ const holdRanking = [
     e:[9,"fail","medium","Hero hat ~30M VC und Marketing-Budget; Bootstrap-Frontalangriff aussichtslos; nur Sub-Nische bootstrap-tauglich."],
     w:[8,"fail","high","Hero Software (~30M VC), Plancraft, openHandwerk in DE - alle 3-von-4 erfüllt (gleicher Kunde, Problem, Lösung, Region)."]
   }},
-  {n:"PrivatPraxis-Stack", r:"08.05 Daily", cat:"SaaS/B2B", c:{
-    b:[15,"pass","medium","Privatpraxen ohne integriertes Buchung+GOÄ-Tool; PKV-Einreichung manuell; reales Pain bei 25-40k Praxen."],
-    m:[15,"pass","medium","SaaS mit Buchung + GOÄ + PKV-Konnektoren in 7 Mo machbar."],
-    t:[13,"pass","medium","Praxisinhaber:in entscheidet allein, aber Markt klein; CAC über Verbände (BDPK, ZÄK) langsam."],
-    k:[10,"unknown","medium","AI hilft bei Brief/Doku-Drafting, aber kein Daten-Lock-in; austauschbar mit Doctolib-Modul-Add."],
-    e:[11,"unknown","medium","20 Mio braucht 25-40k Behandler à 60 €/Mo = nahezu 100% Marktanteil; ambitioniert ohne Cross-Sell."],
-    w:[10,"unknown","medium","Doctolib + Samedi decken Buchung; Epikur/Psyprax decken Abrechnung; Doctolib könnte Modul nachrüsten."]
+  {n:"PrivatPraxis-Stack", r:"08.05 Daily", cat:"SaaS/B2B", c:{b:[13,"pass","medium","Privatpraxen-Pain real (PKV-Einreichung manuell, GOÄ-Komplexität); aber Markt bereits durch Anbieter abgedeckt."],
+    m:[13,"pass","medium","SaaS mit GOÄ-Ziffernkatalog + PKV-Konnektoren in 7 Mo machbar."],
+    t:[10,"fail","medium","Praxisinhaber:in entscheidet allein, aber Markt klein (~25-40k Praxen); CAC gegen Doctolib (Marktführer) + medatixx + Patientify hart."],
+    k:[9,"fail","medium","AI für Brief-Drafting + GOÄ-Vorschlag commodity; Doctolib + medatixx können Modul nachrüsten; kein Lock-in."],
+    e:[9,"fail","medium","60-150 EUR/Praxis/Mo × 25-40k Behandler = 18-72 Mio TAM Theorie; aber Marktanteil 30-50% gegen 7 Inkumbenten unrealistisch."],
+    w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: 7+ direkte DE-Wettbewerber für Privatpraxis-Software bestätigt — ETERNO Cloud (native GOÄ + EBM per medizinio.de Vergleich 2025), Patientify (GOÄ + Privatliquidation + Beihilfe per patientify.io), tomedo® (GOÄ-Regelwerk integriert), pixelmedics (Privatpraxen-Spezial-Software), Tymia (Psycho-Privatpraxen), medatixx (mit Doctolib-Integration), EASYGOÄ (Privatabrechnung) plus Buchung-Layer Doctolib/Samedi/eTermin. Vergleichsportal Privatpraxis-Software.de listet 7+ Anbieter. Hard-Fail-Trigger massiv erfüllt."]
   }},
   {n:"Vergabe-AI Mittelstand", r:"08.05 Daily", cat:"SaaS/B2B", c:{b:[14,"pass","medium","Vergabe-Aufwand 20-80 Std real; Pain bestätigt durch DTAD-Reichweite (5.500+ Kunden per dtad.com 2026, 25+ Jahre Marktpräsenz, 12k+ Quellen). Vertriebsleiter-Pain real."],
     m:[13,"pass","medium","SaaS mit TED/Vergabe24-API + AI-Drafting in 7 Mo machbar; aber Forgent AI (Berlin) hat OpenAI/Anthropic-Veteranen-Team und 4,3M EUR Pre-Seed 2025 (per getzenai/patterno-Berichte) — technologischer Vorsprung."],
@@ -2421,13 +2420,12 @@ const holdRanking = [
     e:[12,"unknown","medium","20-Mio-Pfad sehr ambitioniert in Handwerk-Sub-Vertikale; viele kleine Kunden CAC-intensiv."],
     w:[9,"fail","medium","Goodcall, Phonely, Air AI, DE-Startups (Parloa) - mehrere direkte; 3-von-4 für mehrere erfüllt."]
   }},
-  {n:"Wundpflege-Imaging Pflegeheim", r:"08.05 Daily", cat:"MedTech", c:{
-    b:[17,"pass","high","MDK-Audit-Pflicht; Wundpflege-Doku Top-Risiko; Heimleitung mit Budget."],
-    m:[8,"fail","medium","MDR-Klasse-IIa für Wund-Imaging-AI; Zertifizierung 12-18 Mo; mit 2 Pers in 7 Mo nicht machbar."],
+  {n:"Wundpflege-Imaging Pflegeheim", r:"08.05 Daily", cat:"MedTech", c:{b:[16,"pass","high","MDK-Audit-Pflicht; Wundpflege-Doku Top-Risiko bei MDK-Prüfung; Heimleitung mit Budget; ~13k Pflegeheime DE."],
+    m:[null,"fail","medium","🚩 RED FLAG IDENTIFIED: MDR-Klasse-IIa für Wund-Imaging-AI; Zertifizierung 12-18 Mo + 500k-1M EUR Vorlauf; mit 2 Personen in 7 Mo strukturell nicht machbar; Pilot-MVP setzt MDR-Approval voraus."],
     t:[13,"pass","medium","Heimleitung entscheidet aber Pflegekassen-Reimbursement-Pfad braucht 12-18 Mo Klärung."],
-    k:[14,"pass","medium","Wund-Imaging profitiert massiv von besseren Modellen; proprietäre Daten möglich."],
-    e:[9,"fail","medium","MDR-Zertifizierung 500k-1M Vorlauf; Hardware-Komponente (Tablet/Sensor) zusätzlich."],
-    w:[13,"pass","medium","Tissue Analytics (US), kein DACH-Player; aber MDR ist Burggraben für jeden Eintritt."]
+    k:[14,"pass","medium","Wund-Imaging profitiert massiv von besseren Modellen; proprietäre Daten möglich nach Klinik-Pilot."],
+    e:[9,"fail","medium","MDR-Zertifizierung 500k-1M EUR Vorlauf; Hardware-Komponente (Tablet/Sensor) zusätzlich; Bootstrap-Profil zerstört."],
+    w:[13,"pass","medium","Tissue Analytics (US, durch Net Health akquiriert), kein DACH-Player; aber MDR ist Burggraben für jeden Eintritt — auch für uns."]
   }},
 
   // ---- DAILY-RUN 10.05.2026 ----
@@ -2589,13 +2587,12 @@ const holdRanking = [
     e:[11,"unknown","medium","6,99 €/Mo × 250-400k Subscriber = 17-33 Mio ARR; ambitioniert für DACH."],
     w:[7,"fail","high","Hallow (US, $50M+) Lokalisierung wahrscheinlich in 12-24 Mo; First-Mover-Window eng; nach 3-von-4 direkt."]
   }},
-  {n:"Predigt-AI Copilot", r:"08.05 Kirche", cat:"🛐 SaaS/B2B", c:{
-    b:[13,"pass","medium","Pfarrer:innen überlastet; aber kein eigenes Budget; Bistum als Buyer langsam."],
-    m:[16,"pass","medium","LLM + Theologie-DB-Aufbau in 7 Mo machbar; Pilot mit 50 Pfarrer:innen."],
-    t:[8,"fail","medium","Bistums-Sales 12-24 Mo; B2C-PLG bei Pfarrer:innen ohne Budget schwer."],
-    k:[14,"pass","medium","Theologie-DB als proprietäre Datenbasis; bessere Modelle verbessern deutsch-theologische Outputs."],
-    e:[11,"unknown","medium","B2C 19-49 €/Mo, Bistum 5-50k/Jahr; 20-Mio-Pfad braucht ~50% Marktanteil deutsche Pfarrer."],
-    w:[13,"pass","medium","Logos/Verbum (US, EN); deutsche AI-Predigt rudimentär; kein direkter DACH-Wettbewerber."]
+  {n:"Predigt-AI Copilot", r:"08.05 Kirche", cat:"🛐 SaaS/B2B", c:{b:[12,"pass","medium","Pfarrer:innen überlastet aber haben kein Eigenbudget; Bistum als Buyer langsam; pfarrerverband.de + eulemagazin.de zeigen aktive Debatte über AI-Predigt 2024-25."],
+    m:[14,"pass","medium","LLM + Theologie-DB-Aufbau in 7 Mo machbar; aber Logos hat 2025 KI-Predigt-Assistent deutsch live mit Predigteditor."],
+    t:[null,"fail","medium","🚩 RED FLAG IDENTIFIED: Bistums-Sales-Cycle 12-24 Mo + Pfarrer:innen ohne Budget; PLG-Pfad bei Pfarrer:innen schwer ohne klaren Buyer; Vertriebszugang strukturell blockiert."],
+    k:[12,"pass","medium","Theologie-DB als proprietäre Datenbasis denkbar; aber Logos hat Vorsprung mit jahrzehnte­langer Theologie-Bibliothek."],
+    e:[9,"fail","medium","B2C 19-49 EUR/Mo + Bistum 5-50k EUR/Jahr; 20-Mio-Pfad braucht ~50% deutsche Pfarrer-Marktanteil oder 100+ Bistums-Lizenzen — unrealistisch."],
+    w:[10,"fail","medium","Logos KI-Predigt-Assistent deutsch live (Predigt-Editor, 30 Sek Outline-Generierung per deutsch.logos.com 2025); SermonPrep.ai gratis; frogwords.de DE-Theologie+AI; mehrere internationale Sermon-AI-Tools (Jotform etc); Wedge geschlossen."]
   }},
   {n:"Religiöse Eltern-Erziehung Subscription", r:"08.05 Kirche", cat:"🛐 Subscription/B2C", c:{
     b:[9,"fail","medium","Latent-Pain, nicht akut; Eltern müssen erst überzeugt werden; aufschiebbar."],
@@ -2613,13 +2610,12 @@ const holdRanking = [
     e:[7,"fail","medium","Inventory 200-500k Working Capital; D2C-Fashion ohne externes Kapital extrem selten 20 Mio."],
     w:[13,"pass","medium","Modanisa (TR) importiert, Aab (UK) online; kein dominanter DACH-Brand."]
   }},
-  {n:"Beratung entwidmete Kirchen", r:"08.05 Kirche", cat:"🛐 Beratung/B2B", c:{
-    b:[15,"pass","medium","Bistümer schließen jährlich Kirchen; Veräußerung komplex; aber Volumen klein (100-200 Objekte/Jahr DACH)."],
-    m:[17,"pass","high","Beratungs-Service in 7 Mo aufbaubar mit 1-2 Pilot-Mandaten."],
-    t:[11,"unknown","medium","Bistums-Bauämter langsam (12-24 Mo); Investoren opportunistisch."],
-    k:[5,"unknown","low","AI praktisch keine Rolle; reine Beratungs-/Plattform-Idee; kein Wedge."],
-    e:[6,"fail","high","Service skaliert linear; 200 Mandate/Jahr × 50-100k € = max 20 Mio; Operations-Bottleneck."],
-    w:[17,"pass","high","Kein dominanter Spezialist DACH; Bistums-Domäne als Burggraben; Architekturbüros ad-hoc."]
+  {n:"Beratung entwidmete Kirchen", r:"08.05 Kirche", cat:"🛐 Beratung/B2B", c:{b:[13,"pass","medium","Bistümer schließen jährlich Kirchen; Veräußerung komplex (Denkmalschutz + Bistums-Vorschriften + Investoren-Suche); aber Volumen niedrig (100-200 Objekte/Jahr DACH)."],
+    m:[15,"pass","medium","Beratungs-Service in 7 Mo mit 1-2 Pilot-Mandaten aufbaubar."],
+    t:[10,"fail","medium","Bistums-Bauämter langsam (12-24 Mo Cycles); Investoren opportunistisch; Mandate Volatilität hoch."],
+    k:[5,"unknown","low","AI praktisch keine Rolle; reine Beratungs-/Plattform-Idee."],
+    e:[8,"fail","high","🚩 RED FLAG IDENTIFIED: Niche zu eng — 100-200 Mandate/Jahr DACH × 50-100k EUR = max 10-20 Mio Umsatz; Service skaliert nur linear mit Beratern; Operations-Bottleneck; 20-Mio-Pfad strukturell nicht erreichbar."],
+    w:[15,"pass","high","Kein dominanter Spezialist DACH; Bistums-Domäne als Burggraben; Architekturbüros ad-hoc tätig."]
   }},
   {n:"Tradlife Retreats junge Frauen", r:"08.05 Kirche", cat:"🛐 Service/B2C", c:{
     b:[11,"unknown","medium","Wachsender Trend Trad-Movement; aber identitätspolitisch heikel; Zielgruppe schmal."],
@@ -2741,13 +2737,12 @@ const holdRanking = [
     e:[11,"unknown","medium","19-39 EUR/Mo × 80k Subscriber = 18-37 Mio Pfad; GetSetUp-Modell ist gratis (sponsor-finanziert via State of NY etc), direkter B2C-Sub gegen Gratis-Konkurrenz hart; B2B2C über Pflegekassen plausibler."],
     w:[11,"unknown","medium","GetSetUp (US, 10M USD Funding 2021, 2.2M Mitglieder, 160 Länder, Expansion UK/Canada/Singapore aber kein DACH bisher per prnewswire); DACH-Kommerz-Anbieter selten (Wege aus der Einsamkeit, Silbernetz, Stiftung Digitale Chancen sind NGO/non-profit). Wettbewerb indirect über NGO-Kostenlos-Angebote."]
   }},
-  {n:"Begleitservice ärztliche Termine 80+", r:"11.05 Senioren", cat:"🌅 Service/B2C", c:{
-    b:[16,"pass","medium","Demographie-Druck + Verhinderungspflege; Familie zahlt gerne."],
+  {n:"Begleitservice ärztliche Termine 80+", r:"11.05 Senioren", cat:"🌅 Service/B2C", c:{b:[14,"pass","medium","Demographie-Druck + Verhinderungspflege (SGB XI § 39) + akute Arzttermin-Begleitung; Familien zahlen gerne aber Stadtteil-Logistik."],
     m:[13,"pass","medium","Begleiter-Pool + Buchungs-Plattform + 1-Stadt-Pilot in 7 Mo machbar."],
-    t:[11,"unknown","medium","Pflegekassen-Anerkennung 12-18 Mo; sonst B2C-CAC hoch."],
-    k:[6,"unknown","low","AI peripher; reines Service-Business."],
-    e:[11,"unknown","medium","45-70 €/Termin × 50k Termine/Jahr = 2-3 Mio; 20-Mio-Pfad braucht Multi-City."],
-    w:[13,"pass","medium","Caritas/Malteser semi-professionell; kein Marktplatz-Player."]
+    t:[11,"unknown","medium","Pflegekassen-Anerkennung (Verhinderungspflege) 12-18 Mo Verhandlung; sonst B2C-CAC hoch über Hausarzt-Empfehlung."],
+    k:[6,"unknown","low","AI peripher (Routing, Match); reines Service-Business."],
+    e:[10,"fail","medium","45-70 EUR/Termin × 50k Termine/Jahr = 2-3 Mio EUR; 20-Mio-Pfad braucht Multi-City + Pflegekassen-Integration."],
+    w:[12,"unknown","medium","Caritas/Malteser semi-professionell mit Tarifsystem; kein konsolidierter Marktplatz-Player; Konkurrenz aus Ehrenamt-Strukturen."]
   }},
   {n:"Senioren-Memoiren-Schreibservice", r:"11.05 Senioren", cat:"🌅 Service/B2C", c:{b:[13,"pass","medium","Familien-Geschenk-Markt real (StoryWorth $40M ARR USA per welcome.storyworth.com, Remento 2023 launched per remento.co); aber Pain ist latent (Wunsch, nicht Pflicht); Meminto-DHDL-Höhle-der-Löwen-Auftritt belegt deutsche Zahlungsbereitschaft."],
     m:[14,"pass","medium","Subscription + AI-Transkription + Buch-Produktion in 7 Mo machbar; Tech etabliert (Remento macht's bereits mit Voice→Text); DSGVO-Hosting nötig (Meminto-Differenzierung gegen StoryWorth)."],
