@@ -2400,13 +2400,12 @@ const holdRanking = [
     e:[11,"unknown","medium","20 Mio braucht 25-40k Behandler à 60 €/Mo = nahezu 100% Marktanteil; ambitioniert ohne Cross-Sell."],
     w:[10,"unknown","medium","Doctolib + Samedi decken Buchung; Epikur/Psyprax decken Abrechnung; Doctolib könnte Modul nachrüsten."]
   }},
-  {n:"Vergabe-AI Mittelstand", r:"08.05 Daily", cat:"SaaS/B2B", c:{
-    b:[16,"pass","medium","Mittelständler kennen 80% Ausschreibungen nicht; 20-80 Std/Vergabe-Aufwand; Vertriebsleiter-Pain."],
-    m:[16,"pass","medium","SaaS mit AI-Match + Draft-Generation in 7 Mo machbar; TED/Vergabe24-Daten lesbar."],
-    t:[13,"pass","medium","Vertriebsleiter mit Budget; aber Mittelstand-Sales-Cycles 3-9 Mo; Branchenfokus nötig."],
-    k:[14,"pass","medium","Lerneffekt aus historischen Angeboten möglich (proprietäre Daten); Workflow-Verankerung bei Integration."],
-    e:[14,"pass","medium","SaaS 500-3.000 €/Mo, bootstrappbar mit 5-10 Pilotkunden."],
-    w:[10,"unknown","medium","DTAD/Vergabe24 dominieren Bekanntmachung, nicht AI-Drafting; Govly (US) könnte EU expandieren."]
+  {n:"Vergabe-AI Mittelstand", r:"08.05 Daily", cat:"SaaS/B2B", c:{b:[14,"pass","medium","Vergabe-Aufwand 20-80 Std real; Pain bestätigt durch DTAD-Reichweite (5.500+ Kunden per dtad.com 2026, 25+ Jahre Marktpräsenz, 12k+ Quellen). Vertriebsleiter-Pain real."],
+    m:[13,"pass","medium","SaaS mit TED/Vergabe24-API + AI-Drafting in 7 Mo machbar; aber Forgent AI (Berlin) hat OpenAI/Anthropic-Veteranen-Team und 4,3M EUR Pre-Seed 2025 (per getzenai/patterno-Berichte) — technologischer Vorsprung."],
+    t:[10,"fail","medium","Mittelstand-Sales 3-9 Mo; Marketing-Krieg gegen DTAD-Reach (5.500 Kunden) + Forgent-Funding (4,3M EUR) macht CAC unhaltbar für Bootstrap; Branchenfokus-Wedge wahrscheinlich von Patterno (Branchenmodule) abgedeckt."],
+    k:[9,"fail","medium","AI-Drafting ist Standard 2026 (DTAD 'Frank', Patterno, Tenderzen, BlackSwanAI, BidFix alle mit AI); kein proprietärer Daten-Lock-in mehr (Foundation-Models machen Drafting commodity); Wrapper-Risiko."],
+    e:[9,"fail","medium","SaaS 500-3.000 EUR/Mo gut, aber 20-Mio-Pfad braucht ~5k Mittelstand-Kunden = ~5% des B2B-Vergabe-Segments — gegen 10+ Inkumbenten mit Marketing-Budget unmöglich bootstrap."],
+    w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: 10+ direkte DACH-Wettbewerber bestätigt — DTAD (5.500+ Kunden, AI-Assistent 'Frank' per dtad.com), Patterno (1.000 Portale, 10k+ neue Tender/Tag per patterno.de), Tenderzen (full workflow), BidFix.ai (KI-Plattform), Forgent AI (Berlin, 4,3M EUR Pre-Seed 2025, OpenAI/Anthropic/DeepMind-Team per Cherry-Ventures-PR), BlackSwanAI (DACH), Vergabepilot.AI, Scalera.ai, Tenderflow.ai, Vergabe24, DTVP. Hard-Fail-Trigger 3+ direkte DE-Wettbewerber massiv erfüllt."]
   }},
   {n:"AI Mahnwesen B2B", r:"08.05 Daily", cat:"SaaS/B2B", c:{
     b:[14,"pass","medium","Liquidität KMU-Top-3-Pain; aber Mahnwesen ist bereits in DATEV/lex; AR-Mahnwesen schmaler Segment."],
@@ -2442,13 +2441,12 @@ const holdRanking = [
     e:[12,"unknown","medium","SaaS-Margen stark, aber Sales-Cycle bricht Bootstrap; 20-Mio-Pfad mit 3-5k Ärzten machbar."],
     w:[9,"fail","high","Microsoft/Nuance Dragon Medical dominant; LLM-Scribe-Upgrade unausweichlich, Wedge-Fenster nur 18-24 Mo."]
   }},
-  {n:"Mandant-Onboarding-Suite Steuerkanzlei", r:"10.05 Daily", cat:"SaaS/B2B", c:{
-    b:[17,"pass","high","Steuerkanzlei verliert 10-30 Std/Mandat; akut quantifizierbar; GwG-Pflicht intensiviert."],
-    m:[16,"pass","medium","Web-Portal mit DATEV-API + GwG-KYC in 7 Mo machbar."],
-    t:[16,"pass","medium","~80k Steuerkanzleien DE; Inhaber entscheidet allein; Verbände (BStBK, DSTV) als Channel."],
-    k:[11,"unknown","medium","AI hilft bei KYC-Triage, kein nachhaltiger Lock-in; Workflow-Verankerung erst nach Adoption."],
-    e:[16,"pass","medium","SaaS 200 €/Mo × 8k Kanzleien = ~20 Mio ARR; bootstrappbar; Cross-Sell-Pfad."],
-    w:[13,"pass","medium","DATEV-Modul existiert kaum genutzt; keine vertikale Onboarding-Lösung; nicht 3-von-4 direkt."]
+  {n:"Mandant-Onboarding-Suite Steuerkanzlei", r:"10.05 Daily", cat:"SaaS/B2B", c:{b:[16,"pass","medium","53.124 Steuerberaterpraxen DE (BStBK Berufsstatistik 2024: 36.032 Einzelpraxen + 17.092 Gesellschaften); 88.995 Steuerberater. Onboarding-Pain real (10-30h/Mandat); GwG-Pflicht akut. Bestehende Anbieter belegen Pain-Realität."],
+    m:[15,"pass","medium","Web-Portal mit DATEV-API (DATEV-Belegbilderservice, Rechnungsdatenservice, SmartTransfer) + GwG-KYC-Modul + PEP/Sanktionslisten-API in 7 Mo machbar (Regpit-Modell)."],
+    t:[13,"pass","medium","53k Praxen DE; München-Kammer 13.562 (BStBK 2025) + Düsseldorf 9.972 + Westfalen-Lippe 9.188 Konzentration; Inhaber entscheidet; BStBK/DSTV-Channel; aber CAC steigt deutlich durch 5+ Inkumbenten."],
+    k:[10,"fail","medium","AI-KYC-Triage ist Commodity 2026 (Regpit, DS|GwG bereits AI-driven mit Sanktions-/PEP-Listen-Check); kein nachhaltiger Daten-Lock-in; Workflow-Vorsprung nur bei Erst-Adoption."],
+    e:[12,"unknown","medium","200 €/Mo × 8k Kanzleien = ~20 Mio ARR Theorie, aber gegen 5+ Inkumbenten realistisch nur 5-8% Marktanteil = 10-15 Mio Pfad; Bootstrap durch Marketing-Krieg gefährdet."],
+    w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: 5+ direkte DE-Wettbewerber bestätigt: KYCnow (Mandant-Onboarding + DATEV-Export per kycnow.de), KanzleiDrive (Onboarding + KYC-Integration aus offiziellen Registern per kanzleidrive.de), Regpit (KYC/KYB + AML-Audit per regpit.com), DS|GwG (DATA Security Compliance mit Sanktions-/PEP-Listen per data-security.one), KanzleiFlow (Mandanten-Onboarding + Angebot + Vertrag + DATEV-Integration per taxandbytes.de Mai 2026), kanzlei.land. Hard-Fail-Trigger '3+ direkte DE-Wettbewerber' mehrfach erfüllt; 3-von-4-Test (gleicher Kunde, Problem, Lösung, Region) klar erfüllt."]
   }},
   {n:"Acker-Workflow Pacht+GAP", r:"10.05 Daily", cat:"SaaS/B2B", c:{
     b:[15,"pass","medium","Pachtordner-Chaos und Förder-Stress Top-3-Themen; aber Landwirte preissensibel."],
@@ -2500,13 +2498,12 @@ const holdRanking = [
   }},
 
   // ---- DAILY-RUN 12.05.2026 ----
-  {n:"EUDR-Compliance-Suite Mittelstand", r:"12.05 Daily", cat:"RegTech/B2B", c:{
-    b:[18,"pass","high","EUDR-Pflicht ab 12/2025 mit Strafen bis 4% Jahresumsatz; GF persönlich haftbar; akutes Mittelstand-Pain."],
-    m:[15,"pass","medium","SaaS mit TRACES-NT-API + Polygon-Upload + DDS-Generierung in 7 Mo machbar; Drittstaaten-Lieferanten-Onboarding ist Service-Anteil."],
-    t:[15,"pass","medium","Compliance/GF-Buyer mit Budget; Pflicht-Trigger kürzt Sales-Cycle; Branchenverbände als Channel."],
-    k:[11,"unknown","medium","AI hilft bei Polygon-Risiko-Score + DDS-Drafting; kein klarer Daten-Lock-in; Wrapper-Risiko."],
-    e:[16,"pass","medium","500-3.000 €/Mo × 1.500 KMU = ~30 Mio TAM DACH; Service-Anteil drückt Marge auf 60-70%."],
-    w:[12,"unknown","medium","Osapiens (Hannover, ~30M USD) Konzern-fokussiert; Sourcemap (US); Mittelstand-Wedge real aber kopierbar."]
+  {n:"EUDR-Compliance-Suite Mittelstand", r:"12.05 Daily", cat:"RegTech/B2B", c:{b:[13,"pass","high","EUDR-Anwendung verschoben auf 30.12.2026 (große/mittlere) und 30.06.2027 (Kleinst/Klein) per BMLEH-Meldung 05.12.2025 + Rödl/CMS/Hoffmann-Liebs-Updates 2025; materielle Erleichterungen: nur Erstinverkehrbringer Sorgfaltspflicht, nachgelagerte Händler entfallen. Pain reduziert (mehr Zeit, weniger Reichweite); 4%-Strafe bleibt aber relevant."],
+    m:[13,"pass","medium","TRACES-NT-API + Polygon-Upload + DDS-Generierung in 7 Mo machbar; Service-Anteil für Lieferanten-Onboarding hoch (Drittstaaten-Daten)."],
+    t:[11,"unknown","medium","Sales-Cycle verlängert durch Verschiebung (Mittelstand wartet ab); Branchenverbände als Channel aber Dringlichkeit gefallen."],
+    k:[9,"fail","medium","AI-Polygon-Risiko-Score + DDS-Drafting ist Modul-Standard 2026 (Osapiens HUB modular, AI-integrated); kein proprietärer Lock-in; Wrapper-Risiko."],
+    e:[11,"unknown","medium","500-3.000 EUR/Mo × 1.500 KMU = 30 Mio TAM Theorie; Wegfall der Pflicht für nachgelagerte Händler reduziert TAM um 30-50%; Marktanteil gegen Osapiens schwierig."],
+    w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: Osapiens (Hannover, 700+ industry leaders per osapiens.com 2025) hat EXPLIZIT 'EUDR for SME'-Angebot lanciert — direkte Mittelstand-Adressierung erstmal nicht mehr Wedge; Sourcemap (US, EUDR-Tool); BanQu (EUDR); EasyTrace, LiveEO (Berlin), Nadar, Satelligence (Satelliten-Monitoring für EUDR); 5+ Osapiens-Alternativen dokumentiert (Coolset 2026 Übersicht). Hard-Fail-Trigger '3+ direkte DE-Wettbewerber für Mittelstand-EUDR' klar erfüllt."]
   }},
   {n:"CSRD-Sammler Welle-2 Mittelstand", r:"12.05 Daily", cat:"RegTech/B2B", c:{
     b:[17,"pass","high","Pflicht ab GJ 2025 für ~14k Unternehmen; CFO mit Budget; Strafen + WP-Vorgaben."],
@@ -2516,13 +2513,12 @@ const holdRanking = [
     e:[11,"unknown","medium","SaaS 800-3.500 €/Mo gut, aber Marketing-Krieg gegen Plan A/Greenly kapitalintensiv."],
     w:[7,"fail","high","Plan A (großzügig finanziert), Greenly (FR), EcoVadis, Cozero, ClimatePartner, Climatiq - dichter Markt mit 3-von-4."]
   }},
-  {n:"Family-Office-Reporting Mid-Tier", r:"12.05 Daily", cat:"FinTech/B2B", c:{
-    b:[17,"pass","high","Excel-Hölle in Mid-Tier-FOs; CIO/Patriarch zahlt 50-150k €/Jahr; klares Pain."],
-    m:[15,"pass","medium","SaaS mit FinAPI/Tink + Multi-Asset-Modul in 7 Mo machbar."],
-    t:[13,"pass","medium","Highly-personalisierter Vertrieb; Steuerberater/M&A-Netzwerk als Channel; 1:1-Sales."],
-    k:[14,"pass","medium","Workflow-Verankerung + DATEV-Integration + Bank-Daten als Lock-in; AI für Performance/Cashflow profitiert von Modellen."],
-    e:[16,"pass","medium","10-15 Kunden für Break-Even; 250-500 Kunden für 20 Mio = 25-35% Marktanteil; ambitioniert aber denkbar."],
-    w:[14,"pass","medium","Addepar (US) zu groß für Mid-Tier; Asora (UK) wächst; Centox/Solid Performance fragmentiert; kein direkter DACH-Wettbewerber."]
+  {n:"Family-Office-Reporting Mid-Tier", r:"12.05 Daily", cat:"FinTech/B2B", c:{b:[17,"pass","high","Excel-Pain dokumentiert: 57% Family Offices nutzen Excel als Hauptsystem (Simple Family Office Software Report 2025); 88% Spreadsheets mit Errors (Eton-Solutions-Studie 2024); 40% besorgt über Excel-Abhängigkeit. DACH-Markt: ~285 SFOs DACH (Tracxn Jan 2026), ~450-700 FOs DE gesamt (PwC), ~180 Mrd EUR AUM. CIO/Patriarch hat klares Budget."],
+    m:[14,"pass","medium","finAPI (BaFin-lizenziert, ~3.000 europäische Banken, Munich) + Tink (6.000 Banken Europa) als Banking-Aggregation existieren. Multi-Asset (Liquid + PE + Immo) komplexer; Custodian-API-Anbindung mehrstufig (Addepar bedient 98 Custodians). 7-Mo-MVP mit 5-10 Custodian + Reporting-Layer machbar, aber alternative Assets fordern Service-Anteil."],
+    t:[13,"pass","medium","350-550 FO-Adressaten DACH (PwC, Tracxn 2026); CIO/Patriarch entscheidet 1:1; Vertrieb über Privatbank-/Steuerberater-/M&A-Netzwerke 6-12 Mo; relationship-getrieben; UBS Global Family Office Report 2025 zeigt Privatsphäre + Datenresidenz als Top-Sorge in Europa."],
+    k:[12,"pass","medium","Workflow-Verankerung + Custodian-/Bank-Datenintegration als möglicher Lock-in. Aber: Masttro hat AI-Assistant Q1/2024 mit -70% Reporting-Zeit und 1.200+ Adoptionen in 9 Monaten (per masttro.com 2025); AI-Reporting wird Standard, kein nachhaltiger Wedge."],
+    e:[15,"pass","medium","TAM DACH: 350-550 FOs × 50-150k EUR/Jahr = 17-82 Mio EUR; 20-Mio-Pfad braucht ~250-400 Kunden = 50-80% DACH-Marktanteil — sehr ambitioniert; oder Ausweitung in DE/AT/CH/FL. SaaS-Marge 65-80% trotz Service-Anteil bei alternativen Assets. Bootstrap-fähig mit 10-15 Anker-Kunden."],
+    w:[11,"fail","medium","Asora (London, 370 FOs in 22 Ländern per asora.com 2024) ist explizit Mid-Tier/Europa-Fokus; Masttro (1.200+ FOs, AI-Assistant) global mit Europa-Präsenz; Altoo (CH, Swiss-hosted) ist DACH-native mit Privacy-Fokus; Etops (EU, modular) für FOs/Privatbanken. 3+ direkte Mid-Tier-Anbieter Europa-fähig = Hard-Fail-Trigger erfüllt. Wedge 'DACH-Mid-Tier-Spezialisierung' kopierbar."]
   }},
   {n:"PflegeTour-AI Sprach-Doku", r:"12.05 Daily", cat:"SaaS/B2B", c:{
     b:[17,"pass","high","Personalmangel akut + Doku-Pflicht nach Schicht (1-2 Std unbezahlt); reales Pain bei GF."],
@@ -2762,13 +2758,12 @@ const holdRanking = [
     e:[11,"unknown","medium","45-70 €/Termin × 50k Termine/Jahr = 2-3 Mio; 20-Mio-Pfad braucht Multi-City."],
     w:[13,"pass","medium","Caritas/Malteser semi-professionell; kein Marktplatz-Player."]
   }},
-  {n:"Senioren-Memoiren-Schreibservice", r:"11.05 Senioren", cat:"🌅 Service/B2C", c:{
-    b:[14,"pass","medium","Familien-Geschenk-Markt real (StoryWorth $40M ARR); aber latentes Pain."],
-    m:[16,"pass","medium","Subscription + AI-Transkription + Buch-Produktion in 7 Mo machbar."],
-    t:[13,"pass","medium","B2C-Geschenk-Marketing; Conversion über Instagram + Print."],
-    k:[14,"pass","medium","AI-Transkription deutsch profitiert; Lektoren-Pool als operative Komponente."],
-    e:[14,"pass","medium","19-39 €/Mo × 12 Mo + Buch × 80k Subscriber für 20 Mio; ambitioniert aber denkbar."],
-    w:[13,"pass","medium","StoryWorth (US, $40M) EU-Expansion möglich; kein DACH-Anbieter mit Skala."]
+  {n:"Senioren-Memoiren-Schreibservice", r:"11.05 Senioren", cat:"🌅 Service/B2C", c:{b:[13,"pass","medium","Familien-Geschenk-Markt real (StoryWorth $40M ARR USA per welcome.storyworth.com, Remento 2023 launched per remento.co); aber Pain ist latent (Wunsch, nicht Pflicht); Meminto-DHDL-Höhle-der-Löwen-Auftritt belegt deutsche Zahlungsbereitschaft."],
+    m:[14,"pass","medium","Subscription + AI-Transkription + Buch-Produktion in 7 Mo machbar; Tech etabliert (Remento macht's bereits mit Voice→Text); DSGVO-Hosting nötig (Meminto-Differenzierung gegen StoryWorth)."],
+    t:[11,"unknown","medium","B2C-Geschenk-CAC steigt mit Wettbewerb; Meminto besetzt schon Instagram + DHDL-Reichweite; Conversion über Instagram + Print teuer (CAC 30-60 EUR)."],
+    k:[10,"fail","medium","AI-Transkription deutsch ist Standard 2026 (Whisper/Aleph Alpha frei verfügbar); Lektoren-Pool als operative Komponente — kein technologischer Lock-in; austauschbar mit Meminto-Modul."],
+    e:[11,"unknown","medium","19-39 €/Mo × 12 + Buch-Preis ~150 EUR × 80k Subscriber für 20 Mio Pfad; Meminto deckt deutschen Markt schon; realistisch 5-15 Mio Pfad."],
+    w:[10,"fail","medium","Meminto Stories (DACH-native, DHDL-Auftritt 2024 per dhdl.info, deutsche Sprache, DSGVO, Höhle-der-Löwen-Reichweite); StoryKeeper (Lebensbuch-Brand DACH per storykeeper.com); StoryWorth (US, $40M ARR, EU-Expansion möglich aber EN-only); Remento (US, $99/Jahr, Voice→Text); traditionelle Biografie-Schreibbüros (Tintenfaß, Hannover). 2 substantielle DACH-Direkte + Expansion-Risiko US-Player → Hard-Fail-Trigger 3+ direkte erfüllt."]
   }},
   {n:"Best-Ager Reisen Solo Premium", r:"11.05 Senioren", cat:"🌅 Service/B2C", c:{
     b:[13,"pass","medium","60+ Solo-Markt wächst; aber kein akutes Pain."],
@@ -2896,8 +2891,10 @@ function aggregateHold(item) {
   let rawTotal = 0;
   let effective = 0;
   let fails = 0, failsConfMid = 0, unknowns = 0, passes = 0;
+  let redFlag = false;
   CRIT_ORDER.forEach(key => {
     const [s, g, c, f] = item.c[key];
+    if (s === null) { redFlag = true; return; }
     rawTotal += s;
     // Gate-Penalty: gates wirken sich DIREKT auf den Score aus
     let mult;
@@ -2906,18 +2903,20 @@ function aggregateHold(item) {
     else if (g === "fail") {
       fails++;
       if (c === "medium" || c === "high") { mult = 0.0; failsConfMid++; }
-      else { mult = 0.4; }  // fail mit low confidence
+      else { mult = 0.4; }
     } else { mult = 1.0; }
     effective += s * mult;
   });
+  if (redFlag) {
+    return { rawTotal: null, effective: null, effectiveNorm: null, tier: "Red Flag Reject", fails, failsConfMid, unknowns, passes, redFlag: true };
+  }
   effective = Math.round(effective);
   const effectiveNorm = Math.round(effective / 120 * 100);
-  // Verdict bleibt intern für Statistik, ist aber NICHT mehr im Ranking sichtbar
   let tier;
   if (effective >= 75) tier = "Top";
   else if (effective >= 55) tier = "Mid";
   else tier = "Weak";
-  return { rawTotal, effective, effectiveNorm, tier, fails, failsConfMid, unknowns, passes };
+  return { rawTotal, effective, effectiveNorm, tier, fails, failsConfMid, unknowns, passes, redFlag: false };
 }
 
 // Berechne Aggregationen für alle Hold-Ideen
@@ -2927,7 +2926,7 @@ holdRanking.forEach(item => {
 });
 
 // Sortiere nur nach Effective Deep-Score (Gates direkt im Score eingerechnet)
-const holdSorted = [...holdRanking].sort((a, b) => b.agg.effective - a.agg.effective);
+const holdSorted = [...holdRanking].sort((a, b) => { if (a.agg.redFlag && !b.agg.redFlag) return 1; if (!a.agg.redFlag && b.agg.redFlag) return -1; return (b.agg.effective || 0) - (a.agg.effective || 0); });
 
 // Index-Lookup für Modal
 const holdLookup = {};
