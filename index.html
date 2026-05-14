@@ -3099,7 +3099,7 @@ const holdGridData = holdSorted.map((item, rank) => [
   rank + 1,
   item.n,
   item.r,
-  item.agg.effective,
+  item.agg.effectiveNorm,           // Hauptzahl = normierter Score 0-100
   item.agg.rawTotal,
   item.agg.passes,
   item.agg.unknowns,
@@ -3118,21 +3118,21 @@ new gridjs.Grid({
       }
     },
     { name: "Run", width: "110px" },
-    { name: gridjs.html('<span title="Effective Deep-Score: Summe der Kriterien gewichtet mit Gate-Multiplikator (pass=1.0, unknown=0.6, fail+low=0.4, fail+med/high=0.0). Max 120 oder 100 (wenn K-Kriterium nicht anwendbar).">Deep-Score</span>'), width: "120px",
+    { name: gridjs.html('<span title="Normierter Deep-Score (0-100): Effective Score auf einheitliche Skala normiert. 75+ Top, 63-74 Stark, 50-62 Mittel, 38-49 Schwach, <38 Sehr schwach. Tooltip auf Pill zeigt Roh-Werte (z.B. 71/120).">Deep-Score (/100)</span>'), width: "120px",
       formatter: (cell, row) => {
         if (cell === null || cell === undefined || cell === "") return gridjs.html(`<span class="score-pill score-1" style="font-size:12px;padding:3px 8px;">🚩 RF</span>`);
-        // Lookup item by name (Column 1 = idea name)
         let name = null;
         try { name = row && row.cells && row.cells[1] ? row.cells[1].data : null; } catch(e) {}
         const item = (name && window.holdLookup && window.holdLookup[name] !== undefined) ? window.holdRanking[window.holdLookup[name]] : null;
         if (!item) {
-          // Fallback ohne Item: rohe Zahl ohne tier-Farbe
           return gridjs.html(`<span class="score-pill score-5" style="font-size:13px;padding:3px 10px;">${cell}</span>`);
         }
         const cls = tierClassFromItem(item);
         const norm = item.agg.effectiveNorm;
+        const raw = item.agg.effective;
         const maxPool = item.agg.maxPool || 120;
-        return gridjs.html(`<span class="score-pill ${cls}" style="font-size:13px;padding:3px 10px;" title="${cell}/${maxPool} = ${norm}% normiert · ${tierLabelFromNorm(norm)}">${cell}<span style="font-size:10px;opacity:0.6;">/${maxPool}</span></span>`);
+        const tier = tierLabelFromNorm(norm);
+        return gridjs.html(`<span class="score-pill ${cls}" style="font-size:13px;padding:3px 10px;" title="${tier} · Roh: ${raw}/${maxPool}">${norm}</span>`);
       }
     },
     { name: gridjs.html('<span title="Raw-Score: Summe der 6 Kriterien-Punktzahlen (0-20 pro Kriterium), OHNE Gate-Penalty. Max 120.">Raw-Score</span>'), width: "90px",
@@ -3260,17 +3260,18 @@ function openHoldDetail(name) {
           <h3 style="margin:0 0 4px; font-size:18px;">${item.n} ${kAppBadge}</h3>
           <div style="color:#6a6a6a; font-size:12px;">Run: ${item.r} · Kategorie: ${item.cat}</div>
         </div>
-        <span class="score-pill ${scoreCls}">${agg.effective === null ? "🚩" : agg.effective}<span style="font-size:10px; padding: 2px 6px; margin-left: 4px; opacity:0.7;">/${maxPool}</span></span>
+        <span class="score-pill ${scoreCls}" title="${tierLabel}${agg.effective !== null ? ' · Roh: ' + agg.effective + '/' + maxPool : ''}">${agg.effective === null ? "🚩 RF" : agg.effectiveNorm}<span style="font-size:10px; padding: 2px 6px; margin-left: 4px; opacity:0.7;">${agg.effective === null ? "" : "/100"}</span></span>
       </div>
+      ${agg.effective !== null ? `<div style="margin-top:6px; font-size:12px; color:#6a6a6a;"><strong>${tierLabel}</strong> · Roh: ${agg.effective}/${maxPool} Effective-Punkte · Raw Sum: ${agg.rawTotal}/${maxPool}</div>` : ''}
     </div>
 
     ${pitchHtml}
     ${briefHtml}
 
     <div class="summary-row">
-      <div><span class="lbl">Deep-Score (Effective)</span><span class="val" style="color:var(--accent);">${agg.effective === null ? "—" : agg.effective + " / " + maxPool}</span></div>
-      <div><span class="lbl">Normiert</span><span class="val">${agg.effectiveNorm === null ? "—" : agg.effectiveNorm + " / 100"}</span></div>
-      <div><span class="lbl">Raw Sum</span><span class="val" style="color:#888;">${agg.rawTotal === null ? "—" : agg.rawTotal + " / " + maxPool}</span></div>
+      <div><span class="lbl">Deep-Score (Normiert)</span><span class="val" style="color:var(--accent);">${agg.effectiveNorm === null ? "—" : agg.effectiveNorm + " / 100"}</span></div>
+      <div><span class="lbl">Tier</span><span class="val">${tierLabel}</span></div>
+      <div><span class="lbl">Roh Effective</span><span class="val" style="color:#888;">${agg.effective === null ? "—" : agg.effective + " / " + maxPool}</span></div>
       <div><span class="lbl">Pass</span><span class="val" style="color:#2e7d32;">${agg.passes}</span></div>
       <div><span class="lbl">Unknown</span><span class="val" style="color:#b07b00;">${agg.unknowns}</span></div>
       <div><span class="lbl">Fail (Conf ≥ med)</span><span class="val" style="color:#b03a2e;">${agg.failsConfMid}</span></div>
@@ -3299,12 +3300,15 @@ function openHoldDetail(name) {
 // SCORE-DISTRIBUTION VISUALISIERUNG (statt alter Verdict-Funnel)
 // =====================================================================
 (function() {
-  const total = holdRanking.length;
-  const scores = holdRanking.map(i => i.agg.effective);
-  const avg = Math.round(scores.reduce((a,b) => a+b, 0) / total);
-  const max = Math.max(...scores);
-  const min = Math.min(...scores);
+  // Statistik auf normiertem Score (0-100) — Red-Flag-Rejects ausgeklammert
+  const validItems = holdRanking.filter(i => !i.agg.redFlag);
+  const total = validItems.length;
+  const scores = validItems.map(i => i.agg.effectiveNorm);
+  const avg = total > 0 ? Math.round(scores.reduce((a,b) => a+b, 0) / total) : 0;
+  const max = total > 0 ? Math.max(...scores) : 0;
+  const min = total > 0 ? Math.min(...scores) : 0;
   const median = (() => {
+    if (total === 0) return 0;
     const s = [...scores].sort((a,b) => a-b);
     const m = Math.floor(s.length/2);
     return s.length % 2 ? s[m] : Math.round((s[m-1]+s[m])/2);
@@ -3345,7 +3349,8 @@ function openHoldDetail(name) {
     .map((it, i) => {
       const cls = tierClassFromItem(it);
       const maxPool = it.agg.maxPool || 120;
-      return `<li><span class="score-pill ${cls}" style="font-size:11px; padding:1px 8px; margin-right:8px;" title="${it.agg.effective}/${maxPool} = ${it.agg.effectiveNorm}% · ${tierLabelFromNorm(it.agg.effectiveNorm)}">${it.agg.effective}</span>${it.n}</li>`;
+      const tier = tierLabelFromNorm(it.agg.effectiveNorm);
+      return `<li><span class="score-pill ${cls}" style="font-size:11px; padding:1px 8px; margin-right:8px;" title="${tier} · Roh: ${it.agg.effective}/${maxPool}">${it.agg.effectiveNorm}</span>${it.n}</li>`;
     }).join("");
 
   const dashboardHtml = `
