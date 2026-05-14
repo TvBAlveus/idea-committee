@@ -197,15 +197,15 @@ table.criteria td:first-child { color: var(--muted); width: 220px; }
     </div>
   </div>
 
-  <nav class="tabs">    <button class="tab-btn active" data-tab="holdranking">🎯 Stufe 2: Kill-Committee (71)</button>
-    <button class="tab-btn" data-tab="pipeline">📚 Stufe 1: Pipeline kumulativ (402)</button>
-    <button class="tab-btn" data-tab="logik">Logik &amp; Kriterien</button>  </nav>
+  <nav class="tabs">    <button class="tab-btn active" data-tab="holdranking">🎯 Tiefenbewertung (71)</button>
+    <button class="tab-btn" data-tab="pipeline">📚 Alle gescreenten Ideen (402)</button>
+    <button class="tab-btn" data-tab="logik">Methodik &amp; Kriterien</button>  </nav>
 
   <!-- ============================================================ -->
   <!-- TAB: PIPELINE KUMULATIV (alle Runs) - STUFE 1                 -->
   <!-- ============================================================ -->
   <section id="tab-pipeline" class="tab-content">
-    <h2>Pipeline kumulativ – Master-Liste aller je gescreenten Ideen</h2>
+    <h2>Alle gescreenten Ideen – Master-Liste mit Quick-Score (1-10)</h2>
     <p class="legend">Wächst täglich. Enthält ALLE Ideen aller bisherigen Runs (Hold, Proceed, Reject). Klick auf eine Idee mit <strong>📋</strong>-Icon öffnet die vollständige Deep-Dive-Auswertung. 43 von 402 Ideen haben einen Deep-Dive. Theme-Marker: <strong>🛐</strong> Kirche · <strong>🌙</strong> Schlaf · <strong>🌅</strong> Senioren / Best Ager · <strong>🐾</strong> Tier-Nahrungsergänzung. Einträge ohne Marker = Daily-Run.</p>
     <p class="legend" style="margin-top:6px; color:#6b5300;">⚠️ Vorhandene Runs: Daily 08.05 (50), Daily 10.05 (50), Daily 12.05 (50), Daily 14.05 (50), Themen-Run Kirche 08.05 (50), Themen-Run Schlaf 11.05 (50), Themen-Run Senioren 11.05 (50), Themen-Run Tier-Nahrungsergänzung 11.05 (50) = 402 Einträge total.</p>
     <div id="grid-pipeline"></div>
@@ -226,7 +226,7 @@ table.criteria td:first-child { color: var(--muted); width: 220px; }
   <!-- TAB: HOLD-RANKING (6-Kriterien-Re-Evaluation)                 -->
   <!-- ============================================================ -->
   <section id="tab-holdranking" class="tab-content active">
-    <h2>Stufe 2: Kill-Committee – Volle Bewertung (Score ≥ 6)</h2>
+    <h2>Tiefenbewertung – Ideen mit Quick-Score ≥ 6 (volle 6-Kriterien-Analyse)</h2>
     <details style="margin: 6px 0 14px; font-size: 13px; color: #6a6a6a;">
       <summary style="cursor: pointer; padding: 4px 0; font-size: 12px; color: #888;">ℹ️ Methodik &amp; Spalten-Legende anzeigen</summary>
       <div style="padding: 10px 14px; background: #f5f5ef; border-radius: 6px; margin-top: 6px;">
@@ -3384,18 +3384,7 @@ function openHoldDetail(name) {
       return `<li><span class="score-pill ${cls}" style="font-size:11px; padding:1px 8px; margin-right:8px;" title="${tier} · Roh: ${it.agg.effective}/${maxPool}">${it.agg.effectiveNorm}</span>${it.n}</li>`;
     }).join("");
 
-  // Red-Flag-Anzahl
-  const redFlagCount = holdRanking.filter(i => i.agg.redFlag).length;
   const dashboardHtml = `
-    <div class="summary-row" style="margin: 0 0 18px;">
-      <div><span class="lbl">Ideen (ohne RF)</span><span class="val">${total}</span></div>
-      <div><span class="lbl">Red Flag Rejects</span><span class="val" style="color:#b03a2e;">${redFlagCount}</span></div>
-      <div><span class="lbl">Ø Deep-Score</span><span class="val">${avg} / 100</span></div>
-      <div><span class="lbl">Median</span><span class="val">${median} / 100</span></div>
-      <div><span class="lbl">Max</span><span class="val" style="color:#2e7d32;">${max} / 100</span></div>
-      <div><span class="lbl">Min</span><span class="val" style="color:#b03a2e;">${min} / 100</span></div>
-    </div>
-
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 18px;">
       <div>
         <h3 style="font-size: 15px; margin: 0 0 10px;">Verteilung Deep-Score (normiert 0-100)</h3>
