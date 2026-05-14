@@ -95,9 +95,12 @@ table.criteria td:first-child { color: var(--muted); width: 220px; }
 .crit-row .crit-score, .crit-row .crit-gate, .crit-row .crit-conf { padding: 6px 0; border-bottom: 1px dashed var(--border); font-weight: 600; }
 .crit-row .crit-finding { padding: 6px 0; border-bottom: 1px dashed var(--border); color: var(--fg); }
 .crit-row:last-of-type .crit-name, .crit-row:last-of-type .crit-score, .crit-row:last-of-type .crit-gate, .crit-row:last-of-type .crit-conf, .crit-row:last-of-type .crit-finding { border-bottom: 0; }
-.gate-pass { color: #2e7d32; }
-.gate-fail { color: #b03a2e; }
-.gate-unknown { color: #b07b00; }
+.gate-pass { color: #2e7d32; font-weight: 600; }
+.gate-assumed { color: #1565c0; font-weight: 600; }  /* blau: begründete Inferenz */
+.gate-unknown { color: #b07b00; font-weight: 600; }
+.gate-fail { color: #b03a2e; font-weight: 600; }
+.finding-warn { background: #fff0f0; border-left: 3px solid #c62828; padding: 4px 8px; }
+.finding-warn::before { content: "⚠ Schummelei-Verdacht: "; font-size: 11px; color: #c62828; font-weight: 700; }
 .conf-high { color: #2e7d32; }
 .conf-medium { color: #6b5300; }
 .conf-low { color: #b07b00; }
@@ -2928,18 +2931,14 @@ const CRIT_ORDER = ["b","m","t","k","e","w"];
 function aggregateHold(item) {
   let rawTotal = 0;
   let effective = 0;
-  let fails = 0, failsConfMid = 0, unknowns = 0, passes = 0;
+  let fails = 0, failsConfMid = 0, unknowns = 0, passes = 0, assumeds = 0;
   let redFlag = false;
   // k_app: ist KI-Compound-Vorteil-Kriterium überhaupt anwendbar?
-  // Default true. false z.B. bei Banking-Compliance-Ideen, Real-Estate, Service-Only ohne KI-Disruptions-Risiko.
   const kApplicable = item.k_app !== false;
   let appliedCriteria = 0;
   let maxPool = 0;
   CRIT_ORDER.forEach(key => {
-    if (key === "k" && !kApplicable) {
-      // K-Kriterium wird ignoriert in der Aggregation
-      return;
-    }
+    if (key === "k" && !kApplicable) return;
     const [s, g, c, f] = item.c[key];
     if (s === null) { redFlag = true; return; }
     rawTotal += s;
@@ -2947,6 +2946,7 @@ function aggregateHold(item) {
     appliedCriteria++;
     let mult;
     if (g === "pass") { mult = 1.0; passes++; }
+    else if (g === "assumed") { mult = 0.75; assumeds++; }  // NEU: begründete Inferenz
     else if (g === "unknown") { mult = 0.6; unknowns++; }
     else if (g === "fail") {
       fails++;
@@ -2957,7 +2957,7 @@ function aggregateHold(item) {
   });
   if (redFlag) {
     return { rawTotal: null, effective: null, effectiveNorm: null, tier: "Red Flag Reject",
-             fails, failsConfMid, unknowns, passes, redFlag: true, kApplicable, appliedCriteria, maxPool };
+             fails, failsConfMid, unknowns, passes, assumeds, redFlag: true, kApplicable, appliedCriteria, maxPool };
   }
   effective = Math.round(effective);
   // Dynamische Normierung: Max-Pool ist 100 (5 Kriterien) oder 120 (6 Kriterien)
@@ -2970,7 +2970,24 @@ function aggregateHold(item) {
   else if (effectiveNorm >= 38) tier = "Weak";
   else tier = "VeryWeak";
   return { rawTotal, effective, effectiveNorm, tier,
-           fails, failsConfMid, unknowns, passes, redFlag: false, kApplicable, appliedCriteria, maxPool };
+           fails, failsConfMid, unknowns, passes, assumeds, redFlag: false, kApplicable, appliedCriteria, maxPool };
+}
+
+// =====================================================================
+// SCHUMMELEI-DETEKTOR: prüft ob unknown/assumed-Findings begründet sind
+// =====================================================================
+function isFindingProperlyJustified(gate, finding) {
+  if (!finding) return false;
+  const lower = finding.toLowerCase();
+  if (gate === "unknown") {
+    // Muss Suchpfade dokumentieren
+    return /suchpfad|recherchiert|suche\s|gesucht|kein anbieter gefunden|nicht öffentlich|keine quelle/i.test(finding);
+  }
+  if (gate === "assumed") {
+    // Muss Inferenz-Quelle/Logik nennen
+    return /inferenz|inferenzbasiert|ableitung|analog|us-vorbild|uk-vorbild|skalier|extrapol|annahme aus|begründete schätzung|vergleichbar mit|wenn .* dann/i.test(finding);
+  }
+  return true;  // pass und fail brauchen anderen Check
 }
 
 // Berechne Aggregationen für alle Hold-Ideen
@@ -3190,13 +3207,17 @@ function openHoldDetail(name) {
     }
     const sCls = s === null ? "s-low" : (s >= 14 ? "s-high" : s >= 9 ? "s-mid" : "s-low");
     const sDisplay = s === null ? "null" : s;
+    // Schummelei-Check: unknown/assumed-Findings müssen begründet sein
+    const isSuspicious = (g === "unknown" || g === "assumed") && !isFindingProperlyJustified(g, f);
+    const findingClass = isSuspicious ? "crit-finding finding-warn" : "crit-finding";
+    const gateBadge = g === "assumed" ? `${g} <span style="font-size:10px; opacity:0.7;">×0.75</span>` : g;
     return `
       <div class="crit-row">
         <span class="crit-name">${label}</span>
         <span class="crit-score score-cell ${sCls}">${sDisplay}</span>
-        <span class="crit-gate gate-${g}">${g}</span>
+        <span class="crit-gate gate-${g}">${gateBadge}</span>
         <span class="crit-conf conf-${c}">${c}</span>
-        <span class="crit-finding">${f}</span>
+        <span class="${findingClass}">${f}</span>
       </div>
     `;
   }).join("");
@@ -3273,11 +3294,12 @@ function openHoldDetail(name) {
       <div><span class="lbl">Tier</span><span class="val">${tierLabel}</span></div>
       <div><span class="lbl">Roh Effective</span><span class="val" style="color:#888;">${agg.effective === null ? "—" : agg.effective + " / " + maxPool}</span></div>
       <div><span class="lbl">Pass</span><span class="val" style="color:#2e7d32;">${agg.passes}</span></div>
+      <div><span class="lbl">Assumed</span><span class="val" style="color:#1565c0;">${agg.assumeds || 0}</span></div>
       <div><span class="lbl">Unknown</span><span class="val" style="color:#b07b00;">${agg.unknowns}</span></div>
       <div><span class="lbl">Fail (Conf ≥ med)</span><span class="val" style="color:#b03a2e;">${agg.failsConfMid}</span></div>
     </div>
 
-    <p style="font-size:13px; color:#6a6a6a; margin: 8px 0 18px;">Gate-Penalty: pass × 1.0, unknown × 0.6, fail-conf-low × 0.4, fail-conf-medium/high × 0.0. Direkt im Effective-Score eingerechnet.${!kApplicable ? ' <strong>K-Kriterium ist für diese Idee nicht anwendbar (keine KI-Disruptions-Gefahr) — aus Aggregation ausgeschlossen; Max-Pool = 100 statt 120.</strong>' : ''}</p>
+    <p style="font-size:13px; color:#6a6a6a; margin: 8px 0 18px;">Gate-Multiplikatoren: pass×1.0 · <span style="color:#1565c0;">assumed×0.75 (begründete Inferenz)</span> · unknown×0.6 · fail+low×0.4 · fail+med/high×0.0. ${!kApplicable ? '<strong>K-Kriterium ist für diese Idee nicht anwendbar (keine KI-Disruptions-Gefahr) — aus Aggregation ausgeschlossen; Max-Pool = 100 statt 120.</strong>' : ''}</p>
 
     <h4 style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:#6a6a6a; margin:18px 0 10px;">6-Kriterien-Bewertung mit Findings</h4>
     <div class="crit-grid">
