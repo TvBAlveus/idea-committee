@@ -3182,6 +3182,8 @@ function aggregateHold(item) {
   let maxPool = 0;
   CRIT_ORDER.forEach(key => {
     if (key === "k" && !kApplicable) return;
+    // Robust: wenn Kriterium fehlt (Routine hat es nach Red-Flag-Abort weggelassen) → als Red Flag behandeln
+    if (!item.c[key] || !Array.isArray(item.c[key])) { redFlag = true; return; }
     const [s, g, c, f] = item.c[key];
     if (s === null) { redFlag = true; return; }
     rawTotal += s;
