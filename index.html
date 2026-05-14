@@ -227,10 +227,15 @@ table.criteria td:first-child { color: var(--muted); width: 220px; }
   <!-- ============================================================ -->
   <section id="tab-holdranking" class="tab-content active">
     <h2>Stufe 2: Kill-Committee – Volle Bewertung (Score ≥ 6)</h2>
-    <p class="legend">Alle <strong>71</strong> Ideen mit Quick-Score ≥ 6 aus der Pipeline kumulativ haben volle Distiller + Kill-Committee Bewertung. Pro Idee: 6 Kriterien × (Score 0-20 + Gate pass/fail/unknown + Confidence + Finding) + Gesamtscore 0-120 (= normiert 0-100) + Verdict (Validation / Hold / Reject).</p>
-    <p class="legend" style="margin-top:6px;">Aggregations-Logik: 1 Fail mit Confidence ≥ medium → Reject · 0 Fails + &gt; 2 Unknowns → Hold · sonst Validation. Sortierbar; klick auf eine Idee öffnet die vollständige Kriterien-Auswertung mit Findings pro Kriterium.</p>
-    <p class="legend" style="margin-top:6px; color:#6b5300;">⚠️ Kill-Bias: Unknown zählt negativ, nicht neutral. Fehlende Evidenz ist negativ.</p>
-    <p class="legend" style="margin-top:8px; background:#f5f5ef; padding:8px 12px; border-radius:6px;"><strong>Spalten-Legende:</strong> <strong>Deep-Score</strong> = Gewichteter Effective-Score (Gate-Multiplikatoren angewandt). <strong>Raw-Score</strong> = Roh-Summe der 6 Kriterien-Punkte (0-120). <strong>Pass/Unknown/Fail-Gates</strong> = Verteilung der 6 Gates pro Idee. → Die <strong>6 einzelnen Kriterien</strong> (Bedarf, MVP, Vertrieb, KI, Ökonomie, Wettbewerb) inkl. Findings sind sichtbar beim <strong>Klick auf eine Idee</strong> (öffnet Detail-Modal).</p>
+    <details style="margin: 6px 0 14px; font-size: 13px; color: #6a6a6a;">
+      <summary style="cursor: pointer; padding: 4px 0; font-size: 12px; color: #888;">ℹ️ Methodik &amp; Spalten-Legende anzeigen</summary>
+      <div style="padding: 10px 14px; background: #f5f5ef; border-radius: 6px; margin-top: 6px;">
+        <p style="margin: 0 0 8px;">Alle Ideen mit Quick-Score ≥ 6 aus der Pipeline kumulativ erhalten volle Distiller + Kill-Committee Bewertung. Pro Idee: 6 Kriterien × (Score 0-20 + Gate pass/assumed/unknown/fail + Confidence + Finding).</p>
+        <p style="margin: 0 0 8px;">Aggregation: Gate-Multiplikatoren (pass×1.0 · assumed×0.75 · unknown×0.6 · fail+low×0.4 · fail+med/high×0.0) auf Score angewandt = Effective-Score. Normiert auf 0-100 (Max-Pool 100 oder 120, je nach k_app-Flag).</p>
+        <p style="margin: 0 0 8px; color: #6b5300;">⚠️ Kill-Bias: Unknown zählt negativ. Fehlende Evidenz ohne dokumentierte Suchpfade wird im Modal als 'Schummelei-Verdacht' rot markiert.</p>
+        <p style="margin: 0;"><strong>Spalten:</strong> Deep-Score = normierter 0-100-Score · Raw-Score = ungewichtete Punkt-Summe · Pass/Unknown/Fail-Gates = Gate-Verteilung. → 6 einzelne Kriterien + Findings + raw_pitch + Brief beim Klick auf eine Idee.</p>
+      </div>
+    </details>
     <div id="grid-holdranking" style="margin-top:14px;"></div>
   </section>
 
@@ -3336,18 +3341,22 @@ function openHoldDetail(name) {
     return s.length % 2 ? s[m] : Math.round((s[m-1]+s[m])/2);
   })();
 
-  // Buckets für Histogramm auf NORMIERTER 0-100-Skala (strenge Tier-Schwellen)
+  // Buckets für Histogramm auf NORMIERTER 0-100-Skala + Red Flag als separate Stufe
+  const redFlagBucketCount = holdRanking.filter(i => i.agg.redFlag).length;
   const buckets = [
-    { label: "0-37 (sehr schwach)",  min: 0,   max: 37,  count: 0, color: "#f1b0b7" },
-    { label: "38-49 (schwach)",       min: 38,  max: 49,  count: 0, color: "#f8d7da" },
-    { label: "50-62 (mittel)",        min: 50,  max: 62,  count: 0, color: "#fff3cd" },
-    { label: "63-74 (stark)",         min: 63,  max: 74,  count: 0, color: "#d4e9d4" },
-    { label: "75-100 (Top)",          min: 75,  max: 100, count: 0, color: "#a8d3a8" }
+    { label: "🚩 Red Flag",           min: null, max: null, count: redFlagBucketCount, color: "#8b0000", isRedFlag: true },
+    { label: "0-37 (sehr schwach)",   min: 0,    max: 37,   count: 0, color: "#f1b0b7" },
+    { label: "38-49 (schwach)",        min: 38,   max: 49,   count: 0, color: "#f8d7da" },
+    { label: "50-62 (mittel)",         min: 50,   max: 62,   count: 0, color: "#fff3cd" },
+    { label: "63-74 (stark)",          min: 63,   max: 74,   count: 0, color: "#d4e9d4" },
+    { label: "75-100 (Top)",           min: 75,   max: 100,  count: 0, color: "#a8d3a8" }
   ];
-  // Wir nutzen normierten Score (0-100) statt rohen effective (0-120 oder 0-100)
   const normScores = holdRanking.filter(i => !i.agg.redFlag).map(i => i.agg.effectiveNorm);
   normScores.forEach(s => {
-    buckets.forEach(b => { if (s >= b.min && s <= b.max) b.count++; });
+    buckets.forEach(b => {
+      if (b.isRedFlag) return;
+      if (s >= b.min && s <= b.max) b.count++;
+    });
   });
   const maxBucket = Math.max(...buckets.map(b => b.count));
 
@@ -3375,30 +3384,31 @@ function openHoldDetail(name) {
       return `<li><span class="score-pill ${cls}" style="font-size:11px; padding:1px 8px; margin-right:8px;" title="${tier} · Roh: ${it.agg.effective}/${maxPool}">${it.agg.effectiveNorm}</span>${it.n}</li>`;
     }).join("");
 
+  // Red-Flag-Anzahl
+  const redFlagCount = holdRanking.filter(i => i.agg.redFlag).length;
   const dashboardHtml = `
     <div class="summary-row" style="margin: 0 0 18px;">
-      <div><span class="lbl">Ideen gesamt</span><span class="val">${total}</span></div>
-      <div><span class="lbl">Ø Deep-Score</span><span class="val">${avg} / 120</span></div>
-      <div><span class="lbl">Median</span><span class="val">${median} / 120</span></div>
-      <div><span class="lbl">Max</span><span class="val" style="color:#2e7d32;">${max} / 120</span></div>
-      <div><span class="lbl">Min</span><span class="val" style="color:#b03a2e;">${min} / 120</span></div>
+      <div><span class="lbl">Ideen (ohne RF)</span><span class="val">${total}</span></div>
+      <div><span class="lbl">Red Flag Rejects</span><span class="val" style="color:#b03a2e;">${redFlagCount}</span></div>
+      <div><span class="lbl">Ø Deep-Score</span><span class="val">${avg} / 100</span></div>
+      <div><span class="lbl">Median</span><span class="val">${median} / 100</span></div>
+      <div><span class="lbl">Max</span><span class="val" style="color:#2e7d32;">${max} / 100</span></div>
+      <div><span class="lbl">Min</span><span class="val" style="color:#b03a2e;">${min} / 100</span></div>
     </div>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 18px;">
       <div>
-        <h3 style="font-size: 15px; margin: 0 0 10px;">Verteilung Deep-Score</h3>
+        <h3 style="font-size: 15px; margin: 0 0 10px;">Verteilung Deep-Score (normiert 0-100)</h3>
         <div class="histogram">
           ${histBars}
         </div>
-        <p class="note" style="font-size: 11px; margin-top: 8px; color: var(--muted);">Normierte Skala (0-100): 0-37 sehr schwach · 38-49 schwach · 50-62 mittel · 63-74 stark · 75+ Top. Red-Flag-Rejects sind nicht im Histogramm.</p>
+        <p class="note" style="font-size: 11px; margin-top: 8px; color: var(--muted);">🚩 Red Flag (Hard-Fail-Reject) · 0-37 sehr schwach · 38-49 schwach · 50-62 mittel · 63-74 stark · 75-100 Top.</p>
       </div>
       <div>
         <h3 style="font-size: 15px; margin: 0 0 10px;">Top 10 nach Deep-Score</h3>
         <ol style="font-size: 13px; padding-left: 20px; margin: 0; line-height: 1.7;">${topPicksHtml}</ol>
       </div>
     </div>
-
-    <p class="note" style="margin: 10px 0 6px;">Deep-Score = Summe der 6 Kriterien-Scores mit eingebauter Gate-Penalty: pass × 1.0, unknown × 0.6, fail (low confidence) × 0.4, fail (medium/high confidence) × 0.0. Single Source of Truth fürs Ranking - kein separates Verdict mehr.</p>
   `;
   const gridContainer = document.getElementById("grid-holdranking");
   if (gridContainer) {
