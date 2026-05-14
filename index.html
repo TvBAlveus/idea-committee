@@ -34,11 +34,11 @@ section h3 { font-size: 16px; margin: 18px 0 8px; }
 .card-title { font-size: 17px; font-weight: 600; margin: 0; }
 .card-source { color: var(--muted); font-size: 12px; margin-top: 2px; }
 .score-pill { font-weight: 700; font-size: 15px; padding: 4px 10px; border-radius: 999px; flex-shrink: 0; min-width: 38px; text-align: center; }
-.score-9, .score-10 { background: #d4edda; color: #155724; }
-.score-7, .score-8 { background: #d4e9d4; color: #1e5e1e; }
-.score-5, .score-6 { background: #fff3cd; color: #6b5300; }
-.score-3, .score-4 { background: #f8d7da; color: #721c24; }
-.score-1, .score-2 { background: #f1b0b7; color: #4a0a10; }
+.score-9, .score-10 { background: #a8d3a8; color: #0a3a0a; }  /* Top: dunkelgrün */
+.score-7, .score-8 { background: #d4e9d4; color: #1e5e1e; }   /* Stark: hellgrün */
+.score-5, .score-6 { background: #fff3cd; color: #6b5300; }   /* Mittel: gelb */
+.score-3, .score-4 { background: #f8d7da; color: #721c24; }   /* Schwach: rot */
+.score-1, .score-2 { background: #f1b0b7; color: #4a0a10; }   /* Sehr schwach: dunkelrot */
 .verdict { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; }
 .verdict-reject { background: #f8d7da; color: #721c24; }
 .verdict-hold { background: #fff3cd; color: #6b5300; }
@@ -308,11 +308,12 @@ table.criteria td:first-child { color: var(--muted); width: 220px; }
 
     <h3 style="margin-top: 18px;">Stufe 5 - Ranking</h3>
     <table class="criteria">
-      <tr><td>Single Source of Truth</td><td>Effective Deep-Score 0-120 absteigend. Höchster Score = höchste Priorität für Validation-Budget.</td></tr>
-      <tr><td>Score 85-120</td><td>Top-Tier. Validation-Arbeit lohnt sich (Interviews, Pilot-LOIs).</td></tr>
-      <tr><td>Score 70-84</td><td>Stark. Eine Lücke (Unknown oder schwacher Wettbewerbs-Bewertung), die geschlossen werden sollte vor Validation.</td></tr>
-      <tr><td>Score 55-69</td><td>Mittel. Mehrere offene Punkte. Recherche vor weiterer Bewertung.</td></tr>
-      <tr><td>Score 0-54</td><td>Schwach. Strukturelle Killer oder dünne Evidenzlage. Wahrscheinlich Verzicht.</td></tr>
+      <tr><td>Single Source of Truth</td><td>Normierter Effective Deep-Score 0-100 absteigend (dynamisch: Max-Pool ist 120 bei 6 anwendbaren Kriterien oder 100 wenn K-Kriterium ignoriert ist). Höchster Score = höchste Priorität für Validation-Budget.</td></tr>
+      <tr><td>Normiert 75-100 (Top)</td><td>Top-Tier. Validation-Arbeit lohnt sich (Interviews, Pilot-LOIs). Entspricht ~90-120 bei 120er-Max oder ~75-100 bei 100er-Max.</td></tr>
+      <tr><td>Normiert 63-74 (Stark)</td><td>Stark. Eine Lücke (Unknown oder schwacher Wettbewerbs-Bewertung), die geschlossen werden sollte vor Validation.</td></tr>
+      <tr><td>Normiert 50-62 (Mittel)</td><td>Mittel. Mehrere offene Punkte. Recherche vor weiterer Bewertung.</td></tr>
+      <tr><td>Normiert 38-49 (Schwach)</td><td>Schwach. Strukturelle Killer oder dünne Evidenzlage. Wahrscheinlich Verzicht.</td></tr>
+      <tr><td>Normiert 0-37 (Sehr schwach)</td><td>Sehr schwach. Mehrere Hard-Fails oder grosse Lücken. Idee aufgeben oder grundsätzlich neu denken.</td></tr>
     </table>
 
     <h3 style="margin-top: 24px; border-top: 2px solid var(--accent); padding-top: 18px;">Kill-Bias-Regeln (immutable)</h3>
@@ -2961,10 +2962,13 @@ function aggregateHold(item) {
   effective = Math.round(effective);
   // Dynamische Normierung: Max-Pool ist 100 (5 Kriterien) oder 120 (6 Kriterien)
   const effectiveNorm = Math.round(effective / maxPool * 100);
+  // Strenge, einheitliche Tier-Skala auf normierter 0-100-Skala
   let tier;
-  if (effectiveNorm >= 63) tier = "Top";        // entspricht 75/120 oder 63/100
-  else if (effectiveNorm >= 46) tier = "Mid";   // entspricht 55/120 oder 46/100
-  else tier = "Weak";
+  if (effectiveNorm >= 75) tier = "Top";
+  else if (effectiveNorm >= 63) tier = "Strong";
+  else if (effectiveNorm >= 50) tier = "Mid";
+  else if (effectiveNorm >= 38) tier = "Weak";
+  else tier = "VeryWeak";
   return { rawTotal, effective, effectiveNorm, tier,
            fails, failsConfMid, unknowns, passes, redFlag: false, kApplicable, appliedCriteria, maxPool };
 }
@@ -2985,21 +2989,49 @@ window.holdLookup = holdLookup;
 window.holdRanking = holdRanking;
 
 // =====================================================================
+// STRENGE + EINHEITLICHE SCORE-SKALA (normiert auf 0-100)
+// 75+ Top · 63-74 Stark · 50-62 Mittel · 38-49 Schwach · <38 Sehr schwach
+// =====================================================================
+function tierClassFromNorm(norm) {
+  if (norm === null || norm === undefined) return "score-1";
+  if (norm >= 75) return "score-9";   // Top — dunkelgrün
+  if (norm >= 63) return "score-7";   // Stark — hellgrün
+  if (norm >= 50) return "score-5";   // Mittel — gelb
+  if (norm >= 38) return "score-3";   // Schwach — rot
+  return "score-1";                    // Sehr schwach — dunkelrot
+}
+function tierLabelFromNorm(norm) {
+  if (norm === null || norm === undefined) return "—";
+  if (norm >= 75) return "Top";
+  if (norm >= 63) return "Stark";
+  if (norm >= 50) return "Mittel";
+  if (norm >= 38) return "Schwach";
+  return "Sehr schwach";
+}
+// Helper für Score-Pill auf Basis eines Idee-Items (nutzt effectiveNorm)
+function tierClassFromItem(item) {
+  if (!item || !item.agg) return "score-1";
+  if (item.agg.redFlag) return "score-1";
+  return tierClassFromNorm(item.agg.effectiveNorm);
+}
+
+// =====================================================================
 // DYNAMISCHE HEADER-FUNNEL-WERTE (Pipeline / Kill-Committee / Top-Kandidaten)
 // Top-Tier-Schwelle: Effective Deep-Score >= 80 (Rubrik 85-120 Top-Tier; >=80 = oberes Stark-Quartil als Validation-Cutoff)
 // =====================================================================
 (function updateHeaderFunnel() {
-  const TOP_THRESHOLD = 80;
+  // Top-Tier-Schwelle: normierter Score >= 75 (strenge Skala)
+  const TOP_THRESHOLD_NORM = 75;
   const pipelineCount = (typeof pipeline !== 'undefined' && Array.isArray(pipeline)) ? pipeline.length : null;
   const killComCount = holdRanking.length;
-  const topCount = holdRanking.filter(i => !i.agg.redFlag && i.agg.effective >= TOP_THRESHOLD).length;
+  const topCount = holdRanking.filter(i => !i.agg.redFlag && i.agg.effectiveNorm >= TOP_THRESHOLD_NORM).length;
   const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
   if (pipelineCount !== null) set('hf-pipeline-num', pipelineCount);
   set('hf-killcom-num', killComCount);
   set('hf-top-num', topCount);
-  set('hf-top-rule', 'Deep-Score ≥ ' + TOP_THRESHOLD);
+  set('hf-top-rule', 'Normierter Score ≥ ' + TOP_THRESHOLD_NORM);
   const subEl = document.getElementById('hf-top-sub');
-  if (subEl) subEl.innerHTML = 'für echte Validation-<br>Arbeit';
+  if (subEl) subEl.innerHTML = 'echte Top-Tier-Ideen<br>(75%+ Effective)';
 })();
 
 // =====================================================================
@@ -3086,11 +3118,21 @@ new gridjs.Grid({
       }
     },
     { name: "Run", width: "110px" },
-    { name: gridjs.html('<span title="Effective Deep-Score: Summe der 6 Kriterien gewichtet mit Gate-Multiplikator (pass=1.0, unknown=0.6, fail+low=0.4, fail+med/high=0.0). Max 120.">Deep-Score (/120)</span>'), width: "120px",
-      formatter: (cell) => {
-        const n = Number(cell);
-        const cls = n >= 75 ? "score-7" : n >= 55 ? "score-5" : n >= 35 ? "score-3" : "score-1";
-        return gridjs.html(`<span class="score-pill ${cls}" style="font-size:13px;padding:3px 10px;">${cell}</span>`);
+    { name: gridjs.html('<span title="Effective Deep-Score: Summe der Kriterien gewichtet mit Gate-Multiplikator (pass=1.0, unknown=0.6, fail+low=0.4, fail+med/high=0.0). Max 120 oder 100 (wenn K-Kriterium nicht anwendbar).">Deep-Score</span>'), width: "120px",
+      formatter: (cell, row) => {
+        if (cell === null || cell === undefined || cell === "") return gridjs.html(`<span class="score-pill score-1" style="font-size:12px;padding:3px 8px;">🚩 RF</span>`);
+        // Lookup item by name (Column 1 = idea name)
+        let name = null;
+        try { name = row && row.cells && row.cells[1] ? row.cells[1].data : null; } catch(e) {}
+        const item = (name && window.holdLookup && window.holdLookup[name] !== undefined) ? window.holdRanking[window.holdLookup[name]] : null;
+        if (!item) {
+          // Fallback ohne Item: rohe Zahl ohne tier-Farbe
+          return gridjs.html(`<span class="score-pill score-5" style="font-size:13px;padding:3px 10px;">${cell}</span>`);
+        }
+        const cls = tierClassFromItem(item);
+        const norm = item.agg.effectiveNorm;
+        const maxPool = item.agg.maxPool || 120;
+        return gridjs.html(`<span class="score-pill ${cls}" style="font-size:13px;padding:3px 10px;" title="${cell}/${maxPool} = ${norm}% normiert · ${tierLabelFromNorm(norm)}">${cell}<span style="font-size:10px;opacity:0.6;">/${maxPool}</span></span>`);
       }
     },
     { name: gridjs.html('<span title="Raw-Score: Summe der 6 Kriterien-Punktzahlen (0-20 pro Kriterium), OHNE Gate-Penalty. Max 120.">Raw-Score</span>'), width: "90px",
@@ -3125,7 +3167,8 @@ function openHoldDetail(name) {
   if (idx === undefined) return;
   const item = holdRanking[idx];
   const agg = item.agg;
-  const scoreCls = agg.effective >= 75 ? "score-7" : agg.effective >= 55 ? "score-5" : agg.effective >= 35 ? "score-3" : "score-1";
+  const scoreCls = tierClassFromItem(item);
+  const tierLabel = agg.redFlag ? "Red Flag" : tierLabelFromNorm(agg.effectiveNorm);
 
   const kApplicable = agg.kApplicable;
   const maxPool = agg.maxPool || 120;
@@ -3267,16 +3310,17 @@ function openHoldDetail(name) {
     return s.length % 2 ? s[m] : Math.round((s[m-1]+s[m])/2);
   })();
 
-  // Buckets für Histogramm (10-Punkte-Schritte)
+  // Buckets für Histogramm auf NORMIERTER 0-100-Skala (strenge Tier-Schwellen)
   const buckets = [
-    { label: "0-19", min: 0, max: 19, count: 0, color: "#f8d7da" },
-    { label: "20-39", min: 20, max: 39, count: 0, color: "#f5c6c8" },
-    { label: "40-54", min: 40, max: 54, count: 0, color: "#f1b0b7" },
-    { label: "55-69", min: 55, max: 69, count: 0, color: "#fff3cd" },
-    { label: "70-84", min: 70, max: 84, count: 0, color: "#d4e9d4" },
-    { label: "85-120", min: 85, max: 120, count: 0, color: "#a8d3a8" }
+    { label: "0-37 (sehr schwach)",  min: 0,   max: 37,  count: 0, color: "#f1b0b7" },
+    { label: "38-49 (schwach)",       min: 38,  max: 49,  count: 0, color: "#f8d7da" },
+    { label: "50-62 (mittel)",        min: 50,  max: 62,  count: 0, color: "#fff3cd" },
+    { label: "63-74 (stark)",         min: 63,  max: 74,  count: 0, color: "#d4e9d4" },
+    { label: "75-100 (Top)",          min: 75,  max: 100, count: 0, color: "#a8d3a8" }
   ];
-  scores.forEach(s => {
+  // Wir nutzen normierten Score (0-100) statt rohen effective (0-120 oder 0-100)
+  const normScores = holdRanking.filter(i => !i.agg.redFlag).map(i => i.agg.effectiveNorm);
+  normScores.forEach(s => {
     buckets.forEach(b => { if (s >= b.min && s <= b.max) b.count++; });
   });
   const maxBucket = Math.max(...buckets.map(b => b.count));
@@ -3295,11 +3339,13 @@ function openHoldDetail(name) {
   }).join("");
 
   const topPicksHtml = [...holdRanking]
-    .sort((a,b) => b.agg.effective - a.agg.effective)
+    .filter(it => !it.agg.redFlag)
+    .sort((a,b) => b.agg.effectiveNorm - a.agg.effectiveNorm)
     .slice(0, 10)
     .map((it, i) => {
-      const cls = it.agg.effective >= 75 ? "score-7" : it.agg.effective >= 55 ? "score-5" : it.agg.effective >= 35 ? "score-3" : "score-1";
-      return `<li><span class="score-pill ${cls}" style="font-size:11px; padding:1px 8px; margin-right:8px;">${it.agg.effective}</span>${it.n}</li>`;
+      const cls = tierClassFromItem(it);
+      const maxPool = it.agg.maxPool || 120;
+      return `<li><span class="score-pill ${cls}" style="font-size:11px; padding:1px 8px; margin-right:8px;" title="${it.agg.effective}/${maxPool} = ${it.agg.effectiveNorm}% · ${tierLabelFromNorm(it.agg.effectiveNorm)}">${it.agg.effective}</span>${it.n}</li>`;
     }).join("");
 
   const dashboardHtml = `
@@ -3317,7 +3363,7 @@ function openHoldDetail(name) {
         <div class="histogram">
           ${histBars}
         </div>
-        <p class="note" style="font-size: 11px; margin-top: 8px; color: var(--muted);">Skala: 0-54 schwach · 55-69 mittel · 70+ stark · 85+ Top.</p>
+        <p class="note" style="font-size: 11px; margin-top: 8px; color: var(--muted);">Normierte Skala (0-100): 0-37 sehr schwach · 38-49 schwach · 50-62 mittel · 63-74 stark · 75+ Top. Red-Flag-Rejects sind nicht im Histogramm.</p>
       </div>
       <div>
         <h3 style="font-size: 15px; margin: 0 0 10px;">Top 10 nach Deep-Score</h3>
