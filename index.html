@@ -165,21 +165,21 @@ table.criteria td:first-child { color: var(--muted); width: 220px; }
 <div class="container">
   <header>
     <h1>Idea Kill Committee – Daily Pipeline</h1>
-    <div class="meta">Run-Datum: <strong>Dienstag, 12. Mai 2026</strong> · Modus: 50 Ideen Triage + Top Deep-Dives · Geographie: DACH · Zielprofil: ca. 20 Mio. Umsatz in 5 Jahren, möglichst bootstrappbar</div>
+    <div class="meta">Run-Datum: <strong>Donnerstag, 14. Mai 2026</strong> · Modus: 50 Ideen Triage + Top Deep-Dives · Geographie: DACH · Zielprofil: ca. 20 Mio. Umsatz in 5 Jahren, möglichst bootstrappbar</div>
   </header>
 
   <div class="header-funnel">
     <div class="hf-stage">
-      <div class="hf-num">352</div>
+      <div class="hf-num">402</div>
       <div class="hf-label">Pipeline kumulativ</div>
-      <div class="hf-sub">alle gescreenten Ideen<br>(5 Tage aktiv)</div>
+      <div class="hf-sub">alle gescreenten Ideen<br>(6 Tage aktiv)</div>
     </div>
     <div class="hf-arrow">
       <div class="hf-arrow-icon">▶</div>
       <div class="hf-arrow-label">Quick-Score ≥ 6</div>
     </div>
     <div class="hf-stage">
-      <div class="hf-num">63</div>
+      <div class="hf-num">71</div>
       <div class="hf-label">Kill-Committee</div>
       <div class="hf-sub">volle 6-Kriterien-<br>Bewertung</div>
     </div>
@@ -194,32 +194,17 @@ table.criteria td:first-child { color: var(--muted); width: 220px; }
     </div>
   </div>
 
-  <nav class="tabs">    <button class="tab-btn active" data-tab="alledeepdives">🔍 Alle Deep-Dives (43)</button>
-    <button class="tab-btn" data-tab="pipeline">📚 Pipeline kumulativ (352)</button>    <button class="tab-btn" data-tab="holdranking">🎯 Kill-Committee (63)</button>
+  <nav class="tabs">    <button class="tab-btn active" data-tab="holdranking">🎯 Stufe 2: Kill-Committee (71)</button>
+    <button class="tab-btn" data-tab="pipeline">📚 Stufe 1: Pipeline kumulativ (402)</button>
     <button class="tab-btn" data-tab="logik">Logik &amp; Kriterien</button>  </nav>
-  <!-- ============================================================ -->
-  <!-- TAB 1b: ALLE DEEP-DIVES (über alle Runs hinweg)               -->
-  <!-- ============================================================ -->
-  <section id="tab-alledeepdives" class="tab-content active">
-    <h2>Alle Deep-Dives – Über alle Runs hinweg</h2>
-    <p class="legend">Alle <strong>43</strong> Top-Picks aus den bisherigen Daily-Runs und Themen-Runs. Spalte "Run / Datum" zeigt den Ursprung. Klick auf eine Idee öffnet die Auswertung. Hinweis: alte Deep-Dives folgen dem 9-Bereiche-Schema; aktuelle 6-Kriterien-Bewertung im Tab Hold-Ranking (falls Idee dort gelistet).</p>
-    <div class="summary-row" style="margin: 0 0 14px;">
-      <div><span class="lbl">Heute (12.05)</span><span class="val">6</span></div>
-      <div><span class="lbl">Letzte 7 Tage</span><span class="val">43</span></div>
-      <div><span class="lbl">Letzten 30 Tage</span><span class="val">43</span></div>
-      <div><span class="lbl">Seit Start (5 Tage)</span><span class="val">43 DDs · 352 Ideen</span></div>
-      <div><span class="lbl">Ø/Tag</span><span class="val">8.6</span></div>
-    </div>
-    <div id="grid-alldeepdives"></div>
-  </section>
 
   <!-- ============================================================ -->
-  <!-- TAB 2b: PIPELINE KUMULATIV (alle Runs)                        -->
+  <!-- TAB: PIPELINE KUMULATIV (alle Runs) - STUFE 1                 -->
   <!-- ============================================================ -->
   <section id="tab-pipeline" class="tab-content">
     <h2>Pipeline kumulativ – Master-Liste aller je gescreenten Ideen</h2>
-    <p class="legend">Wächst täglich. Enthält ALLE Ideen aller bisherigen Runs (Hold, Proceed, Reject). Klick auf eine Idee mit <strong>📋</strong>-Icon öffnet die vollständige Deep-Dive-Auswertung. 43 von 352 Ideen haben einen Deep-Dive. Theme-Marker: <strong>🛐</strong> Kirche · <strong>🌙</strong> Schlaf · <strong>🌅</strong> Senioren / Best Ager · <strong>🐾</strong> Tier-Nahrungsergänzung. Einträge ohne Marker = Daily-Run.</p>
-    <p class="legend" style="margin-top:6px; color:#6b5300;">⚠️ Vorhandene Runs: Daily 08.05 (50), Daily 10.05 (50), Daily 12.05 (50), Themen-Run Kirche 08.05 (50), Themen-Run Schlaf 11.05 (50), Themen-Run Senioren 11.05 (50), Themen-Run Tier-Nahrungsergänzung 11.05 (50) = 352 Einträge total.</p>
+    <p class="legend">Wächst täglich. Enthält ALLE Ideen aller bisherigen Runs (Hold, Proceed, Reject). Klick auf eine Idee mit <strong>📋</strong>-Icon öffnet die vollständige Deep-Dive-Auswertung. 43 von 402 Ideen haben einen Deep-Dive. Theme-Marker: <strong>🛐</strong> Kirche · <strong>🌙</strong> Schlaf · <strong>🌅</strong> Senioren / Best Ager · <strong>🐾</strong> Tier-Nahrungsergänzung. Einträge ohne Marker = Daily-Run.</p>
+    <p class="legend" style="margin-top:6px; color:#6b5300;">⚠️ Vorhandene Runs: Daily 08.05 (50), Daily 10.05 (50), Daily 12.05 (50), Daily 14.05 (50), Themen-Run Kirche 08.05 (50), Themen-Run Schlaf 11.05 (50), Themen-Run Senioren 11.05 (50), Themen-Run Tier-Nahrungsergänzung 11.05 (50) = 402 Einträge total.</p>
     <div id="grid-pipeline"></div>
   </section>
 
@@ -237,9 +222,9 @@ table.criteria td:first-child { color: var(--muted); width: 220px; }
   <!-- ============================================================ -->
   <!-- TAB: HOLD-RANKING (6-Kriterien-Re-Evaluation)                 -->
   <!-- ============================================================ -->
-  <section id="tab-holdranking" class="tab-content">
-    <h2>Kill-Committee – Volle Bewertung (Score ≥ 6)</h2>
-    <p class="legend">Alle <strong>63</strong> Ideen mit Quick-Score ≥ 6 aus der Pipeline kumulativ haben volle Distiller + Kill-Committee Bewertung. Pro Idee: 6 Kriterien × (Score 0-20 + Gate pass/fail/unknown + Confidence + Finding) + Gesamtscore 0-120 (= normiert 0-100) + Verdict (Validation / Hold / Reject).</p>
+  <section id="tab-holdranking" class="tab-content active">
+    <h2>Stufe 2: Kill-Committee – Volle Bewertung (Score ≥ 6)</h2>
+    <p class="legend">Alle <strong>71</strong> Ideen mit Quick-Score ≥ 6 aus der Pipeline kumulativ haben volle Distiller + Kill-Committee Bewertung. Pro Idee: 6 Kriterien × (Score 0-20 + Gate pass/fail/unknown + Confidence + Finding) + Gesamtscore 0-120 (= normiert 0-100) + Verdict (Validation / Hold / Reject).</p>
     <p class="legend" style="margin-top:6px;">Aggregations-Logik: 1 Fail mit Confidence ≥ medium → Reject · 0 Fails + &gt; 2 Unknowns → Hold · sonst Validation. Sortierbar; klick auf eine Idee öffnet die vollständige Kriterien-Auswertung mit Findings pro Kriterium.</p>
     <p class="legend" style="margin-top:6px; color:#6b5300;">⚠️ Kill-Bias: Unknown zählt negativ, nicht neutral. Fehlende Evidenz ist negativ.</p>
     <div id="grid-holdranking" style="margin-top:14px;"></div>
@@ -729,7 +714,59 @@ const pipeline = [
   ["2026-05-11","Tier-Pharma-Compounding für Supp","🐾 Service/B2B","-","Tierärzte",4,"Reject","Spezial"],
   ["2026-05-11","Hunde-Niereninsuffizienz-Programm","🐾 Sub/B2C","-","Halter mit CNI-Hund",5,"Hold","Wiederkehrender Bedarf"],
   ["2026-05-11","Katzen-Senior-Komplettprogramm","🐾 Sub/B2C","-","Halter Senior-Katze",5,"Hold","Cross-Sell zu Hund-Programm"],
-  ["2026-05-11","Tier-Mundhygiene Subscription","🐾 Sub/B2C","Bristly+Supp","Halter Premium",4,"Reject","Klein, Marken-Markt"]
+  ["2026-05-11","Tier-Mundhygiene Subscription","🐾 Sub/B2C","Bristly+Supp","Halter Premium",4,"Reject","Klein, Marken-Markt"],
+
+  // ---- Daily-Run 14. Mai 2026 (50 Ideen) ----
+  ["2026-05-14","PTD-Audit-Toolkit DACH","RegTech/B2B","figures.hr/beqom","HR-Direktor Mittelstand 100-2000 MA",7,"Reject","Pflicht 7.6.2026 real, aber Personio/NAVIT/figures decken Markt"],
+  ["2026-05-14","TI-KIM-Abrechnungs-Bridge Pflegedienste","HealthTech/B2B","Connext Vivendi/MediFox","Ambulante Pflegedienste 5-100 MA",7,"Reject","Pflicht 1.12.2026 real, aber MediFox/Vivendi/DMRZ TI-Provider"],
+  ["2026-05-14","CRA-SBOM-Compliance-Box KMU-Hersteller","RegTech/B2B","ONEKEY/OPSWAT","Softwarehersteller/Geräte-Hersteller KMU",7,"Hold","Pflicht 11.9.2026 real; OneKey/OPSWAT enterprise-fokussiert; KMU-Lücke"],
+  ["2026-05-14","EU-AI-Act AI-Inventory KMU","RegTech/B2B","Modulos/Credo AI/Trustible","Compliance-Officer Mittelstand",7,"Reject","Pflicht ab 12.2027 verschoben; Modulos/Credo/Holistic/Trustible/DataGuard decken"],
+  ["2026-05-14","Pace-Klon DE: Agentic Claims-Ops Sachversicherer","InsurTech/B2B","Pace (US)","Schadenleitung Sachversicherer",7,"Hold","BPO-Replacement-Story stark; aber Versicherer-Sales 12-24 Mo killt Bootstrap"],
+  ["2026-05-14","EnEfG-EnMS-Stack Mittelstand 7,5 GWh","RegTech/B2B","ecoplanet/Babtec","Produktionsleitung Energieintensive 7,5+ GWh",6,"Hold","ISO 50001 Pflicht seit 18.7.2025; ecoplanet/c-ober/Weidmüller dran, Tier offen"],
+  ["2026-05-14","Karenz-/Wettbewerbsverbot-Tracker KMU","SaaS/B2B","-","HR-Lead Mittelstand mit Außendienst",6,"Hold","Keine direkten DE-Wettbewerber; aber ARPU klein, KI peripher"],
+  ["2026-05-14","Mid-Cap M&A Datenraum 5-50 Mio","SaaS/B2B","Drooms/Datasite","Mittelstands-Berater/Family Office",6,"Reject","Drooms/Brainloop/iDeals/Datasite/Firmex - 5+ Wettbewerber"],
+  ["2026-05-14","Salary-Band Benchmark API Job-Boards","API/B2B","figures.hr","Stepstone/Indeed/Personalvermittler",5,"Reject","Stepstone hat Daten selbst; PTD-Trigger nicht Buyer-Pain"],
+  ["2026-05-14","Stundenkonto-Tracker Mindestlohn 13,90 €","SaaS/B2B","-","Gastro/Handel KMU 5-50 MA",5,"Reject","Personio/Clockodo decken; Feature"],
+  ["2026-05-14","Sovereign-AI-Plattform DACH-Behörden","Infra/B2B","GLBNXT (NL)","Kommunale IT-Leitungen",5,"Hold","NIS2-Trigger + EU-Souveränität; aber öffentliche Vergabe extrem lang"],
+  ["2026-05-14","Wonderful-Klon Operations-Agent Mittelstand","SaaS/B2B","Wonderful (NL)","Mittelstands-COO",5,"Reject","Verticalize-Layer; Foundation-Model-Wrapper-Risiko"],
+  ["2026-05-14","Lleverage-Klon Workflow-AI Builder DACH","SaaS/B2B","Lleverage (NL)","Ops-Manager Mittelstand",5,"Reject","n8n/Make.com/Lleverage decken; horizontal"],
+  ["2026-05-14","Base44-Style Vibe-Coding Fachabteilung","SaaS/B2B","Base44 (IL)","Marketing/HR Mittelstand",5,"Reject","Bolt/v0/Replit dominieren; horizontal"],
+  ["2026-05-14","CharacterQuilt-Klon Mittelstand-Marketing","SaaS/B2B","CharacterQuilt (US)","Marketing-Leitung Mittelstand",5,"Reject","AdCreative/Pencil + neue YC-Welle; massiv Wettbewerb"],
+  ["2026-05-14","KI-MIG-Doku-Tool AI-Anbieter DACH","RegTech/B2B","-","AI-Startup-CTOs",5,"Reject","KI-MIG noch im Gesetzgebungsprozess; horizontal zu EU-AI-Act"],
+  ["2026-05-14","AI Pflicht-Schulung-Tracker DGUV V1","SaaS/B2B","-","Sicherheitsbeauftragte KMU",5,"Reject","keeunit/Quentic/Modul Personio - 3+ Wettbewerber"],
+  ["2026-05-14","CarePlan-AI Behindertenwerkstätten BTHG","SaaS/B2B","-","BTHG-WfbM-Leitung 700+ DE",5,"Hold","BTHG-Pflicht real; TAM klein (~700 Träger)"],
+  ["2026-05-14","AI Heizungs-Wartungsplan GEG-Pflicht","SaaS/B2B","-","SHK-Betriebe/Hausmeister",5,"Reject","Hero/Plancraft + ZVSHK-Tools decken"],
+  ["2026-05-14","Robotic-Pitstop EV-Fleet Kommunal","Hardware/B2B","Aseon Labs (US/YC W26)","Kommunale Fuhrparks 50+ EVs",4,"Reject","Hardware-CapEx hoch, Kommunal-Vergabe lang"],
+  ["2026-05-14","Drohnen-Inspektion-as-a-Service Industrieanlagen","Service/B2B","Skydio Inspect","Werkstattleiter Mittelstand",4,"Reject","FlyNex/Skylink dran; LuftVO komplex"],
+  ["2026-05-14","PSA-Inspektion-App DGUV V70","SaaS/B2B","-","Bauunternehmen 20-200 MA",4,"Reject","Erko/Quentic decken; Feature"],
+  ["2026-05-14","Brandschutz-Doku-Automation Gewerbe","SaaS/B2B","-","Facility-Manager Mittelstand",4,"Reject","Hoyer/Minimax-Service-Plattformen"],
+  ["2026-05-14","Tierschutz-Hygieneplan-Bot Pferdebetriebe","SaaS/B2B","-","Reitschulen/Höfe",4,"Reject","TAM zu klein (~3k Betriebe)"],
+  ["2026-05-14","AI Lärmgutachten-Erstellung Bauanträge","Service/B2B","-","Architekturbüros",4,"Reject","Ingenieurbüros etabliert, regulatorisch"],
+  ["2026-05-14","Boden-Beprobung-Logistik Mantelverordnung","SaaS/B2B","-","Bauträger/Tiefbau",4,"Reject","Mantelverordnung lokal, Spezial-Ingenieurbüros"],
+  ["2026-05-14","Schulgebäude-Sanierungs-Roadmap","SaaS/B2B","-","Schulträger Kommunen",4,"Reject","Kommunal-Vergabe + Architekten dominant"],
+  ["2026-05-14","AI Bauakte-Digital Bauamt","SaaS/B2B","-","Bauämter Kommunen",4,"Reject","Niedersachsen-Modell + Capgemini hier dran"],
+  ["2026-05-14","Erbe-Steuer-Optimierung Familienunternehmen","Service/B2B","-","Familienunternehmer 5-100 Mio",4,"Reject","StB/RA-Beratung etabliert, Anlassgeschäft"],
+  ["2026-05-14","PV-Wartungs-Monitor 25-Jahre","SaaS/B2B","-","PV-Betriebsführer",4,"Reject","PV-Lebenswerker/SolarReview/SunfarmingX dran"],
+  ["2026-05-14","Spendenquittungs-Engine NGOs","SaaS/B2B","-","Vereinsvorstände/NGOs",4,"Reject","easyVerein/SpendenTOOL/DATEV-Spende dran"],
+  ["2026-05-14","Konzernabschluss-Vorlagen Kleinst-Holdings","SaaS/B2B","-","Mittelstands-Holdings",4,"Reject","DATEV Konzern/LucaNet groß"],
+  ["2026-05-14","Patiententermin-Reminder Spezialärzte","SaaS/B2B","-","Spezialarztpraxen",4,"Reject","Doctolib/jameda haben Modul"],
+  ["2026-05-14","AI Mitarbeitergespräch-Coach Lohngespräch","SaaS/B2C","-","Angestellte 30-50 J.",4,"Reject","Coach-Markt voll; ARPU dünn"],
+  ["2026-05-14","Versicherungsmakler GenAI Avatar","SaaS/B2B","-","Versicherungsmakler 5-50 MA",4,"Reject","Vector/blau direkt mit AI dran"],
+  ["2026-05-14","Trainee-Onboarding-Coach Mittelstand","SaaS/B2B","-","HR Mittelstand 100-500 MA",4,"Reject","Personio Onboarding-Modul Standard"],
+  ["2026-05-14","Tierheim-Verwaltungs-SW","SaaS/B2B","TASSO-Adaption","Tierheime 700+ DE",3,"Reject","Gemeinnützig, knappes Budget"],
+  ["2026-05-14","Pferd-OP-Tracker Pferdekliniken","SaaS/B2B","-","Pferdekliniken 80+ DACH",3,"Reject","TAM mikro, regulatorisch"],
+  ["2026-05-14","Eichrecht-Konformität Ladesäulen-Betreiber","SaaS/B2B","-","CPO Mittelstand",3,"Reject","Eichbehörde + bestehende Plattformen"],
+  ["2026-05-14","Verkehrsbetrieb-Schichtplanung kommunal","SaaS/B2B","-","Stadtwerke Verkehr",3,"Reject","IVU/Tagra/PSI etabliert"],
+  ["2026-05-14","AI Mietkalkulation Wohnungsbau-Genossenschaft","SaaS/B2B","-","Genossenschafts-Vorstand",3,"Reject","Aareon-Modul; Mietkalkulation reguliert"],
+  ["2026-05-14","Heimleitung Audit-Vorbereitung Pflegeheim","SaaS/B2B","-","Pflegeheim-Heimleitung",3,"Reject","MDS/Medifox decken; Service-Markt"],
+  ["2026-05-14","Patent-Erfindungsmeldung Tool KMU","SaaS/B2B","-","Mittelstands-F&E",3,"Reject","Patenttreuhänder + DPMA-Tools dominant"],
+  ["2026-05-14","Subventions-Lotse Mittelstand-Förderung","Service/B2B","-","Mittelstand 50-500 MA",3,"Reject","Förderlotse/EAN/Stein-Beratung etabliert"],
+  ["2026-05-14","AI Bilanz-Analyse Banken-Kreditreport KMU","SaaS/B2B","-","Banken-Firmenkundenbetreuung",3,"Reject","Creditreform/CRIF/Bisnode dominant"],
+  ["2026-05-14","AI Steuerberater-Werbe-Generator","SaaS/B2B","-","StB-Kanzleien",2,"Reject","Berufsordnung Werbung restriktiv"],
+  ["2026-05-14","Selbstständige-Steuer-Optimierer Mid-Market","SaaS/B2B","-","Selbstständige 100k+ Umsatz",2,"Reject","smartsteuer/Taxfix/Sorted dominant"],
+  ["2026-05-14","Notar-Terminbuchungs-Marktplatz","Marketplace/B2C","-","Privatkunden + Notariate",2,"Reject","Notarsuche.de + BNotK direkt"],
+  ["2026-05-14","Bürgschafts-Plattform Handwerk","FinTech/B2B","-","Handwerksbetriebe",2,"Reject","HRG Bürgschaft/Versicherer etabliert"],
+  ["2026-05-14","AI-Übersetzer Vereins-Satzungen","SaaS/B2C","-","Vereinsvorstände",2,"Reject","DeepL gratis + Vorlage reicht"]
 ];
 
 // Daten-Mapping: original [Datum, Idee, Kategorie, Inspiration, Zielkunde, Score, Verdict, Killer]
@@ -2814,6 +2851,63 @@ const holdRanking = [
     e:[7,"fail","high","Banking-Compliance + Fixkosten brechen Bootstrap."],
     w:[6,"fail","high","Kontist, Penta, N26 Business, Qonto, Holvi — 5+ direkte DACH/EU."]
   }}
+  // ---- DAILY-RUN 14.05.2026 ----
+  ,{n:"PTD-Audit-Toolkit DACH", r:"14.05 Daily", cat:"RegTech/B2B", c:{b:[15,"pass","high","Pflicht-Trigger Transposition 7.6.2026 (Pay Transparency Directive 2023/970 per KPMG-Law + Osborne Clarke 2026); 100-MA-Schwelle senkt Reichweite massiv (vorher 500), Beweislast-Umkehr neu, Gehaltsband-Pflicht in Stellenausschreibung. ~15k DE-Mittelständler 100-500 MA pflichtig."],
+    m:[14,"pass","medium","Pure SaaS + Job-Ad-Banding + Auskunfts-Workflow in 7 Mo machbar; keine Hardware/Regulator-Lizenz."],
+    t:[null,"fail","high","🚩 RED FLAG IDENTIFIED: 5+ direkte DACH-Wettbewerber mit PTD-Modul: Personio (DE-Marktführer ~12k Kunden, PTD-Modul angekündigt 2026 per personio.de Roadmap), NAVIT (DE, dedizierte Pay-Transparency-Suite per navit.com 2026), figures.hr (FR, DACH-Push mit dediziertem PTD-Guide 'Pay Transparency in Germany'), beqom (CH, eq, Compensation-Plattform Enterprise-fokussiert), Payslip (IE, Multi-Country-Modul), Aivy (DE, Entgelttransparenz-Tool). Hard-Fail-Trigger '3+ direkte DE-Wettbewerber' deutlich erfüllt."],
+    k:[null,"not_evaluated","low","Wegen Red-Flag-Abort nicht im Detail bewertet."],
+    e:[null,"not_evaluated","low","Wegen Red-Flag-Abort nicht im Detail bewertet."],
+    w:[null,"fail","high","🚩 RED FLAG TRIGGER (siehe t-Kriterium): Markt durch Personio/NAVIT/figures.hr/beqom/Payslip/Aivy bereits abgedeckt; HR-SaaS-Marktführer integrieren PTD nativ."]
+  }}
+  ,{n:"TI-KIM-Abrechnungs-Bridge Pflegedienste", r:"14.05 Daily", cat:"HealthTech/B2B", c:{b:[17,"pass","high","Pflicht-Trigger 1.12.2026: vollelektronische Pflegeabrechnung via KIM, ohne TI-Connect verlieren Pflegedienste Abrechnungsfähigkeit (per dexter-health.com + telekonnekt.de 2026); ~15k ambulante Pflegedienste + 13k stationäre DE."],
+    m:[null,"fail","high","🚩 RED FLAG IDENTIFIED: TI-Approval durch gematik nötig (mehrmonatiges Zulassungsverfahren); zusätzlich KIM-Adressierung, eHBA-Logik, Sicherheits-Audit; in 7 Mo nicht machbar."],
+    t:[null,"not_evaluated","low","Wegen Red-Flag-Abort nicht im Detail bewertet."],
+    k:[null,"not_evaluated","low","Wegen Red-Flag-Abort nicht im Detail bewertet."],
+    e:[null,"not_evaluated","low","Wegen Red-Flag-Abort nicht im Detail bewertet."],
+    w:[null,"fail","high","🚩 RED FLAG TRIGGER (zusätzlich): 4+ direkte DE-Wettbewerber gematik-zugelassen: MediFox DAN (MD Ambulant/Stationär mit TI-Modul per medifoxdan.de 2026), Connext Vivendi (TI-Gateway zugelassener Anbieter per connext.de 2026), DMRZ (Deutsches Medizinrechenzentrum, TI-Pflege-Komplettpaket per dmrz.de 2026), HMM Deutschland/RZH. Hard-Fail-Trigger '3+ DE-Wettbewerber' deutlich erfüllt."]
+  }}
+  ,{n:"CRA-SBOM-Compliance-Box KMU-Hersteller", r:"14.05 Daily", cat:"RegTech/B2B", c:{b:[17,"pass","high","Pflicht-Trigger 11.9.2026: 24-Stunden-Vulnerability-Meldung + 72h-Vollnotification + 14-Tage-Final-Report an ENISA Single Reporting Platform (per BSI + Digital-Strategy.ec.europa.eu 2026); CRA-Strafen bis 15 Mio EUR / 2,5% globaler Umsatz; Mittelstand-Hersteller Software/IoT-Geräte unterschätzen Scope massiv (per securam-consulting.com + plextec.de 2026); BSI entwickelt Technische Richtlinien für SBOM-Format aktuell."],
+    m:[14,"pass","medium","SaaS + SBOM-Generator (SPDX/CycloneDX) + Reporting-Workflow in 7 Mo machbar; SBOM-Standards CycloneDX/SPDX vorhanden; ENISA Single Reporting Platform spec wird Q3/2026 veröffentlicht."],
+    t:[13,"pass","medium","Hersteller-CTO/CISO klarer Buyer; geschätzt 5-15k DE-Mittelstands-Hersteller mit Software/Digital-Elementen (Maschinenbau, Medizintechnik, Industrie 4.0); Buying-Triple via VDMA/ZVEI-Channels möglich; aber CISO-Budget oft konsolidiert."],
+    k:[10,"unknown","medium","AI für CVE-Klassifizierung + Exploit-Likelihood-Score sinnvoll; aber CVE-Datenbanken (NVD, ENISA EUVD) öffentlich → wenig proprietärer Daten-Lock-in; Foundation-Models gut genug → Wrapper-Risiko mittel."],
+    e:[13,"pass","medium","200-500 EUR/Mo × 5-10k KMU-Hersteller = 12-60 Mio ARR-Ziel realistisch; Bootstrap-tauglich da kein Hardware + niedrige Sales-Kosten via Verband/Channel; aber Verband-Sales-Cycle (VDMA/ZVEI) typischerweise 6-12 Mo."],
+    w:[12,"unknown","medium","ONEKEY (DE, IoT-fokussiert, enterprise-Tier per ONEKEY.com 2026), OPSWAT MetaDefender (US, enterprise), Sonatype Nexus Lifecycle (US), Snyk + Synopsys Black Duck (enterprise-fokussiert) — Enterprise-Tier-Dominanz, KMU-Vertical-Lücke bestätigt; aber Personio-Effekt möglich (Marktführer integriert KMU-Tier nativ)."]
+  }}
+  ,{n:"EU-AI-Act AI-Inventory KMU", r:"14.05 Daily", cat:"RegTech/B2B", c:{b:[12,"unknown","medium","Hochrisiko-Annex-III-Pflicht ursprünglich 2.8.2026, per Digital Omnibus Mai 2026 verschoben auf 2.12.2027 (per Travers Smith + DLA Piper GENIE 2026); Pflicht-Trigger materiell reduziert (mehr Zeit + nur Annex-III-System-Anbieter); SME-Erleichterungen jetzt erweitert auf SMC (Mid-Cap). Pain-Akutheit gesunken."],
+    m:[null,"not_evaluated","low","Wegen Red-Flag-Abort nicht im Detail bewertet."],
+    t:[null,"not_evaluated","low","Wegen Red-Flag-Abort nicht im Detail bewertet."],
+    k:[null,"not_evaluated","low","Wegen Red-Flag-Abort nicht im Detail bewertet."],
+    e:[null,"not_evaluated","low","Wegen Red-Flag-Abort nicht im Detail bewertet."],
+    w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: 5+ direkte EU-Wettbewerber mit EU-AI-Act-Tooling: Modulos AI (CH/Top-Coverage per modulos.ai 2026), Credo AI (US, Mittelstand-fokussiert per credo.ai 2026), Holistic AI (UK, EU-AI-Act-Spezialist), Trustible (US, AI-Risk + EU-AI-Act-Modul), DataGuard (DE-Marktführer in DSGVO + EU-AI-Act-Plattform per dataguard.com 2026). Plus Microsoft Purview + Big-4 (KPMG, PwC) im Enterprise-Markt. Hard-Fail-Trigger '5+ direkte Wettbewerber' deutlich erfüllt. Mit Verschiebung auf 12.2027 + SMC-Erleichterungen → keine Bootstrap-Pfad mehr."]
+  }}
+  ,{n:"Pace-Klon DE: Agentic Claims-Ops Sachversicherer", r:"14.05 Daily", cat:"InsurTech/B2B", c:{b:[17,"pass","high","BPO-Replacement im $70 Mrd globalen Insurance-Ops-Markt (per fortune.com + sequoiacap.com Pace-Series-A Jan 2026, $10M von Sequoia, Prudential + Mutual Group + Newfront als Kunden). DACH-Sachversicherer (HUK, Allianz, ERGO, R+V + ~80 kleinere) leiden unter Personalmangel + Doku-Last; Allianz Q4-2024 Bericht: Schadenbearbeitung manuell + offshore-BPO-abhängig."],
+    m:[13,"pass","medium","Agentic-Stack 2026 verfügbar (Anthropic Claude 4.6, OpenAI Operator); Pace selbst hat in 18 Mo MVP gebaut. DACH-MVP für 1-2 Schadenarten (Kfz-Schaden Bagatell, Hausrat-Diebstahl) in 7 Mo machbar; aber Schadenbearbeitungs-Domain-Wissen + 4-6 Versicherer-Integrationen (Schadensystem) komplex."],
+    t:[10,"unknown","medium","Sachversicherer-Sales-Cycle 12-24 Mo typisch (per Insurtech-DE Studien); ~30 große DE-Sachversicherer + ~80 kleinere; klarer Schadenleiter/COO-Buyer mit Budget. Allianz Trade hat 2024 erste agentic-claims-Tests gestartet; DACH-Versicherer in 2024-25 in 'Pilot-Phase' (per beinsure.com + branchenmedien)."],
+    k:[17,"pass","high","AI = Kernprodukt-Engine, nicht Add-on; agentic AI navigiert interne Apps, telefoniert, klassifiziert Dokumente (per Pace-Sequoia-Blogpost). Daten-Loop aus 100k+ Schäden pro Großversicherer → starker Compound-Vorteil; Pace selbst zeigt 70-90% Automatisierungs-Raten in Pilotphase."],
+    e:[9,"fail","low","Enterprise SaaS für Großversicherer = 200k-2M EUR/Jahr Verträge, aber Bootstrap-Profil schwach: 12-24 Mo Sales-Cycle, multi-year Verträge, intensive Pilotphasen vor Live; 20-Mio ARR-Pfad braucht 30-50 Versicherer-Kunden ≈ 5-7 Jahre + heavy CapEx für Sales-/Domain-Personal. Sequoia-finanzierter Pace ist Bootstrap-Konter-Beleg."],
+    w:[13,"pass","medium","International: Pace (US, Series A Sequoia Jan 2026), EIS Group (US, agentic Claims), FRISS (NL, Fraud + Claims), Sprout.ai (UK), Hyland EisAgentic. DACH: kein direkter agentic-Claims-Anbieter (Stand Mai 2026); Allianz/Munich Re betreiben interne Inhouse-Entwicklungen aber nicht als Drittanbieter; Vertriebslücke real."]
+  }}
+  ,{n:"EnEfG-EnMS-Stack Mittelstand 7,5 GWh", r:"14.05 Daily", cat:"RegTech/B2B", c:{b:[16,"pass","high","EnEfG §8 Pflicht-Trigger: zertifiziertes EnMS (ISO 50001 oder EMAS) für Unternehmen ab 7,5 GWh/Jahr Energieverbrauch, Implementierungs-Frist 18.7.2025 (per BAFA-Merkblatt + Babtec.de + ecoplanet.tech 2026); Berichtspflicht ab 2,5 GWh; Sanktionen bis 100k EUR Bußgeld + Förderverlust; ~5-10k DE-Unternehmen pflichtig (energieintensive Mittelständler Chemie/Metall/Glas/Papier)."],
+    m:[13,"pass","medium","SaaS-EnMS + Datenerfassung-Bridge + Audit-Vorbereitung in 7 Mo machbar; ISO-50001-Konformität braucht Zertifizierer-Anerkennung (TÜV/DEKRA), aber Software selbst kein Zertifizierungs-Bedarf."],
+    t:[12,"pass","medium","Produktionsleiter/Energiemanager bei ~5k pflichtigen DE-Unternehmen; Buying-Triple via DENEFF (Verband)/IHK-Energie-Netze möglich; mittlere Sales-Komplexität (6-9 Mo Pilotphase typisch)."],
+    k:[10,"unknown","medium","AI für Verbrauchsmuster-Erkennung + Optimierungs-Vorschläge sinnvoll; aber EnMS-Software primär Daten-Hub + Reporting; AI-Vorteil peripher; Datenbasis (Smart-Meter + Submetering) wertvoll für Daten-Loop."],
+    e:[12,"pass","medium","500-2000 EUR/Mo × 5k pflichtige Unternehmen = 30-120 Mio ARR-Theoretisch; Realistisch 10-15% Marktanteil-Ziel = 15-30 Mio ARR machbar; Bootstrap-tauglich da Sales über Energieaudit-Partner + DENEFF; aber Smart-Meter-Integration variabel."],
+    w:[11,"unknown","medium","ecoplanet (DE-Wachstum-Kandidat 2024-26 per ecoplanet.tech), c-ober (DE, EnMS-Spezialist per c-ober.de), Weidmüller GTI Software (DE-Industrie), Babtec (DE), arqum (DE-Energieberatung mit Software), Enoplan (DE) — Markt dicht aber primär Beratungs-getriebene Software; KMU-Self-Service-Tier möglicherweise unterversorgt."]
+  }}
+  ,{n:"Karenz-/Wettbewerbsverbot-Tracker KMU", r:"14.05 Daily", cat:"SaaS/B2B", c:{b:[11,"unknown","medium","Nachvertragliche Wettbewerbsverbote bei Außendienst/Tech-Mitarbeitern real (BGB §74; max 2 Jahre, Karenzentschädigung 50% Jahresgehalt); Pain bei GF-Übergaben + Compliance-Audit; aber latent, nicht akut; kein Pflicht-Trigger; geschätzt 10-30k DE-KMU mit relevanten Mitarbeitergruppen."],
+    m:[14,"pass","medium","Pure SaaS: Vertragsklauseln-Verwaltung + Erinnerungs-Workflow + Karenzentschädigungs-Rechner in 7 Mo machbar; keine Regulator-Lizenz nötig."],
+    t:[11,"unknown","medium","HR-Lead oder GF Mittelstand 50-500 MA als Buyer; aber Pain-Priorität niedrig (Top-10 HR-Themen, nicht Top-3); Bündelung mit anderen HR-Compliance-Themen sinnvoll; Sales-Cycle 3-6 Mo."],
+    k:[8,"fail","medium","AI für Klausel-Klassifikation peripher; Foundation-Models OCR-Commodity; kein proprietärer Daten-Lock-in; Wrapper-Risiko hoch."],
+    e:[9,"fail","medium","ARPU 50-150 EUR/Mo × 1-3k KMU = 0,6-5 Mio ARR-Pfad; 20-Mio strukturell schwer ohne Bündelung; Pricing-Power durch Pain-Latenz limitiert."],
+    w:[13,"pass","medium","Kein direkter DE-Wettbewerber als Standalone (per Mai 2026 Marktsuche); aber: HR-Suiten (Personio, Sage HR, rexx systems) decken Vertragsmodul nicht; LegalTech (Rechtsdocs, e-Sign Tools wie SignNow) decken Anlassgeschäft, nicht Tracking. Vertriebslücke real aber Pain dünn."]
+  }}
+  ,{n:"Mid-Cap M&A Datenraum 5-50 Mio", r:"14.05 Daily", cat:"SaaS/B2B", c:{b:[12,"pass","medium","Mid-Cap-M&A in DACH ~1.500-2.000 Deals/Jahr im 5-50 Mio Bracket (per ZEW + M&A-Statistik 2024-25); M&A-Berater + Family-Office-CFOs als Buyer; Pain real (Due-Diligence-Dauer 6-12 Wochen); aber latent + Anlassgeschäft."],
+    m:[null,"not_evaluated","low","Wegen Red-Flag-Abort nicht im Detail bewertet."],
+    t:[null,"not_evaluated","low","Wegen Red-Flag-Abort nicht im Detail bewertet."],
+    k:[null,"not_evaluated","low","Wegen Red-Flag-Abort nicht im Detail bewertet."],
+    e:[null,"not_evaluated","low","Wegen Red-Flag-Abort nicht im Detail bewertet."],
+    w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: 5+ direkte DACH-Wettbewerber im Mid-Cap-VDR-Markt: Drooms (DE-Marktführer per drooms.com 2026, expliziter Mid-Market-Fokus), Brainloop DealRoom (DE, BSI-C5-zertifiziert, DACH-Hosting per brainloop.com 2026), iDeals (US/EU, Mid-Market-Pricing), Datasite Acquire (US, Mid-Market-Tier), Firmex (CA, Mid-Market-Spezialist), DataroomX (DE), Imprima (UK). Plus Box + SharePoint als Substitute. Hard-Fail-Trigger '5+ direkte Wettbewerber' deutlich erfüllt. Markt 100% konsolidiert."]
+  }}
 ];
 
 // =====================================================================
@@ -2877,8 +2971,10 @@ window.holdLookup = holdLookup;
 window.holdRanking = holdRanking;
 
 // =====================================================================
-// ALLE DEEP-DIVES Tab - Grid mit allen Top-Picks aus allen Runs
+// ALLE DEEP-DIVES Tab - DEAKTIVIERT (in 2-Stufen-Struktur konsolidiert)
+// Modal-Funktionalität bleibt erhalten — siehe openDeepDive()
 // =====================================================================
+if (document.getElementById("grid-alldeepdives")) {
 const allDeepDivesData = Object.entries(window.deepDives).map(([name, dd]) => {
   // Lookup Quick-Score from deepDive, Deep-Score from holdRanking
   let deepScore = "-";
@@ -2932,6 +3028,7 @@ new gridjs.Grid({
     td: { 'font-size': '13px' }
   }
 }).render(document.getElementById("grid-alldeepdives"));
+}
 
 // Grid-Daten für Tabelle
 const holdGridData = holdSorted.map((item, rank) => [
