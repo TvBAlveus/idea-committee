@@ -2405,7 +2405,23 @@ const holdRanking = [
     e:[11,"unknown","medium","1-3 EUR/WE × 100k WE-Ziel = 3 Mio ARR; aber CAC gegen Aareon + 5+ AI-fähige Wettbewerber zerstört Bootstrap-Profil."],
     w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: 6+ direkte DE-Wettbewerber mit AI-Modul bestätigt: Aareon Edition plus 2026 mit Copilot (per connect-professional.de Test 2026), DOMUS 1000 mit ChatGPT-Integration, ETG24 KI-Hausverwaltung (per etg24.de), Immoware24 (AI 60% Zeitersparnis), casavi AI (per casavi.com), MANAGBL.AI (AI-Native, Call-Answering, integriert mit casavi). Hard-Fail-Trigger massiv erfüllt — Original-Annahme 'kein direkter AI-Copilot-Wettbewerber DE' ist 2025/2026 obsolet."]
   }},
-  {n:"Pleo/Brex für Vereine", r:"08.05 Daily", cat:"Fintech/B2B", brief:{core_problem:"600.000+ Vereine in DE arbeiten mit Postbank-Konten, Excel und Word-Spendenquittungen. Vorstand haftet persönlich; Übergaben chaotisch.", target_customer:"Vereine 500+ Mitglieder oder Spendenvolumen >50k €/Jahr; Stiftungen; gGmbHs", economic_buyer:"Vorstand / Schatzmeister", product_concept:"Geschäftskonto + Karten + Software für Vereinslogik", current_alternative:"Sparkasse Vereinskonto + Excel + Word", why_now:"Generationswechsel im Ehrenamt; jüngere Vorstände erwarten App", monetization:"Subscription 19-99 €/Monat + Interchange", wedge:"Spendenquittungs-Automation + GoBD-konformes Kassenbuch", geography:"DE zuerst, AT/CH später"}, desc:"Banking + Spesen-Plattform für die 600k deutschen Vereine: Ehrenamtliche Vorstände + Schatzmeister erhalten Karten, Belegerfassung, GoBD-Buchführung, Übergabe-Workflows. Modell: Software + Banking via BaaS-Partner. Killer: BaFin-Lizenz + Banking-Compliance-Onboarding 6-12 Mo macht 7-Mo-MVP unmöglich.", k_app:false, c:{b:[16,"pass","high","600k Vereine, Vorstandshaftung, Übergaben chaotisch."],
+  {n:"Pleo/Brex für Vereine", r:"08.05 Daily", cat:"Fintech/B2B", raw_pitch:"Pleo/Brex für Vereine ist ein digitales Konto + Spesen-Tool speziell für die ~600.000 eingetragenen Vereine in Deutschland. Pain: Ehrenamtliche Vorstände und Schatzmeister verwalten oft 5- bis 6-stellige Vereinskassen mit chaotischen Privatkonto-Vermischungen, unauffindbaren Belegen und persönlicher Haftung des Vorstands für Vereinsfinanzen (§ 31a BGB). Bei Vorstandswechsel ist die Übergabe ein Albtraum.
+
+Zielkunde: Vorstandsvorsitzende/Kassierer von Vereinen 100-50.000 Mitglieder, vor allem Sport-, Musik-, Sozial-Vereine, kirchliche Träger, Stiftungen. Vorstand 3-7 Personen. Wirtschaftlicher Buyer = der Vorstand kollektiv, mit Schatzmeister als Initiator. Vereine haben heute 0 EUR/Mo Software-Budget, aber Premium-Vereinsmitgliedschaft typisch 30-100 EUR/Jahr — 5-15 EUR/Mo pro Lizenz ist plausibel.
+
+Produkt-Konzept: Multi-User-Vereinskonto via BaaS-Partner (Solaris, Treezor) mit Mastercard-Karten für 3-5 Vorstände, automatische Belegerfassung per App, GoBD-konforme Buchhaltung, Spendenquittungs-Generator, Übergabe-Workflow bei Vorstandswechsel (Schlüssel-Rotation + Audit-Trail), Anbindung DATEV + Lexware/sevdesk. AI hilft bei Beleg-Klassifizierung.
+
+Aktuelle Alternative: Privatkonto-Mischung (illegal aber häufig), Sparkasse-Vereinskonto mit altmodischer Verwaltung, oder kein Konto + Bargeldkasse. Software-Side: Easyverein (Vereinsverwaltung ohne Banking), Campai. Niemand kombiniert Banking + Spesen + Übergabe-Workflow.
+
+Why now: Generationswechsel im Ehrenamt (Babyboomer-Vorstände gehen, Millennials wollen App-First-Tools), Pleo-Adoption in EU-KMU als Vorbild (Pleo 2024 ~750M EUR Bewertung), GoBD-Druck auf Vereine seit 2023 verschärft, BaaS-Reife macht Banking-Layer in 6-9 Mo integrierbar.
+
+Monetarisierung: SaaS 9-19 EUR/Mo pro Vereinslizenz. 50k zahlende Vereine × 12 EUR/Mo × 12 = 7,2 Mio ARR — für 20 Mio Pfad brauche ich ~140k Vereine = 23% Marktanteil. Ambitioniert aber machbar mit Verbands-Channel.
+
+Geography: DACH-Start, primär DE wegen Vereinsrecht-Spezifika; AT/CH-Expansion in Welle 2.
+
+Wedge: Vertikal-Spezialisierung auf Vereinsrecht (§ 31a BGB Haftung, Spendenrecht, Gemeinnützigkeit) — Pleo/Brex sind Generalisten ohne Verein-Specifics; Easyverein hat fachliches Wissen aber kein Banking. Verbands-Vertrieb (DOSB, Caritas, Bistümer) als Trust-Layer.
+
+Critical Assumptions: (1) BaaS-Partner akzeptiert Vereine als Endkunden — Compliance-Friktion wahrscheinlich. (2) Vereins-Vorstände bezahlen 10-15 EUR/Mo — testbar in Pilot. (3) Verbands-Channel funktioniert (DOSB-Adressen-Zugang politisch). (4) Banking-Compliance in 7 Mo MVP-tauglich — sehr riskant; BaFin-Lizenz oder BaaS-Partnerschaft nötig.", brief:{core_problem:"600.000+ Vereine in DE arbeiten mit Postbank-Konten, Excel und Word-Spendenquittungen. Vorstand haftet persönlich; Übergaben chaotisch.", target_customer:"Vereine 500+ Mitglieder oder Spendenvolumen >50k €/Jahr; Stiftungen; gGmbHs", economic_buyer:"Vorstand / Schatzmeister", product_concept:"Geschäftskonto + Karten + Software für Vereinslogik", current_alternative:"Sparkasse Vereinskonto + Excel + Word", why_now:"Generationswechsel im Ehrenamt; jüngere Vorstände erwarten App", monetization:"Subscription 19-99 €/Monat + Interchange", wedge:"Spendenquittungs-Automation + GoBD-konformes Kassenbuch", geography:"DE zuerst, AT/CH später"}, desc:"Banking + Spesen-Plattform für die 600k deutschen Vereine: Ehrenamtliche Vorstände + Schatzmeister erhalten Karten, Belegerfassung, GoBD-Buchführung, Übergabe-Workflows. Modell: Software + Banking via BaaS-Partner. Killer: BaFin-Lizenz + Banking-Compliance-Onboarding 6-12 Mo macht 7-Mo-MVP unmöglich.", k_app:false, c:{b:[16,"pass","high","600k Vereine, Vorstandshaftung, Übergaben chaotisch."],
     m:[null,"fail","medium","🚩 RED FLAG IDENTIFIED: Banking-Kernfunktion braucht BaFin-Lizenz oder BaaS-Partner; Compliance-Onboarding 6-12 Mo; reine Software ohne Banking ist nicht das Produkt."],
     t:[10,"unknown","medium","Schatzmeister ehrenamtlich, preissensibel."],
     k:[7,"fail","medium","KI peripher (Belegerfassung); Banking-Logik kein KI-Vorteil."],
@@ -2535,7 +2551,23 @@ const holdRanking = [
     e:[11,"unknown","medium","Marketing-Krieg gegen Plan A/Greenly kapitalintensiv."],
     w:[7,"fail","high","Plan A, Greenly (FR), EcoVadis, Cozero, ClimatePartner, Climatiq — dichter Markt mit 3-von-4-Trigger."]
   }},
-  {n:"Family-Office-Reporting Mid-Tier", r:"12.05 Daily", cat:"FinTech/B2B", brief:{core_problem:"Family Offices mit 50-500 Mio € AuM nutzen Excel oder selbstgestrickte Tools. Addepar/Masttro zu teuer (100-300k €/Jahr). Multi-Asset-Konsolidierung ist Excel-Hölle.", target_customer:"Single Family Offices und Unternehmerfamilien 50-500 Mio € Vermögen DACH (~800-1.500 Einheiten)", economic_buyer:"Family-Office-CIO oder Patriarch/Matriarch", product_concept:"SaaS: FinAPI/Tink-Bank-Aggregation, manuelle Illiquid-Eingabe, Performance-Reporting, Cashflow-Forecast, DATEV-Export", current_alternative:"Excel + Bloomberg + 2-3 Bank-Reports; Centox, Solid Performance, Asora", why_now:"Großer Vermögens-Transfer DACH 2020-2035 (~3 Bio €); jüngere CIO-Generation will Tech", monetization:"SaaS 2.000-8.000 €/Monat je nach AuM", wedge:"Mid-Tier-Spezialisierung + Deutsche-Steuer-Integration + Multi-Asset incl. Beteiligungen", geography:"DACH primär"}, desc:"SaaS-Plattform für Mid-Tier Family Offices (10-500 Mio EUR AUM) zur konsolidierten Vermögens-Übersicht über Liquid + Private Equity + Immobilien + Alternative Assets. Banking-API-Aggregation (finAPI/Tink) + Custodian-Konnektoren + AI-Reporting ersetzt Excel-Patriarch-Workflows. Wedge: DSGVO-Hosting + DACH-Spezialisierung gegen US-Plattformen wie Addepar.", c:{b:[17,"pass","high","Excel-Pain dokumentiert: 57% Family Offices nutzen Excel als Hauptsystem (Simple Family Office Software Report 2025); 88% Spreadsheets mit Errors (Eton-Solutions-Studie 2024); 40% besorgt über Excel-Abhängigkeit. DACH-Markt: ~285 SFOs DACH (Tracxn Jan 2026), ~450-700 FOs DE gesamt (PwC), ~180 Mrd EUR AUM. CIO/Patriarch hat klares Budget."],
+  {n:"Family-Office-Reporting Mid-Tier", r:"12.05 Daily", cat:"FinTech/B2B", raw_pitch:"Family-Office-Reporting Mid-Tier ist eine SaaS-Plattform für Mid-Tier Family Offices (10-500 Mio EUR AUM) im DACH-Raum, die die heute übliche Excel-Hölle bei der konsolidierten Vermögensübersicht löst. Pain: 57% der Family Offices nutzen primär Excel (Simple Family Office Software Report 2025), 88% der Spreadsheets enthalten Fehler, 40% sind besorgt über Excel-Abhängigkeit. CIO/Patriarch zahlt heute 50-150k EUR/Jahr für externe Reporting-Dienstleister oder verbringt 5-10 Tage/Quartal selbst mit Konsolidierung über Banken, Custodians, PE-Fonds, Immobilien-Verwalter.
+
+Zielkunde: ~285 Single Family Offices in DACH (Tracxn Jan 2026), ~450-700 SFOs gesamt + ~50-100 Multi Family Offices in DE; AUM 10-500 Mio EUR (Mid-Tier — über klassischen Privatkunden, unter Addepar-Top-Tier ab 500 Mio EUR). 180 Mrd EUR Gesamt-AUM DACH. Wirtschaftlicher Buyer: CIO / Familien-Patriarch / CFO der Familien-Holding. Budget: heute 50-150k EUR/Jahr für Reporting + Personal — SaaS 30-80k EUR/Jahr ist Spar-Position.
+
+Produkt-Konzept: Cloud-basierte Reporting-Plattform mit Multi-Asset-Aggregation: liquide Wertpapiere via FinAPI/Tink Open-Banking (BaFin-lizenziert, ~3.000 EU-Banken), Custodian-API-Konnektoren (Deutsche Bank, UBS, JP Morgan Private Bank, lokale Privatbanken), Private-Equity-Fonds-Capital-Calls (manuelle Eingabe + AI-Doc-Parsing), Immobilien-Bewertungen (manuell + DCF-Modul), Performance-Reports + Cashflow-Forecasting + Konsolidierungs-Dashboard. DSGVO-Hosting in DE/EU.
+
+Aktuelle Alternative: Excel-Sheets von externen Family-Office-Beratern (PwC, EY-Spezial-Teams, KPMG); Addepar (US, primär Top-Tier ab 500 Mio EUR); Bloomberg Terminal (Trading-fokussiert nicht FO); Asora (UK, expandiert Europa, 370 FOs in 22 Ländern); Masttro (1.200 FOs global mit AI-Assistant Q1/2024); Altoo (Schweiz, Privacy-Fokus); Etops (EU, modular).
+
+Why now: Generationsübergang in Family Offices (Boomer-Patriarchen geben an Gen-X/Y ab, neue Generation will App-First-Tools); DSGVO-Sensibilität nach EU-AI-Act 2025 (US-Hosting wird schwierig); AI-Maturity macht automatische Daten-Konsolidierung erstmals zuverlässig; UBS Global Family Office Report 2025 dokumentiert Privatsphäre + Datenresidenz als Top-Sorgen in Europa.
+
+Monetarisierung: SaaS 30-100k EUR/Jahr je nach AUM-Tier. 250-400 Kunden × 60k EUR Durchschnitt = 15-24 Mio ARR. Bootstrap-fähig mit 10-15 Anker-Kunden (~1 Mio ARR Break-Even).
+
+Geography: DACH (DE + AT + CH + FL/Luxembourg) — Privacy + Data-Residenz-Argument lokal.
+
+Wedge: DACH-Mid-Tier-Spezialisierung (Top-Tier hat Addepar/Masttro; Mid-Tier wird unterversorgt zwischen Asora-EU-Generalismus und PwC-Custom-Excel); DSGVO-Hosting in DE; deutschsprachiger Service + Steuerberater-Integration (DATEV-Export); Patriarch-Family-Trust-Layer durch persönlichen Sales statt VC-Marketing.
+
+Critical Assumptions: (1) FinAPI/Tink decken die relevanten DE-Privatbanken zuverlässig ab — testbar in Diligence-Phase. (2) Mid-Tier-FOs sind bereit 30-100k EUR SaaS zu zahlen wenn heute 50-150k EUR für Excel-Dienstleister fließen — plausibel aber sales-cycle-test nötig. (3) Asora expandiert nicht aggressiv in DACH 2026/27 — Risiko. (4) Steuerberater-/M&A-Berater-Channel funktioniert für Anfangs-Sales — testbar mit 3-5 Anker-Beratern. (5) DSGVO-Hosting-Argument gewinnt gegen UK/CH-Konkurrenz — bei Generationswechsel-Patriarchen unklar.", brief:{core_problem:"Family Offices mit 50-500 Mio € AuM nutzen Excel oder selbstgestrickte Tools. Addepar/Masttro zu teuer (100-300k €/Jahr). Multi-Asset-Konsolidierung ist Excel-Hölle.", target_customer:"Single Family Offices und Unternehmerfamilien 50-500 Mio € Vermögen DACH (~800-1.500 Einheiten)", economic_buyer:"Family-Office-CIO oder Patriarch/Matriarch", product_concept:"SaaS: FinAPI/Tink-Bank-Aggregation, manuelle Illiquid-Eingabe, Performance-Reporting, Cashflow-Forecast, DATEV-Export", current_alternative:"Excel + Bloomberg + 2-3 Bank-Reports; Centox, Solid Performance, Asora", why_now:"Großer Vermögens-Transfer DACH 2020-2035 (~3 Bio €); jüngere CIO-Generation will Tech", monetization:"SaaS 2.000-8.000 €/Monat je nach AuM", wedge:"Mid-Tier-Spezialisierung + Deutsche-Steuer-Integration + Multi-Asset incl. Beteiligungen", geography:"DACH primär"}, desc:"SaaS-Plattform für Mid-Tier Family Offices (10-500 Mio EUR AUM) zur konsolidierten Vermögens-Übersicht über Liquid + Private Equity + Immobilien + Alternative Assets. Banking-API-Aggregation (finAPI/Tink) + Custodian-Konnektoren + AI-Reporting ersetzt Excel-Patriarch-Workflows. Wedge: DSGVO-Hosting + DACH-Spezialisierung gegen US-Plattformen wie Addepar.", c:{b:[17,"pass","high","Excel-Pain dokumentiert: 57% Family Offices nutzen Excel als Hauptsystem (Simple Family Office Software Report 2025); 88% Spreadsheets mit Errors (Eton-Solutions-Studie 2024); 40% besorgt über Excel-Abhängigkeit. DACH-Markt: ~285 SFOs DACH (Tracxn Jan 2026), ~450-700 FOs DE gesamt (PwC), ~180 Mrd EUR AUM. CIO/Patriarch hat klares Budget."],
     m:[14,"pass","medium","finAPI (BaFin-lizenziert, ~3.000 europäische Banken, Munich) + Tink (6.000 Banken Europa) als Banking-Aggregation existieren. Multi-Asset (Liquid + PE + Immo) komplexer; Custodian-API-Anbindung mehrstufig (Addepar bedient 98 Custodians). 7-Mo-MVP mit 5-10 Custodian + Reporting-Layer machbar, aber alternative Assets fordern Service-Anteil."],
     t:[13,"pass","medium","350-550 FO-Adressaten DACH (PwC, Tracxn 2026); CIO/Patriarch entscheidet 1:1; Vertrieb über Privatbank-/Steuerberater-/M&A-Netzwerke 6-12 Mo; relationship-getrieben; UBS Global Family Office Report 2025 zeigt Privatsphäre + Datenresidenz als Top-Sorge in Europa."],
     k:[12,"pass","medium","Workflow-Verankerung + Custodian-/Bank-Datenintegration als möglicher Lock-in. Aber: Masttro hat AI-Assistant Q1/2024 mit -70% Reporting-Zeit und 1.200+ Adoptionen in 9 Monaten (per masttro.com 2025); AI-Reporting wird Standard, kein nachhaltiger Wedge."],
@@ -3158,7 +3190,20 @@ function openHoldDetail(name) {
     `;
   }).join("");
 
-  // Idee-Brief: zuerst inline brief, dann fallback deepDives, dann desc, dann Hinweis
+  // ---- Stufe 2a: raw_pitch (reichhaltige Eingabe) ----
+  let pitchHtml = "";
+  if (item.raw_pitch && item.raw_pitch.length > 0) {
+    pitchHtml = `
+      <details style="margin: 6px 0 14px; border:1px solid var(--border); border-radius:8px; padding: 0;">
+        <summary style="cursor:pointer; padding:10px 14px; font-size:13px; font-weight:600; color:#4a4a4a; background:#fafaf5; border-radius:8px;">
+          📝 Stufe 2a – Raw Pitch (reichhaltige Eingabe, vor Distillation) <span style="color:#888; font-weight:400; font-size:12px;">— klicken zum Aufklappen</span>
+        </summary>
+        <div style="padding:14px 18px; font-size:13.5px; line-height:1.55; color:#3a3a3a; white-space:pre-wrap;">${item.raw_pitch}</div>
+      </details>
+    `;
+  }
+
+  // ---- Stufe 2b: brief (distilled + dekontaminiert) ----
   let briefHtml = "";
   const inlineBrief = item.brief;
   const dd = window.deepDives ? window.deepDives[name] : null;
@@ -3176,7 +3221,7 @@ function openHoldDetail(name) {
       ["Wedge", b.wedge]
     ].filter(([_, v]) => v && v.length > 0);
     briefHtml = `
-      <h4 style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:#6a6a6a; margin:6px 0 10px;">Idee – Brief</h4>
+      <h4 style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:#6a6a6a; margin:6px 0 10px;">Stufe 2b – Distilled Brief (dekontaminiert)</h4>
       <div class="kv" style="margin-bottom:18px;">
         ${briefFields.map(([k, v]) => `<span style="color:#6a6a6a;">${k}</span><span>${v}</span>`).join("")}
       </div>
@@ -3186,10 +3231,10 @@ function openHoldDetail(name) {
       <h4 style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:#6a6a6a; margin:6px 0 10px;">Idee – Kurzbeschreibung</h4>
       <p style="margin: 0 0 18px; font-size:14px; line-height:1.5;">${item.desc}</p>
     `;
-  } else {
+  } else if (!item.raw_pitch) {
     briefHtml = `
       <p style="margin: 6px 0 18px; padding:10px 14px; background:#fff8e1; border-left:3px solid #f0b400; font-size:13px; color:#6b5300;">
-        <strong>Brief fehlt:</strong> Für diese Idee wurde der Pflicht-Brief (Stufe 2) noch nicht ausgefüllt. Ergänze inline im holdRanking-Eintrag: <code>brief: { core_problem, target_customer, economic_buyer, product_concept, current_alternative, why_now, monetization, wedge }</code>.
+        <strong>Brief fehlt:</strong> Für diese Idee wurde der Pflicht-Brief (Stufe 2) noch nicht ausgefüllt. Methodik: erst <code>raw_pitch</code> (Stufe 2a, reichhaltige freie Eingabe mit allen 10 Themen), dann <code>brief</code> (Stufe 2b, distilled in 14 Felder).
       </p>
     `;
   }
@@ -3208,6 +3253,7 @@ function openHoldDetail(name) {
       </div>
     </div>
 
+    ${pitchHtml}
     ${briefHtml}
 
     <div class="summary-row">
