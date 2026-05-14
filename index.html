@@ -205,10 +205,10 @@ table.criteria td:first-child { color: var(--muted); width: 220px; }
     <details style="margin: 6px 0 14px; font-size: 13px; color: #6a6a6a;">
       <summary style="cursor: pointer; padding: 4px 0; font-size: 12px; color: #888;">ℹ️ Methodik &amp; Spalten-Legende anzeigen</summary>
       <div style="padding: 10px 14px; background: #f5f5ef; border-radius: 6px; margin-top: 6px;">
-        <p style="margin: 0 0 8px;">Alle Ideen mit Quick-Score ≥ 6 aus der Pipeline kumulativ erhalten volle Distiller + Kill-Committee Bewertung. Pro Idee: 6 Kriterien × (Score 0-20 + Gate pass/assumed/unknown/fail + Confidence + Finding).</p>
-        <p style="margin: 0 0 8px;">Aggregation: Gate-Multiplikatoren (pass×1.0 · assumed×0.75 · unknown×0.6 · fail+low×0.4 · fail+med/high×0.0) auf Score angewandt = Effective-Score. Normiert auf 0-100 (Max-Pool 100 oder 120, je nach k_app-Flag).</p>
-        <p style="margin: 0 0 8px; color: #6b5300;">⚠️ Kill-Bias: Unknown zählt negativ. Fehlende Evidenz ohne dokumentierte Suchpfade wird im Modal als 'Schummelei-Verdacht' rot markiert.</p>
-        <p style="margin: 0;"><strong>Spalten:</strong> Deep-Score = normierter 0-100-Score · Raw-Score = ungewichtete Punkt-Summe · Pass/Unknown/Fail-Gates = Gate-Verteilung. → 6 einzelne Kriterien + Findings + raw_pitch + Brief beim Klick auf eine Idee.</p>
+        <p style="margin: 0 0 8px;">Alle Ideen mit Quick-Score ≥ 6 aus der Pipeline kumulativ erhalten volle Bewertung. Pro Idee: 6 Kriterien (Bedarf, MVP, Vertrieb, KI, Ökonomie, Wettbewerb) × (Score 0-20 + Gate + Confidence + Finding).</p>
+        <p style="margin: 0 0 8px;"><strong>Gates &amp; Multiplikatoren:</strong> <span style="background:#d4e9d4;color:#1e5e1e;padding:0 4px;border-radius:2px;">✓ pass ×1.0</span> · <span style="background:#cfe3f5;color:#1565c0;padding:0 4px;border-radius:2px;">≈ assumed ×0.75</span> · <span style="background:#fff3cd;color:#b07b00;padding:0 4px;border-radius:2px;">? unknown ×0.6</span> · <span style="background:#f8d7da;color:#a02030;padding:0 4px;border-radius:2px;">✗ fail ×0.0</span> · <span style="color:#b03a2e;">🚩 RED FLAG</span></p>
+        <p style="margin: 0 0 8px;"><strong>Tier-Skala (normiert 0-100):</strong> 75+ Top · 63-74 Stark · 50-62 Mittel · 38-49 Schwach · &lt;38 Sehr schwach</p>
+        <p style="margin: 0; color: #6b5300;">⚠️ Kill-Bias: Unknown zählt negativ. Findings ohne dokumentierte Suchpfade werden im Detail-Modal als 'Schummelei-Verdacht' rot markiert. → <strong>Klick auf Idee öffnet Modal mit Findings + raw_pitch + Distilled Brief.</strong></p>
       </div>
     </details>
     <div id="grid-holdranking" style="margin-top:14px;"></div>
@@ -3446,67 +3446,100 @@ new gridjs.Grid({
 }
 
 // Grid-Daten für Tabelle
+// Helper: Mini-Score-Pill pro Kriterium
+function critCellHtml(critArr) {
+  // critArr: [score, gate, conf, finding] oder undefined
+  if (!critArr || !Array.isArray(critArr)) {
+    return `<span style="display:inline-block;width:36px;text-align:center;color:#bbb;font-size:11px;">—</span>`;
+  }
+  const s = critArr[0];
+  const g = critArr[1];
+  const c = critArr[2];
+  if (s === null || s === undefined) {
+    return `<span style="display:inline-block;width:36px;text-align:center;color:#b03a2e;font-size:11px;font-weight:700;" title="Red Flag — nicht bewertet">🚩</span>`;
+  }
+  // Gate-Farben
+  let bg = "#f0f0e8", color = "#333", border = "transparent";
+  if (g === "pass") { bg = "#d4e9d4"; color = "#1e5e1e"; }
+  else if (g === "assumed") { bg = "#cfe3f5"; color = "#1565c0"; }
+  else if (g === "unknown") { bg = "#fff3cd"; color = "#b07b00"; }
+  else if (g === "fail") { bg = "#f8d7da"; color = "#a02030"; }
+  const gateLabel = g === "pass" ? "✓" : g === "assumed" ? "≈" : g === "unknown" ? "?" : g === "fail" ? "✗" : "";
+  return `<span style="display:inline-block;width:36px;text-align:center;background:${bg};color:${color};border-radius:3px;padding:1px 0;font-size:11px;font-weight:600;" title="Score ${s}/20 · Gate: ${g} · Conf: ${c}">${s}<span style="opacity:0.7;font-size:9px;margin-left:2px;">${gateLabel}</span></span>`;
+}
+
 const holdGridData = holdSorted.map((item, rank) => [
   rank + 1,
   item.n,
   item.r,
-  item.agg.effectiveNorm,           // Hauptzahl = normierter Score 0-100
+  item.agg.effectiveNorm,
   item.agg.rawTotal,
-  item.agg.passes,
-  item.agg.unknowns,
-  item.agg.failsConfMid,
+  item.c && item.c.b ? item.c.b : null,
+  item.c && item.c.m ? item.c.m : null,
+  item.c && item.c.t ? item.c.t : null,
+  (item.k_app === false) ? "N/A" : (item.c && item.c.k ? item.c.k : null),
+  item.c && item.c.e ? item.c.e : null,
+  item.c && item.c.w ? item.c.w : null,
   item.cat
 ]);
 
 // Render Hold-Ranking Grid
 new gridjs.Grid({
   columns: [
-    { name: "#", width: "50px" },
-    { name: "Idee", width: "260px",
+    { name: "#", width: "40px" },
+    { name: "Idee", width: "220px",
       formatter: (cell) => {
         const safe = String(cell).replace(/'/g, "\\'");
         return gridjs.html(`<a href="#" onclick="openHoldDetail('${safe}'); return false;" style="color:#1e6091; text-decoration:none; font-weight:500;">📊 ${cell}</a>`);
       }
     },
-    { name: "Run", width: "110px" },
-    { name: gridjs.html('<span title="Normierter Deep-Score (0-100): Effective Score auf einheitliche Skala normiert. 75+ Top, 63-74 Stark, 50-62 Mittel, 38-49 Schwach, <38 Sehr schwach. Tooltip auf Pill zeigt Roh-Werte (z.B. 71/120).">Deep-Score (/100)</span>'), width: "120px",
+    { name: "Run", width: "90px" },
+    { name: gridjs.html('<span title="Normierter Deep-Score (0-100). 75+ Top, 63-74 Stark, 50-62 Mittel, 38-49 Schwach, <38 Sehr schwach.">Score</span>'), width: "80px",
       formatter: (cell, row) => {
-        if (cell === null || cell === undefined || cell === "") return gridjs.html(`<span class="score-pill score-1" style="font-size:12px;padding:3px 8px;">🚩 RF</span>`);
+        if (cell === null || cell === undefined || cell === "") return gridjs.html(`<span class="score-pill score-1" style="font-size:11px;padding:2px 6px;">🚩 RF</span>`);
         let name = null;
         try { name = row && row.cells && row.cells[1] ? row.cells[1].data : null; } catch(e) {}
         const item = (name && window.holdLookup && window.holdLookup[name] !== undefined) ? window.holdRanking[window.holdLookup[name]] : null;
-        if (!item) {
-          return gridjs.html(`<span class="score-pill score-5" style="font-size:13px;padding:3px 10px;">${cell}</span>`);
-        }
+        if (!item) return gridjs.html(`<span class="score-pill score-5" style="font-size:12px;padding:2px 8px;">${cell}</span>`);
         const cls = tierClassFromItem(item);
-        const norm = item.agg.effectiveNorm;
-        const raw = item.agg.effective;
+        const tier = tierLabelFromNorm(item.agg.effectiveNorm);
         const maxPool = item.agg.maxPool || 120;
-        const tier = tierLabelFromNorm(norm);
-        return gridjs.html(`<span class="score-pill ${cls}" style="font-size:13px;padding:3px 10px;" title="${tier} · Roh: ${raw}/${maxPool}">${norm}</span>`);
+        return gridjs.html(`<span class="score-pill ${cls}" style="font-size:12px;padding:2px 8px;" title="${tier} · Roh: ${item.agg.effective}/${maxPool}">${cell}</span>`);
       }
     },
-    { name: gridjs.html('<span title="Raw-Score: Summe der 6 Kriterien-Punktzahlen (0-20 pro Kriterium), OHNE Gate-Penalty. Max 120.">Raw-Score</span>'), width: "90px",
-      formatter: (cell) => gridjs.html(`<span style="color:#888; font-size:12px;">${cell}</span>`)
+    { name: gridjs.html('<span title="Raw-Score: Summe der 6 Kriterien (0-20 pro Kriterium), OHNE Gate-Penalty.">Raw</span>'), width: "55px",
+      formatter: (cell) => gridjs.html(`<span style="color:#888; font-size:11px;">${cell}</span>`)
     },
-    { name: gridjs.html('<span title="Anzahl der 6 Kriterien mit Gate=pass (Evidenz reicht für positives Urteil).">Pass-Gates</span>'), width: "85px",
-      formatter: (cell) => gridjs.html(`<span style="color:#2e7d32; font-weight:600;">${cell}</span>`)
+    { name: gridjs.html('<span title="Bedarf & Budgetdruck (Score/20 · Gate-Indicator ✓pass ≈assumed ?unknown ✗fail). Klick auf Idee für Finding.">Bedarf</span>'), width: "55px",
+      formatter: (cell) => gridjs.html(critCellHtml(cell))
     },
-    { name: gridjs.html('<span title="Anzahl der 6 Kriterien mit Gate=unknown (Evidenz reicht nicht für klares Urteil).">Unknown-Gates</span>'), width: "105px",
-      formatter: (cell) => gridjs.html(`<span style="color:#b07b00;">${cell}</span>`)
+    { name: gridjs.html('<span title="Zeit bis MVP (7 Mo, 2 Personen)">MVP</span>'), width: "55px",
+      formatter: (cell) => gridjs.html(critCellHtml(cell))
     },
-    { name: gridjs.html('<span title="Anzahl der 6 Kriterien mit Gate=fail (Hard-Fail-Trigger erfüllt).">Fail-Gates</span>'), width: "85px",
-      formatter: (cell) => gridjs.html(`<span style="color:#b03a2e; font-weight:600;">${cell}</span>`)
+    { name: gridjs.html('<span title="Vertriebszugang & Zeit bis Umsatz">Vertrieb</span>'), width: "60px",
+      formatter: (cell) => gridjs.html(critCellHtml(cell))
     },
-    { name: "Kategorie", width: "130px" }
+    { name: gridjs.html('<span title="KI-Compound-Vorteil. N/A wenn Idee nicht KI-disruptierbar (k_app:false).">KI</span>'), width: "55px",
+      formatter: (cell) => {
+        if (cell === "N/A") return gridjs.html(`<span style="display:inline-block;width:36px;text-align:center;color:#999;font-size:11px;font-style:italic;" title="Kriterium nicht anwendbar (Idee nicht KI-disruptierbar)">N/A</span>`);
+        return gridjs.html(critCellHtml(cell));
+      }
+    },
+    { name: gridjs.html('<span title="Ökonomische Qualität & Bootstrap Fit">Ökonomie</span>'), width: "70px",
+      formatter: (cell) => gridjs.html(critCellHtml(cell))
+    },
+    { name: gridjs.html('<span title="Wettbewerb & Incumbent-Kontrolle">Wettbewerb</span>'), width: "80px",
+      formatter: (cell) => gridjs.html(critCellHtml(cell))
+    },
+    { name: "Kategorie", width: "120px" }
   ],
   data: holdGridData,
   search: true,
   sort: true,
   pagination: { limit: 30 },
   style: {
-    th: { 'font-size': '12px', 'background-color': '#f5f5ef' },
-    td: { 'font-size': '13px' }
+    th: { 'font-size': '11px', 'background-color': '#f5f5ef', padding: '6px 4px' },
+    td: { 'font-size': '12px', padding: '6px 4px' }
   }
 }).render(document.getElementById("grid-holdranking"));
 
