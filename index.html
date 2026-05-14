@@ -2405,14 +2405,14 @@ const holdRanking = [
     e:[11,"unknown","medium","1-3 EUR/WE × 100k WE-Ziel = 3 Mio ARR; aber CAC gegen Aareon + 5+ AI-fähige Wettbewerber zerstört Bootstrap-Profil."],
     w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: 6+ direkte DE-Wettbewerber mit AI-Modul bestätigt: Aareon Edition plus 2026 mit Copilot (per connect-professional.de Test 2026), DOMUS 1000 mit ChatGPT-Integration, ETG24 KI-Hausverwaltung (per etg24.de), Immoware24 (AI 60% Zeitersparnis), casavi AI (per casavi.com), MANAGBL.AI (AI-Native, Call-Answering, integriert mit casavi). Hard-Fail-Trigger massiv erfüllt — Original-Annahme 'kein direkter AI-Copilot-Wettbewerber DE' ist 2025/2026 obsolet."]
   }},
-  {n:"Pleo/Brex für Vereine", r:"08.05 Daily", cat:"Fintech/B2B", c:{b:[16,"pass","high","600k Vereine, Vorstandshaftung, Übergaben chaotisch."],
+  {n:"Pleo/Brex für Vereine", r:"08.05 Daily", cat:"Fintech/B2B", desc:"Banking + Spesen-Plattform für die 600k deutschen Vereine: Ehrenamtliche Vorstände + Schatzmeister erhalten Karten, Belegerfassung, GoBD-Buchführung, Übergabe-Workflows. Modell: Software + Banking via BaaS-Partner. Killer: BaFin-Lizenz + Banking-Compliance-Onboarding 6-12 Mo macht 7-Mo-MVP unmöglich.", k_app:false, c:{b:[16,"pass","high","600k Vereine, Vorstandshaftung, Übergaben chaotisch."],
     m:[null,"fail","medium","🚩 RED FLAG IDENTIFIED: Banking-Kernfunktion braucht BaFin-Lizenz oder BaaS-Partner; Compliance-Onboarding 6-12 Mo; reine Software ohne Banking ist nicht das Produkt."],
     t:[10,"unknown","medium","Schatzmeister ehrenamtlich, preissensibel."],
     k:[7,"fail","medium","KI peripher (Belegerfassung); Banking-Logik kein KI-Vorteil."],
     e:[7,"fail","medium","Banking-Compliance + Fixkosten brechen Bootstrap."],
     w:[14,"pass","medium","Easyverein verwaltet aber kein Banking; Sparkassen-Vereinskonto kein Fokus."]
   }},
-  {n:"Nachlass-Concierge", r:"08.05 Daily", cat:"Service/B2C", c:{b:[17,"pass","high","Akut, emotional, 50-100 Aufgaben pro Erbfall; hohe Zahlungsbereitschaft 1.500-5.000 EUR; ~1 Mio Erbfälle/Jahr DE (Statistisches Bundesamt); Pain bestätigt durch Deutsche-Bank-Studie 'Erben und Vererben 2024'."],
+  {n:"Nachlass-Concierge", r:"08.05 Daily", cat:"Service/B2C", desc:"Pauschalpreis-Vollservice (1.500-5.000 EUR) für Erbfälle: 50-100 Behörden- und Finanz-Aufgaben in einer Hand (Standesamt, Nachlassgericht, Grundbuch, Versicherungen, Bank-Konten). AI-gestützte Standard-Schreiben + menschliches Sachbearbeiter-Team. Vertrieb B2B2C über Banken/Versicherer-Partner.", c:{b:[17,"pass","high","Akut, emotional, 50-100 Aufgaben pro Erbfall; hohe Zahlungsbereitschaft 1.500-5.000 EUR; ~1 Mio Erbfälle/Jahr DE (Statistisches Bundesamt); Pain bestätigt durch Deutsche-Bank-Studie 'Erben und Vererben 2024'."],
     m:[12,"pass","medium","Service-Plattform + Sachbearbeiter-Team mit 5-10 Pilot-Fällen in 7 Mo machbar; Behörden-Onboarding (Standesamt, Nachlassgericht, Grundbuch) braucht regionalisierten Setup."],
     t:[11,"unknown","medium","B2C-Trauer-CAC heikel und teuer (SEO + SEM nur in akuter Phase); B2B2C über Banken/Versicherer realistischer (NachlassDialog/crossconsulting belegen B2B-Pfad)."],
     k:[11,"unknown","medium","AI hilft bei Behörden-Standard-Schreiben + Doku-Sortierung — aber Standard 2026 (alle ähnlichen Services nutzen LLM); menschlicher Empathie-Service-Anteil dominiert."],
@@ -2535,7 +2535,7 @@ const holdRanking = [
     e:[11,"unknown","medium","Marketing-Krieg gegen Plan A/Greenly kapitalintensiv."],
     w:[7,"fail","high","Plan A, Greenly (FR), EcoVadis, Cozero, ClimatePartner, Climatiq — dichter Markt mit 3-von-4-Trigger."]
   }},
-  {n:"Family-Office-Reporting Mid-Tier", r:"12.05 Daily", cat:"FinTech/B2B", c:{b:[17,"pass","high","Excel-Pain dokumentiert: 57% Family Offices nutzen Excel als Hauptsystem (Simple Family Office Software Report 2025); 88% Spreadsheets mit Errors (Eton-Solutions-Studie 2024); 40% besorgt über Excel-Abhängigkeit. DACH-Markt: ~285 SFOs DACH (Tracxn Jan 2026), ~450-700 FOs DE gesamt (PwC), ~180 Mrd EUR AUM. CIO/Patriarch hat klares Budget."],
+  {n:"Family-Office-Reporting Mid-Tier", r:"12.05 Daily", cat:"FinTech/B2B", desc:"SaaS-Plattform für Mid-Tier Family Offices (10-500 Mio EUR AUM) zur konsolidierten Vermögens-Übersicht über Liquid + Private Equity + Immobilien + Alternative Assets. Banking-API-Aggregation (finAPI/Tink) + Custodian-Konnektoren + AI-Reporting ersetzt Excel-Patriarch-Workflows. Wedge: DSGVO-Hosting + DACH-Spezialisierung gegen US-Plattformen wie Addepar.", c:{b:[17,"pass","high","Excel-Pain dokumentiert: 57% Family Offices nutzen Excel als Hauptsystem (Simple Family Office Software Report 2025); 88% Spreadsheets mit Errors (Eton-Solutions-Studie 2024); 40% besorgt über Excel-Abhängigkeit. DACH-Markt: ~285 SFOs DACH (Tracxn Jan 2026), ~450-700 FOs DE gesamt (PwC), ~180 Mrd EUR AUM. CIO/Patriarch hat klares Budget."],
     m:[14,"pass","medium","finAPI (BaFin-lizenziert, ~3.000 europäische Banken, Munich) + Tink (6.000 Banken Europa) als Banking-Aggregation existieren. Multi-Asset (Liquid + PE + Immo) komplexer; Custodian-API-Anbindung mehrstufig (Addepar bedient 98 Custodians). 7-Mo-MVP mit 5-10 Custodian + Reporting-Layer machbar, aber alternative Assets fordern Service-Anteil."],
     t:[13,"pass","medium","350-550 FO-Adressaten DACH (PwC, Tracxn 2026); CIO/Patriarch entscheidet 1:1; Vertrieb über Privatbank-/Steuerberater-/M&A-Netzwerke 6-12 Mo; relationship-getrieben; UBS Global Family Office Report 2025 zeigt Privatsphäre + Datenresidenz als Top-Sorge in Europa."],
     k:[12,"pass","medium","Workflow-Verankerung + Custodian-/Bank-Datenintegration als möglicher Lock-in. Aber: Masttro hat AI-Assistant Q1/2024 mit -70% Reporting-Zeit und 1.200+ Adoptionen in 9 Monaten (per masttro.com 2025); AI-Reporting wird Standard, kein nachhaltiger Wedge."],
@@ -2577,7 +2577,7 @@ const holdRanking = [
     e:[10,"fail","medium","SaaS-Marge stark, aber TAM Reha-spezifisch ~3-5 Mio EUR; eigenständiger 20-Mio-Pfad unmöglich."],
     w:[12,"unknown","medium","Suki/Doximity (US) nicht DACH; NextDoc/Vivii klein; Nuance dominant wie KlinikScribe."]
   }},
-  {n:"CRO-as-a-Service Pre-Insolvenz Mittelstand", r:"12.05 Daily", cat:"Service/B2B", c:{b:[16,"pass","high","Insolvenzwelle 2024-26 real; Mittelstand in Krise."],
+  {n:"CRO-as-a-Service Pre-Insolvenz Mittelstand", r:"12.05 Daily", cat:"Service/B2B", k_app:false, c:{b:[16,"pass","high","Insolvenzwelle 2024-26 real; Mittelstand in Krise."],
     m:[14,"pass","medium","Service-Plattform + CRO-Pool in 7 Mo aufbaubar."],
     t:[11,"unknown","medium","Krisenfall-Akquisition über Banken/IHK."],
     k:[null,"fail","medium","🚩 RED FLAG IDENTIFIED: AI peripher (Liquiditätsplanung); Service-Geschäft dominant."],
@@ -2586,14 +2586,14 @@ const holdRanking = [
   }},
 
   // ---- THEMEN-RUN KIRCHE 08.05.2026 ----
-  {n:"Premium-Bestattung mit Liturgie", r:"08.05 Kirche", cat:"🛐 Service/B2C", c:{b:[16,"pass","high","Bestattungsmarkt DE ~3,6 Mrd EUR 2024 mit +1% p.a. Wachstum (per listflix.de Statistik 2026, 5.969 Bestattungsunternehmen DE); Trend zu freien/säkulären Trauerfeiern dokumentiert; Pain real bei nicht-praktizierenden Familien zwischen Bestatter-Logistik und Standard-Pfarrei-Liturgie."],
+  {n:"Premium-Bestattung mit Liturgie", r:"08.05 Kirche", cat:"🛐 Service/B2C", desc:"Integriertes Komplettpaket (5-10k EUR) aus Bestatter-Logistik UND hochwertiger personalisierter Trauerfeier-Liturgie (freie Pfarrer:innen, Theologen). Wedge: kein dominanter Premium-Brand DACH, der beides aus einer Hand liefert — heute fragmentiert in Bestatter + Trauerredner-Vermittlung (Omilia).", k_app:false, c:{b:[16,"pass","high","Bestattungsmarkt DE ~3,6 Mrd EUR 2024 mit +1% p.a. Wachstum (per listflix.de Statistik 2026, 5.969 Bestattungsunternehmen DE); Trend zu freien/säkulären Trauerfeiern dokumentiert; Pain real bei nicht-praktizierenden Familien zwischen Bestatter-Logistik und Standard-Pfarrei-Liturgie."],
     m:[12,"unknown","medium","Service-Aufbau: Liturgiker-Pool (freie Pfarrer:innen, Theologen) + 2-3 Bestatter-Partner + Pilot-Standort in 7 Mo machbar."],
     t:[12,"unknown","medium","B2B2C über Bestatter als Distribution; eigener D2C-Pfad ebenfalls denkbar; Trauerredner-Preis-Anker 300-1.000 EUR (per listando.de + bestatter.de 2025) — Premium-Liturgie kann darüber positioniert werden."],
     k:[8,"unknown","low","Reine Service-Branche; AI nur peripher in Logistik/Liturgie-Doku."],
     e:[13,"pass","medium","Pauschalpreis 5-10k EUR (Bestatter + Premium-Liturgie) × 2-3k Feiern/Jahr = 10-30 Mio EUR Pfad; bootstrappbar mit Liturgiker-Honorar-Modell."],
     w:[11,"unknown","medium","Omilia (Berlin, >100 Redner, 'am meisten empfohlene Vermittlungsplattform' per omilia.de) und Freie Redner Agentur (240 Redner DACH per freieredner.com) sind Trauerredner-Vermittlung, nicht Komplettpaket; Mymoria (Berlin) ist Bestattungs-Brand ohne Liturgie-Premium; FreiRede + IHK-Zertifizierung als Qualitäts-Anker; KEIN integrierter Bestattung-+-Premium-Liturgie-Brand DACH — Wedge bleibt offen."]
   }},
-  {n:"Pilgerreise-Operator 25-45", r:"08.05 Kirche", cat:"🛐 Service/B2C", c:{b:[13,"pass","medium","Camino-Rekord 530.096 Pilger 2025 (+6% vs 2024 per jakobsweg-lebensweg.de Statistik 2025); 18-45 J. ~39% = ~207k Pilger weltweit; deutsche Pilger 24.348 (2023) leicht rückläufig -3% 2025 (per de.statista.com). 25-45-Segment DACH: ~8-10k/Jahr Camino-spezifisch, plus weitere spirituelle Reisen (Yoga/Israel/Sufi) — Wunsch nicht Pflicht."],
+  {n:"Pilgerreise-Operator 25-45", r:"08.05 Kirche", cat:"🛐 Service/B2C", desc:"Reise-Veranstalter für spirituell-suchende Millennials/Gen Y (25-45 J.) — Camino, Israel, Sufi, Indien. Premium-Reisen 1.500-3.000 EUR mit Influencer-Affiliate-Vertrieb. Wedge: DACH-Senior-Veranstalter (Studiosus, Wikinger) dominieren ältere Zielgruppe, junge Pilger weiterhin Nische.", k_app:false, c:{b:[13,"pass","medium","Camino-Rekord 530.096 Pilger 2025 (+6% vs 2024 per jakobsweg-lebensweg.de Statistik 2025); 18-45 J. ~39% = ~207k Pilger weltweit; deutsche Pilger 24.348 (2023) leicht rückläufig -3% 2025 (per de.statista.com). 25-45-Segment DACH: ~8-10k/Jahr Camino-spezifisch, plus weitere spirituelle Reisen (Yoga/Israel/Sufi) — Wunsch nicht Pflicht."],
     m:[14,"pass","medium","Reise-Veranstalter-Gründung niedrige Schwelle: Gewerbeanmeldung + Führungszeugnis + Insolvenzversicherung (1-5 EUR/Sicherungsschein); ab 10 Mio EUR Umsatz DRSF-Pflicht, darunter Kautionsversicherung (per ihk.de + buergschaft24.de); 3 Pilot-Reisen in 7 Mo machbar."],
     t:[11,"unknown","medium","B2C über Travel-Influencer (Erfolgsprovision-Modell etabliert per bookingkit.com 2025); Camino-spezifische 25-45-Influencer-Plattform DACH nicht gefunden; CAC erstmal über organische Channels (Podcast/Blog) bootstrap-tauglich."],
     k:[6,"unknown","low","Reine Service-Branche; AI nur peripher in Booking/Community-App."],
@@ -2621,21 +2621,21 @@ const holdRanking = [
     e:[9,"fail","medium","29-49 EUR/Mo × 45k Eltern ambitioniert für Nische."],
     w:[14,"pass","medium","Kein direkter Wettbewerber DACH."]
   }},
-  {n:"Modest Fashion DACH", r:"08.05 Kirche", cat:"🛐 D2C", c:{b:[11,"unknown","medium","Markt global $300+ Mrd, DACH-Anteil unklar; nicht akut."],
+  {n:"Modest Fashion DACH", r:"08.05 Kirche", cat:"🛐 D2C", k_app:false, c:{b:[11,"unknown","medium","Markt global $300+ Mrd, DACH-Anteil unklar; nicht akut."],
     m:[13,"pass","medium","D2C-Fashion mit Kollektion 4x/Jahr in 7 Mo möglich aber Inventory-Vorlauf."],
     t:[13,"pass","medium","B2C über Instagram/TikTok; aber CAC steigt mit Konkurrenz."],
     k:[6,"unknown","low","AI nur peripher; D2C-Fashion ist Branding-Business."],
     e:[null,"fail","medium","🚩 RED FLAG IDENTIFIED: Inventory 200-500k EUR Working Capital; D2C-Fashion ohne externes Kapital extrem selten 20 Mio EUR Umsatz (siehe Klepierre-Studie 2024 Fashion-D2C Failure-Rate >70%). Bootstrap-Profil zerstört."],
     w:[12,"unknown","medium","Modanisa (TR) importiert, Aab (UK) online; kein dominanter DACH-Brand aber Brand-Risiko bei politischer Kontroverse."]
   }},
-  {n:"Beratung entwidmete Kirchen", r:"08.05 Kirche", cat:"🛐 Beratung/B2B", c:{b:[13,"pass","medium","Bistümer schließen jährlich Kirchen; Veräußerung komplex (Denkmalschutz + Bistums-Vorschriften + Investoren-Suche); aber Volumen niedrig (100-200 Objekte/Jahr DACH)."],
+  {n:"Beratung entwidmete Kirchen", r:"08.05 Kirche", cat:"🛐 Beratung/B2B", k_app:false, c:{b:[13,"pass","medium","Bistümer schließen jährlich Kirchen; Veräußerung komplex (Denkmalschutz + Bistums-Vorschriften + Investoren-Suche); aber Volumen niedrig (100-200 Objekte/Jahr DACH)."],
     m:[15,"pass","medium","Beratungs-Service in 7 Mo mit 1-2 Pilot-Mandaten aufbaubar."],
     t:[10,"fail","medium","Bistums-Bauämter langsam (12-24 Mo Cycles); Investoren opportunistisch; Mandate Volatilität hoch."],
     k:[5,"unknown","low","AI praktisch keine Rolle; reine Beratungs-/Plattform-Idee."],
     e:[8,"fail","high","🚩 RED FLAG IDENTIFIED: Niche zu eng — 100-200 Mandate/Jahr DACH × 50-100k EUR = max 10-20 Mio Umsatz; Service skaliert nur linear mit Beratern; Operations-Bottleneck; 20-Mio-Pfad strukturell nicht erreichbar."],
     w:[15,"pass","high","Kein dominanter Spezialist DACH; Bistums-Domäne als Burggraben; Architekturbüros ad-hoc tätig."]
   }},
-  {n:"Tradlife Retreats junge Frauen", r:"08.05 Kirche", cat:"🛐 Service/B2C", c:{b:[11,"unknown","medium","Trad-Movement; aber Brand-Risiko."],
+  {n:"Tradlife Retreats junge Frauen", r:"08.05 Kirche", cat:"🛐 Service/B2C", k_app:false, c:{b:[11,"unknown","medium","Trad-Movement; aber Brand-Risiko."],
     m:[14,"pass","medium","Retreat-Aufbau in 7 Mo machbar."],
     t:[10,"unknown","medium","Brand-Risiko bei Kontroverse."],
     k:[4,"unknown","low","Keine AI-Relevanz."],
@@ -2649,14 +2649,14 @@ const holdRanking = [
     e:[9,"fail","medium","App-Sub × klein TAM = 20-Mio-Pfad ambitioniert."],
     w:[11,"unknown","medium","Macs Adventure (UK), Wise Pilgrim, CompostelaApp — 3+ Apps."]
   }},
-  {n:"Sober Curious + Spirituality Retreat", r:"08.05 Kirche", cat:"🛐 Service/B2C", c:{b:[13,"pass","medium","Burnout/Sober-Trend Gen Y/Z."],
+  {n:"Sober Curious + Spirituality Retreat", r:"08.05 Kirche", cat:"🛐 Service/B2C", k_app:false, c:{b:[13,"pass","medium","Burnout/Sober-Trend Gen Y/Z."],
     m:[14,"pass","medium","Retreat-Aufbau in 7 Mo machbar."],
     t:[11,"unknown","medium","B2C über Wellness-Influencer."],
     k:[4,"unknown","low","Reine Service-Idee."],
     e:[null,"fail","medium","🚩 RED FLAG IDENTIFIED: Retreat-Marge dünn; Skalierung linear; 20-Mio-Pfad strukturell unmöglich für Boutique-Retreat."],
     w:[11,"unknown","medium","Tempest (US) + Wellness-Retreats."]
   }},
-  {n:"Tap-to-Give Spendendose", r:"08.05 Kirche", cat:"🛐 SaaS+HW/B2B", c:{b:[14,"pass","medium","Pfarreien/Freikirchen verlieren Bargeld; Digital-Spende-Pain real."],
+  {n:"Tap-to-Give Spendendose", r:"08.05 Kirche", cat:"🛐 SaaS+HW/B2B", k_app:false, c:{b:[14,"pass","medium","Pfarreien/Freikirchen verlieren Bargeld; Digital-Spende-Pain real."],
     m:[13,"pass","medium","Hardware + App in 7 Mo machbar."],
     t:[null,"fail","medium","🚩 RED FLAG IDENTIFIED: Pfarreien/Bistümer 12-18 Mo Cycle; Hardware-Distribution + Schulung; Vertriebszugang strukturell blockiert."],
     k:[5,"unknown","low","AI praktisch keine Rolle."],
@@ -2672,7 +2672,7 @@ const holdRanking = [
   }},
 
   // ---- THEMEN-RUN SCHLAF 11.05.2026 ----
-  {n:"Schlafcoaching Subscription für Führungskräfte", r:"11.05 Schlaf", cat:"🌙 Service/B2B", c:{b:[12,"pass","medium","Burnout/Schlafstörungen bei Führung dokumentiert; BGM-Budgets steigen; aber Markt bereits durch dichtes Anbieterfeld bedient."],
+  {n:"Schlafcoaching Subscription für Führungskräfte", r:"11.05 Schlaf", cat:"🌙 Service/B2B", desc:"B2B-Schlafcoaching-Subscription für Mittelstands-Führungskräfte: 1:1-Coach + Wearable-Tracking + Group-Workshops, finanziert über BGM-Budget. Direkter Konkurrent: Bettschau for Business hat exaktes Modell zu 12,99 EUR/MA/Mo bereits live.", c:{b:[12,"pass","medium","Burnout/Schlafstörungen bei Führung dokumentiert; BGM-Budgets steigen; aber Markt bereits durch dichtes Anbieterfeld bedient."],
     m:[12,"pass","medium","Service-Aufbau + Wearable-Integration + Coach-Pool in 7 Mo möglich."],
     t:[10,"fail","medium","HR-Cycles Mittelstand 6-12 Mo; Bettschau for Business hat bereits B2B-Sub-Modell zu 12,99 EUR/MA/Mo etabliert; CAC gegen 6+ Anbieter zerstört Wedge."],
     k:[10,"unknown","medium","AI für Schlaf-Analyse hilft; Coaching dominiert; kein klarer Lock-in."],
@@ -2686,7 +2686,7 @@ const holdRanking = [
     e:[9,"fail","medium","Hardware-Vorlauf; 20-Mio-Pfad braucht 150 Werke à 130k EUR = Konzentration."],
     w:[14,"pass","medium","Sleepscore Labs (US), Joyy (UK) nicht DACH; ATOSS ohne Chronobiologie."]
   }},
-  {n:"Klinik-Schlaflabor-Auslagerung B2B", r:"11.05 Schlaf", cat:"🌙 Service/B2B", c:{b:[16,"pass","high","Schlafapnoe unterdiagnostiziert."],
+  {n:"Klinik-Schlaflabor-Auslagerung B2B", r:"11.05 Schlaf", cat:"🌙 Service/B2B", k_app:false, c:{b:[16,"pass","high","Schlafapnoe unterdiagnostiziert."],
     m:[null,"fail","high","🚩 RED FLAG IDENTIFIED: Mobile Schlaflabor-Hardware + Schlafmediziner-Pool + DRG-Reimbursement in 7 Mo unmöglich."],
     t:[8,"fail","medium","Klinik-Beschaffung 6-12 Mo + Vergabe-Logik."],
     k:[8,"unknown","low","AI nur in Schlaf-Auswertung."],
@@ -2730,21 +2730,21 @@ const holdRanking = [
   }},
 
   // ---- THEMEN-RUN SENIOREN 11.05.2026 ----
-  {n:"Smartphone-Hilfe Hausbesuch (Papa-Style)", r:"11.05 Senioren", cat:"🌅 Service/B2C", c:{b:[14,"pass","high","Senioren-Digital-Pain belegt: 85% brauchen Tech-Hilfe (Digital Day 2025); 300 NGO-Erfahrungsorte bis Ende 2025; Papa Inc. (US) hat $257M Funding + $1.4 Mrd Bewertung + 2,6 Mio Services seit Start (per tracxn.com + pitchbook.com 2026)."],
+  {n:"Smartphone-Hilfe Hausbesuch (Papa-Style)", r:"11.05 Senioren", cat:"🌅 Service/B2C", desc:"Marktplatz für 1:1-Tech-Hilfe-Hausbesuche bei 60+-Senioren — Smartphone, Online-Banking, Apps, Drucker. Kinder zahlen, Senioren erhalten Hilfe. Direkter DACH-Wettbewerb: SmartHands.de + TechSenior + Telekom Digital Home Service.", c:{b:[14,"pass","high","Senioren-Digital-Pain belegt: 85% brauchen Tech-Hilfe (Digital Day 2025); 300 NGO-Erfahrungsorte bis Ende 2025; Papa Inc. (US) hat $257M Funding + $1.4 Mrd Bewertung + 2,6 Mio Services seit Start (per tracxn.com + pitchbook.com 2026)."],
     m:[13,"pass","medium","Marktplatz-Plattform + Sitter-Pool + 1-Stadt-Pilot in 7 Mo machbar; KYC für Sitter-Trust zentral."],
     t:[10,"fail","medium","SmartHands (smarthands.de) bietet bereits 'Technikhilfe für Senioren' als bundesweiten Helfer-Marktplatz; CAC gegen etablierte Player + Telekom Digital Home Service hart."],
     k:[7,"unknown","low","AI peripher; Service-Geschäft dominant; kein Daten-Lock-in."],
     e:[10,"fail","medium","30-50 EUR/Std × 15-25% Provision; 20-Mio-Pfad braucht 30k aktive Senioren × 4 Std/Mo; CAC zerstört Bootstrap gegen 5+ Anbieter + Telekom/Vodafone-Reichweite."],
     w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: SmartHands (smarthands.de, bundesweite Marktplatz-Plattform für 'Technikhilfe für Senioren' — exaktes Geschäftsmodell der Idee!), TechSenior (Hamburg + Schleswig-Holstein, mobil per techsenior.de), SeniorenTech (Fürstenfeldbruck), Senioren Digital & Tech Service (Mannheim), Computer-Total (Frankfurt), Computerhilfe-fuer-Senioren.de, Telekom Digital Home Service (per telekom.de/zubuchoptionen/digital-home-service, Setup + Troubleshooting + Software-Updates), Vodafone Technik-Service. 7+ direkte DE-Wettbewerber. Hard-Fail-Trigger massiv erfüllt — Original-Annahme 'keine direkten DACH-Kommerz-Marktplätze' war falsch (SmartHands ist genau das)."]
   }},
-  {n:"AI-Tutor 60+ Tech-Lernen", r:"11.05 Senioren", cat:"🌅 SaaS/B2C", c:{b:[11,"unknown","medium","Lebenslang-Lernen-Pain real (16 Mio 60+ DE); aber NGO + VHS dominieren mit kostengünstigen Angeboten."],
+  {n:"AI-Tutor 60+ Tech-Lernen", r:"11.05 Senioren", cat:"🌅 SaaS/B2C", desc:"Live-Kurs- und AI-Tutor-Plattform für Senioren-Tech-Lernen (Smartphone, Apps, Banking, Sicherheit). Subscription 19-39 EUR/Mo, Kinder als Zahler-Multiplier (StoryWorth-Modell). Konkurrenz: VHS bundesweit (50 EUR Einmalkurse) + Wisidaa (kommerziell) + NGO-Gratis-Angebote.", c:{b:[11,"unknown","medium","Lebenslang-Lernen-Pain real (16 Mio 60+ DE); aber NGO + VHS dominieren mit kostengünstigen Angeboten."],
     m:[14,"pass","medium","Live-Kurs-Plattform + AI-Tutor in 7 Mo machbar."],
     t:[9,"fail","medium","B2C-Senior + Kinder-Gutschein-Multiplier; CAC gegen VHS-Bekanntheit (volkshochschulen.info bundesweite Datenbank für Senioren-Smartphone-Kurse) + Wisidaa schwer."],
     k:[12,"pass","medium","AI-Tutor profitiert von besseren Modellen; Senior-Sprache als Spezial-Daten möglich."],
     e:[9,"fail","medium","19-39 EUR/Mo vs VHS-Kurse ~50 EUR Einmal-Preis; 80k Subscriber für 20-Mio-Pfad gegen NGO-Gratis + VHS-Massenmarkt strukturell schwer."],
     w:[null,"fail","medium","🚩 RED FLAG IDENTIFIED: Wisidaa (kommerzieller DACH-Anbieter spezialisiert auf Senioren-Smartphone/Tablet-Weiterbildung), VHS bundesweit (vhs.info + volkshochschulen.info Smartphone-Kurse Senioren in jeder größeren Stadt), Starthilfe – digital dabei (Lern-App für ältere Menschen 2025 per frankfurter-plattform-55plus.de), LernCafe (Online-Journal Senioren), ViLE e.V. (Netzwerk seit 2002), Caritas/Malteser Smartphone-Sprechstunde, GetSetUp (US 2,2M Mitglieder, Expansion läuft). 6+ direkte/indirekte DACH-Angebote im Segment. Hard-Fail-Trigger erfüllt."]
   }},
-  {n:"Begleitservice ärztliche Termine 80+", r:"11.05 Senioren", cat:"🌅 Service/B2C", c:{b:[13,"pass","medium","Demographie-Druck + Verhinderungspflege (SGB XI § 39) real; Familien zahlen gerne; aber Bedarf bereits durch fragmentierte Anbieter teilweise gedeckt."],
+  {n:"Begleitservice ärztliche Termine 80+", r:"11.05 Senioren", cat:"🌅 Service/B2C", k_app:false, c:{b:[13,"pass","medium","Demographie-Druck + Verhinderungspflege (SGB XI § 39) real; Familien zahlen gerne; aber Bedarf bereits durch fragmentierte Anbieter teilweise gedeckt."],
     m:[13,"pass","medium","Begleiter-Pool + Buchungs-Plattform + 1-Stadt-Pilot in 7 Mo machbar."],
     t:[10,"fail","medium","Pflegekassen-Channel über Verhinderungspflege etabliert (wird abgerechnet per agas-pflege.de + ppm-online.org Pflegekassen-Hinweise 2025); CAC gegen Caritas/SeniorenLebenshilfe Marketing-Hebel hart."],
     k:[6,"unknown","low","AI peripher; reines Service-Business."],
@@ -2758,14 +2758,14 @@ const holdRanking = [
     e:[10,"fail","medium","19-39 EUR/Mo × 12 + Buch ~150 EUR × 80k Subscriber für 20 Mio Pfad; Meminto deckt mit 20k Kunden bereits 25% des realistischen Targets ab."],
     w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: Meminto Stories (DACH-Marktführer mit 20.000+ Kunden per meminto.com/blog, DHDL-Auftritt 2024 per dhdl.info, deutsche Sprache, DSGVO, Audio/Video-Antworten, Höhle-der-Löwen-Millionen-Reichweite); StoryKeeper (deutsche Alternative, wöchentliche Fragen-Modell per storykeeper.com); StoryWorth (US, $40M ARR, EU-Expansion möglich); Remento (US, $99/Jahr, Voice→Text). 4 direkte Wettbewerber im DACH-Markt; Meminto dominiert mit 20k Kunden bereits. Hard-Fail-Trigger massiv erfüllt."]
   }},
-  {n:"Best-Ager Reisen Solo Premium", r:"11.05 Senioren", cat:"🌅 Service/B2C", c:{b:[11,"unknown","medium","60+ Solo-Markt wächst; aber Wunsch nicht akut; Markt bereits durch etablierte Premium-Player bedient."],
+  {n:"Best-Ager Reisen Solo Premium", r:"11.05 Senioren", cat:"🌅 Service/B2C", k_app:false, c:{b:[11,"unknown","medium","60+ Solo-Markt wächst; aber Wunsch nicht akut; Markt bereits durch etablierte Premium-Player bedient."],
     m:[13,"pass","medium","Reise-Veranstalter-Aufbau + 3 Pilot-Reisen in 7 Mo machbar."],
     t:[10,"fail","medium","B2C über Instagram/Substack; aber CAC gegen 3 etablierte DACH-Marken (Sunwave 35+ Jahre, Studiosus, SKR) sehr hart."],
     k:[5,"unknown","low","AI praktisch keine Rolle; reine Service-Branche."],
     e:[9,"fail","medium","Reise-Marge 20-30%; 20-Mio-Pfad braucht 4-6k Reisende/Jahr — gegen Sunwave + Studiosus me & more (60 Reisen) + SKR (Original Kleingruppen) unmöglich bootstrap."],
     w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: 3 etablierte DACH-Anbieter exakt im Premium-60+-Solo-Segment: Sunwave (35+ Jahre, 60+-Solo-Spezialist, kein/minimal Single-Zuschlag per sunwave.de/singlereisen-ab-60.html), Studiosus me & more (~60 upscale Reisen für Singles/Solo, Culture+Hiking per studiosus.com), SKR Reisen ('Das Original' für Reisen in kleinen Gruppen 2-12 + 4-16 Personen per skr.de/solo-reisen). Hard-Fail-Trigger '3+ direkte DE-Wettbewerber im exakten Segment' deutlich erfüllt."]
   }},
-  {n:"Best-Ager Fitness Boutique DACH", r:"11.05 Senioren", cat:"🌅 Service/B2C", c:{b:[14,"pass","medium","55+ Premium-Fitness-Segment fehlt; Wunsch nicht Pflicht."],
+  {n:"Best-Ager Fitness Boutique DACH", r:"11.05 Senioren", cat:"🌅 Service/B2C", k_app:false, c:{b:[14,"pass","medium","55+ Premium-Fitness-Segment fehlt; Wunsch nicht Pflicht."],
     m:[null,"fail","high","🚩 RED FLAG IDENTIFIED: Real-Estate-CapEx 300-600k EUR/Studio + Geräte + Personal in 7 Mo nicht bootstrappbar."],
     t:[11,"unknown","medium","1 Pilot-Studio in Metropole."],
     k:[4,"unknown","low","AI nur peripher."],
@@ -2774,7 +2774,7 @@ const holdRanking = [
   }},
 
   // ---- THEMEN-RUN TIER-SUPPLEMENTS 11.05.2026 ----
-  {n:"Hund Geriatrie-Komplettprogramm DACH", r:"11.05 Tiere", cat:"🐾 Sub/B2C", c:{b:[12,"pass","medium","Senior-Hunde größtes Halter-Segment (~30% von 10 Mio DE-Hunden); zahlungsbereit; aber Wunsch nicht Pflicht."],
+  {n:"Hund Geriatrie-Komplettprogramm DACH", r:"11.05 Tiere", cat:"🐾 Sub/B2C", desc:"D2C-Subscription für Senior-Hunde (8+ Jahre): bündelt Senior-Futter + Gelenk-/Mobility-Supplements + telefonische Tierarzt-Beratung. Wettbewerber: Vet-Concept hat Komplettprogramm-Modell (Futter + Beratung) bereits live.", k_app:false, c:{b:[12,"pass","medium","Senior-Hunde größtes Halter-Segment (~30% von 10 Mio DE-Hunden); zahlungsbereit; aber Wunsch nicht Pflicht."],
     m:[13,"pass","medium","D2C-Sub + Box-Logistik + Vet-Konsultations-Partner in 7 Mo machbar."],
     t:[10,"fail","medium","B2C über Instagram/Vet-Empfehlung; CAC gegen Pets Deli (etablierter D2C Brand mit Senior-Linie + Subscription per petsdeli.de), Vet-Concept (Beratungs-Hotline) hart."],
     k:[7,"unknown","low","AI peripher (Personalisierung); CPG-Subscription-Business; kein technologischer Wedge."],
@@ -2788,21 +2788,21 @@ const holdRanking = [
     e:[10,"fail","medium","Vet-Subscription + Supp-Marge; 600 Vet-Praxen × 100 EUR/Mo × Supp-Marge bei Hard-Operations-Friktion knapp."],
     w:[12,"unknown","medium","Kein etablierter DACH-Plattform-Anbieter gefunden (Vetz/Pawlytics/Vetstoria-Suche ohne Treffer); Royal Canin Vet-Direkt + Hill's Vet-Diet-Distribution als Pseudo-Wettbewerber; Aposphäre/Tierarzt-Apotheke etabliert."]
   }},
-  {n:"Hund-Gelenk-Supplements D2C", r:"11.05 Tiere", cat:"🐾 D2C", c:{b:[13,"pass","medium","Gelenk-Top-Pain bei Senior-Hunden; aber Trixie/Doppelherz/PerNaturam Perna Senior bereits abdeckend."],
+  {n:"Hund-Gelenk-Supplements D2C", r:"11.05 Tiere", cat:"🐾 D2C", k_app:false, c:{b:[13,"pass","medium","Gelenk-Top-Pain bei Senior-Hunden; aber Trixie/Doppelherz/PerNaturam Perna Senior bereits abdeckend."],
     m:[15,"pass","medium","D2C-Sub + Produktion + Versand in 7 Mo machbar."],
     t:[12,"unknown","medium","B2C über Instagram; CAC 30-60 EUR."],
     k:[5,"unknown","low","AI praktisch keine Rolle; D2C-Branding-Business."],
     e:[10,"fail","medium","29-59 EUR/Mo × 50k Subscriber für 20 Mio; CAC-LTV-Test entscheidend; gegen PerNaturam/Tackenberg-Inkumbenten schwer."],
     w:[null,"fail","medium","🚩 RED FLAG IDENTIFIED: Native Pet (US), Honest Paws (US), Mars/Nestle (Royal Canin Mobility), PerNaturam Perna Senior (DE-Marktführer Gelenk-Supp), Doppelherz Hunde-Linie, Trixie-Supplements — 5+ direkte DACH-D2C-/Retail-Wettbewerber im Gelenk-Senior-Hunde-Segment. Hard-Fail-Trigger erfüllt."]
   }},
-  {n:"Katzen-Nieren-Suppl D2C", r:"11.05 Tiere", cat:"🐾 D2C", c:{b:[13,"pass","medium","30% Senior-Katzen CNI; medizinisch real, zahlungsbereit; ~2 Mio Senior-Katzen DE × 30% = ~600k Zielpopulation."],
+  {n:"Katzen-Nieren-Suppl D2C", r:"11.05 Tiere", cat:"🐾 D2C", k_app:false, c:{b:[13,"pass","medium","30% Senior-Katzen CNI; medizinisch real, zahlungsbereit; ~2 Mio Senior-Katzen DE × 30% = ~600k Zielpopulation."],
     m:[13,"pass","medium","D2C-Sub + Tele-Vet-Partner in 7 Mo machbar."],
     t:[10,"fail","medium","B2C über Vet-Empfehlung schwer — Tierärzte empfehlen Royal Canin Renal + Hill's k/d als Goldstandard; D2C-Awareness teuer."],
     k:[5,"unknown","low","AI peripher; D2C-Specialty-Business."],
     e:[null,"fail","medium","🚩 RED FLAG IDENTIFIED: 39-69 EUR/Mo × 600k Zielpopulation; selbst bei 10% Marktanteil = 60k Subscriber × 50 EUR/Mo × 12 = 36 Mio Theorie, aber realistisch < 5% Marktanteil = 3-5 Mio Pfad; 20-Mio-Pfad strukturell sehr schwer gegen Vet-Diet-Goldstandard."],
     w:[10,"fail","medium","Royal Canin Renal + Hill's k/d Vet-Diet-Goldstandard (dominant über Tierärzte); Alternativen SPECIFIC Heart & Kidney, SANIMED Renal, TROVET Renal & Oxalate, Vetality Renal, Kattovit, Beaphear; D2C-Distribution etabliert über Tiershop.de, Medpets.de, MedicAnimal (per medpets.de + tiershop.de 2025). 5+ direkte Wettbewerber im engen Nieren-Diät-Segment."]
   }},
-  {n:"Tier-Suppl Subscription mit Vet-Plan", r:"11.05 Tiere", cat:"🐾 Sub/B2C", c:{b:[13,"pass","medium","Halter-Komplett-Pflegekonzept; aber Tier-Versicherer machen Bundle-Ansatz."],
+  {n:"Tier-Suppl Subscription mit Vet-Plan", r:"11.05 Tiere", cat:"🐾 Sub/B2C", k_app:false, c:{b:[13,"pass","medium","Halter-Komplett-Pflegekonzept; aber Tier-Versicherer machen Bundle-Ansatz."],
     m:[13,"pass","medium","Sub + Vet-Pool in 7 Mo machbar."],
     t:[11,"unknown","medium","B2C-Marketing."],
     k:[6,"unknown","low","AI peripher."],
@@ -2816,7 +2816,7 @@ const holdRanking = [
     e:[9,"fail","medium","99-149 EUR Test + 39-69 EUR/Mo Sub × 30-50k Subscriber für 20-Mio-Pfad; Vetevo dominiert DACH-D2C-Markt; CAC-LTV bei medizinisch fragwürdiger Diagnose → hohe Refund-/Churn-Quote nach Vet-Verifizierung."],
     w:[null,"fail","high","🚩 RED FLAG IDENTIFIED: 4+ direkte DACH-Wettbewerber im Hund-Allergie-D2C-Markt bestätigt: Vetevo (DACH-Marktführer mit 3 Testvarianten 260/300/400+ Unverträglichkeiten, Amazon-DE-Top-Listing, positive Tests bei mein-haustier.de + easy-dogs.net per vetevo.de 2025), GenoLine (DE, 350-Futtermittel Speichel-Test per genoline.de), cerascreen (DE, etabliertes Self-Test-Brand mit Hundeallergie-Test per cerascreen.de), Nextmune (Schweden, 70+ Länder Spectrum Veterinary, PAX-Goldstandard via Tierärzte per nextmune.com), Heska Allercept (US-/internationale Tierarzt-Linie). Hard-Fail-Trigger '3+ direkte Wettbewerber' deutlich erfüllt."]
   }},
-  {n:"Hund Anti-Aging / Longevity Programm", r:"11.05 Tiere", cat:"🐾 Sub", c:{b:[11,"unknown","medium","Longevity-Trend bei Premium-Haltern; aber Evidenz dünn."],
+  {n:"Hund Anti-Aging / Longevity Programm", r:"11.05 Tiere", cat:"🐾 Sub", k_app:false, c:{b:[11,"unknown","medium","Longevity-Trend bei Premium-Haltern; aber Evidenz dünn."],
     m:[14,"pass","medium","D2C-Sub + Vet-Konsultation in 7 Mo machbar."],
     t:[11,"unknown","medium","Premium-B2C engerer Markt."],
     k:[7,"unknown","low","AI peripher."],
@@ -2845,7 +2845,7 @@ const holdRanking = [
     e:[9,"fail","medium","Privatzahlung 200-500 EUR/Diagnose; KV-Reimbursement schwierig."],
     w:[11,"unknown","medium","Klarity (US), Done (US) nicht DACH."]
   }}
-  ,{n:"Mercury für DE Solo-Founder", r:"08.05 Daily", cat:"Fintech", c:{b:[13,"pass","medium","Solo-Founder ohne gute Banking-UX; DE-Mittelstandsbanken besser als US-Markt."],
+  ,{n:"Mercury für DE Solo-Founder", r:"08.05 Daily", cat:"Fintech", desc:"Modernes Geschäftskonto + Belegerfassung + Steuerexport speziell für Solo-Founder und 1-Personen-GmbHs in DE (Mercury-US-Modell). Banking-Compliance (BaFin/BaaS) bricht Bootstrap; Kontist/Penta/Qonto besetzen Markt bereits.", k_app:false, c:{b:[13,"pass","medium","Solo-Founder ohne gute Banking-UX; DE-Mittelstandsbanken besser als US-Markt."],
     m:[null,"fail","high","🚩 RED FLAG IDENTIFIED: Banking-Funktion braucht BaFin-Lizenz oder BaaS-Partner; in 7 Mo unmöglich."],
     t:[12,"unknown","medium","B2C-Solo-Founder; CAC gegen Kontist/Penta hart."],
     k:[8,"fail","medium","AI peripher; Banking-Logik kein KI-Vorteil."],
@@ -2929,11 +2929,21 @@ function aggregateHold(item) {
   let effective = 0;
   let fails = 0, failsConfMid = 0, unknowns = 0, passes = 0;
   let redFlag = false;
+  // k_app: ist KI-Compound-Vorteil-Kriterium überhaupt anwendbar?
+  // Default true. false z.B. bei Banking-Compliance-Ideen, Real-Estate, Service-Only ohne KI-Disruptions-Risiko.
+  const kApplicable = item.k_app !== false;
+  let appliedCriteria = 0;
+  let maxPool = 0;
   CRIT_ORDER.forEach(key => {
+    if (key === "k" && !kApplicable) {
+      // K-Kriterium wird ignoriert in der Aggregation
+      return;
+    }
     const [s, g, c, f] = item.c[key];
     if (s === null) { redFlag = true; return; }
     rawTotal += s;
-    // Gate-Penalty: gates wirken sich DIREKT auf den Score aus
+    maxPool += 20;
+    appliedCriteria++;
     let mult;
     if (g === "pass") { mult = 1.0; passes++; }
     else if (g === "unknown") { mult = 0.6; unknowns++; }
@@ -2945,15 +2955,18 @@ function aggregateHold(item) {
     effective += s * mult;
   });
   if (redFlag) {
-    return { rawTotal: null, effective: null, effectiveNorm: null, tier: "Red Flag Reject", fails, failsConfMid, unknowns, passes, redFlag: true };
+    return { rawTotal: null, effective: null, effectiveNorm: null, tier: "Red Flag Reject",
+             fails, failsConfMid, unknowns, passes, redFlag: true, kApplicable, appliedCriteria, maxPool };
   }
   effective = Math.round(effective);
-  const effectiveNorm = Math.round(effective / 120 * 100);
+  // Dynamische Normierung: Max-Pool ist 100 (5 Kriterien) oder 120 (6 Kriterien)
+  const effectiveNorm = Math.round(effective / maxPool * 100);
   let tier;
-  if (effective >= 75) tier = "Top";
-  else if (effective >= 55) tier = "Mid";
+  if (effectiveNorm >= 63) tier = "Top";        // entspricht 75/120 oder 63/100
+  else if (effectiveNorm >= 46) tier = "Mid";   // entspricht 55/120 oder 46/100
   else tier = "Weak";
-  return { rawTotal, effective, effectiveNorm, tier, fails, failsConfMid, unknowns, passes, redFlag: false };
+  return { rawTotal, effective, effectiveNorm, tier,
+           fails, failsConfMid, unknowns, passes, redFlag: false, kApplicable, appliedCriteria, maxPool };
 }
 
 // Berechne Aggregationen für alle Hold-Ideen
@@ -3114,14 +3127,30 @@ function openHoldDetail(name) {
   const agg = item.agg;
   const scoreCls = agg.effective >= 75 ? "score-7" : agg.effective >= 55 ? "score-5" : agg.effective >= 35 ? "score-3" : "score-1";
 
+  const kApplicable = agg.kApplicable;
+  const maxPool = agg.maxPool || 120;
+
   const critRows = CRIT_ORDER.map(key => {
     const [s, g, c, f] = item.c[key];
-    const sCls = s >= 14 ? "s-high" : s >= 9 ? "s-mid" : "s-low";
     const label = CRIT_LABELS[key];
+    // K-Kriterium nicht anwendbar → Spezial-Darstellung
+    if (key === "k" && !kApplicable) {
+      return `
+        <div class="crit-row" style="background:#f8f8f4; opacity:0.75;">
+          <span class="crit-name">${label}</span>
+          <span class="crit-score" style="color:#888; font-style:italic;">N/A</span>
+          <span class="crit-gate" style="color:#888;">ignoriert</span>
+          <span class="crit-conf" style="color:#888;">—</span>
+          <span class="crit-finding" style="color:#666; font-style:italic;">Kriterium nicht anwendbar — Idee ist nicht durch KI angreifbar/disruptierbar (z.B. Banking-Compliance, Hardware-zentral, reines Service-Geschäft). Aus Aggregation ausgeschlossen; Max-Pool 100 statt 120.</span>
+        </div>
+      `;
+    }
+    const sCls = s === null ? "s-low" : (s >= 14 ? "s-high" : s >= 9 ? "s-mid" : "s-low");
+    const sDisplay = s === null ? "null" : s;
     return `
       <div class="crit-row">
         <span class="crit-name">${label}</span>
-        <span class="crit-score score-cell ${sCls}">${s}</span>
+        <span class="crit-score score-cell ${sCls}">${sDisplay}</span>
         <span class="crit-gate gate-${g}">${g}</span>
         <span class="crit-conf conf-${c}">${c}</span>
         <span class="crit-finding">${f}</span>
@@ -3129,27 +3158,66 @@ function openHoldDetail(name) {
     `;
   }).join("");
 
+  // Distiller-Brief aus deepDives oder item.desc (falls vorhanden)
+  let briefHtml = "";
+  const dd = window.deepDives ? window.deepDives[name] : null;
+  if (dd && dd.brief) {
+    const b = dd.brief;
+    const briefFields = [
+      ["Kern-Problem", b.core_problem],
+      ["Zielkunde", b.target_customer],
+      ["Wirtschaftlicher Buyer", b.economic_buyer],
+      ["Produkt-Konzept", b.product_concept],
+      ["Aktuelle Alternative", b.current_alternative],
+      ["Why now", b.why_now],
+      ["Monetarisierung", b.monetization],
+      ["Wedge", b.wedge]
+    ].filter(([_, v]) => v && v.length > 0);
+    briefHtml = `
+      <h4 style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:#6a6a6a; margin:6px 0 10px;">Idee – Distiller-Brief</h4>
+      <div class="kv" style="margin-bottom:18px;">
+        ${briefFields.map(([k, v]) => `<span style="color:#6a6a6a;">${k}</span><span>${v}</span>`).join("")}
+      </div>
+    `;
+  } else if (item.desc) {
+    briefHtml = `
+      <h4 style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:#6a6a6a; margin:6px 0 10px;">Idee – Kurzbeschreibung</h4>
+      <p style="margin: 0 0 18px; font-size:14px; line-height:1.5;">${item.desc}</p>
+    `;
+  } else {
+    briefHtml = `
+      <p style="margin: 6px 0 18px; padding:10px 14px; background:#fff8e1; border-left:3px solid #f0b400; font-size:13px; color:#6b5300;">
+        <strong>Hinweis:</strong> Für diese Idee liegt noch kein Distiller-Brief vor. Idee-Name + Kategorie reichen für die Methodik, aber ein <code>desc</code>-Feld oder ein <code>deepDives</code>-Eintrag wäre nice-to-have.
+      </p>
+    `;
+  }
+
+  const scoreDisplay = agg.effective === null ? "Red Flag Reject" : `${agg.effective}/${maxPool}`;
+  const kAppBadge = !kApplicable ? `<span style="display:inline-block; margin-left:8px; padding:2px 8px; background:#e3f2fd; color:#1565c0; border-radius:10px; font-size:11px; font-weight:600;">K-Kriterium ignoriert (5×20 Skala)</span>` : "";
+
   document.getElementById("dd-modal-body").innerHTML = `
     <div style="margin-bottom:14px;">
       <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:14px;">
         <div>
-          <h3 style="margin:0 0 4px; font-size:18px;">${item.n}</h3>
+          <h3 style="margin:0 0 4px; font-size:18px;">${item.n} ${kAppBadge}</h3>
           <div style="color:#6a6a6a; font-size:12px;">Run: ${item.r} · Kategorie: ${item.cat}</div>
         </div>
-        <span class="score-pill ${scoreCls}">${agg.effective}<span style="font-size:10px; padding: 2px 6px; margin-left: 4px; opacity:0.7;">/120</span></span>
+        <span class="score-pill ${scoreCls}">${agg.effective === null ? "🚩" : agg.effective}<span style="font-size:10px; padding: 2px 6px; margin-left: 4px; opacity:0.7;">/${maxPool}</span></span>
       </div>
     </div>
 
+    ${briefHtml}
+
     <div class="summary-row">
-      <div><span class="lbl">Deep-Score (Effective)</span><span class="val" style="color:var(--accent);">${agg.effective} / 120</span></div>
-      <div><span class="lbl">Normiert</span><span class="val">${agg.effectiveNorm} / 100</span></div>
-      <div><span class="lbl">Raw Sum</span><span class="val" style="color:#888;">${agg.rawTotal} / 120</span></div>
+      <div><span class="lbl">Deep-Score (Effective)</span><span class="val" style="color:var(--accent);">${agg.effective === null ? "—" : agg.effective + " / " + maxPool}</span></div>
+      <div><span class="lbl">Normiert</span><span class="val">${agg.effectiveNorm === null ? "—" : agg.effectiveNorm + " / 100"}</span></div>
+      <div><span class="lbl">Raw Sum</span><span class="val" style="color:#888;">${agg.rawTotal === null ? "—" : agg.rawTotal + " / " + maxPool}</span></div>
       <div><span class="lbl">Pass</span><span class="val" style="color:#2e7d32;">${agg.passes}</span></div>
       <div><span class="lbl">Unknown</span><span class="val" style="color:#b07b00;">${agg.unknowns}</span></div>
       <div><span class="lbl">Fail (Conf ≥ med)</span><span class="val" style="color:#b03a2e;">${agg.failsConfMid}</span></div>
     </div>
 
-    <p style="font-size:13px; color:#6a6a6a; margin: 8px 0 18px;">Gate-Penalty: pass × 1.0, unknown × 0.6, fail-conf-low × 0.4, fail-conf-medium/high × 0.0. Direkt im Effective-Score eingerechnet.</p>
+    <p style="font-size:13px; color:#6a6a6a; margin: 8px 0 18px;">Gate-Penalty: pass × 1.0, unknown × 0.6, fail-conf-low × 0.4, fail-conf-medium/high × 0.0. Direkt im Effective-Score eingerechnet.${!kApplicable ? ' <strong>K-Kriterium ist für diese Idee nicht anwendbar (keine KI-Disruptions-Gefahr) — aus Aggregation ausgeschlossen; Max-Pool = 100 statt 120.</strong>' : ''}</p>
 
     <h4 style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:#6a6a6a; margin:18px 0 10px;">6-Kriterien-Bewertung mit Findings</h4>
     <div class="crit-grid">
