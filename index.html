@@ -227,6 +227,7 @@ table.criteria td:first-child { color: var(--muted); width: 220px; }
     <p class="legend">Alle <strong>71</strong> Ideen mit Quick-Score ≥ 6 aus der Pipeline kumulativ haben volle Distiller + Kill-Committee Bewertung. Pro Idee: 6 Kriterien × (Score 0-20 + Gate pass/fail/unknown + Confidence + Finding) + Gesamtscore 0-120 (= normiert 0-100) + Verdict (Validation / Hold / Reject).</p>
     <p class="legend" style="margin-top:6px;">Aggregations-Logik: 1 Fail mit Confidence ≥ medium → Reject · 0 Fails + &gt; 2 Unknowns → Hold · sonst Validation. Sortierbar; klick auf eine Idee öffnet die vollständige Kriterien-Auswertung mit Findings pro Kriterium.</p>
     <p class="legend" style="margin-top:6px; color:#6b5300;">⚠️ Kill-Bias: Unknown zählt negativ, nicht neutral. Fehlende Evidenz ist negativ.</p>
+    <p class="legend" style="margin-top:8px; background:#f5f5ef; padding:8px 12px; border-radius:6px;"><strong>Spalten-Legende:</strong> <strong>Deep-Score</strong> = Gewichteter Effective-Score (Gate-Multiplikatoren angewandt). <strong>Raw-Score</strong> = Roh-Summe der 6 Kriterien-Punkte (0-120). <strong>Pass/Unknown/Fail-Gates</strong> = Verteilung der 6 Gates pro Idee. → Die <strong>6 einzelnen Kriterien</strong> (Bedarf, MVP, Vertrieb, KI, Ökonomie, Wettbewerb) inkl. Findings sind sichtbar beim <strong>Klick auf eine Idee</strong> (öffnet Detail-Modal).</p>
     <div id="grid-holdranking" style="margin-top:14px;"></div>
   </section>
 
@@ -3071,24 +3072,24 @@ new gridjs.Grid({
         return gridjs.html(`<a href="#" onclick="openHoldDetail('${safe}'); return false;" style="color:#1e6091; text-decoration:none; font-weight:500;">📊 ${cell}</a>`);
       }
     },
-    { name: "Run", width: "120px" },
-    { name: "Deep-Score (/120)", width: "110px",
+    { name: "Run", width: "110px" },
+    { name: gridjs.html('<span title="Effective Deep-Score: Summe der 6 Kriterien gewichtet mit Gate-Multiplikator (pass=1.0, unknown=0.6, fail+low=0.4, fail+med/high=0.0). Max 120.">Deep-Score (/120)</span>'), width: "120px",
       formatter: (cell) => {
         const n = Number(cell);
         const cls = n >= 75 ? "score-7" : n >= 55 ? "score-5" : n >= 35 ? "score-3" : "score-1";
         return gridjs.html(`<span class="score-pill ${cls}" style="font-size:13px;padding:3px 10px;">${cell}</span>`);
       }
     },
-    { name: "Raw", width: "55px",
+    { name: gridjs.html('<span title="Raw-Score: Summe der 6 Kriterien-Punktzahlen (0-20 pro Kriterium), OHNE Gate-Penalty. Max 120.">Raw-Score</span>'), width: "90px",
       formatter: (cell) => gridjs.html(`<span style="color:#888; font-size:12px;">${cell}</span>`)
     },
-    { name: "Pass", width: "55px",
+    { name: gridjs.html('<span title="Anzahl der 6 Kriterien mit Gate=pass (Evidenz reicht für positives Urteil).">Pass-Gates</span>'), width: "85px",
       formatter: (cell) => gridjs.html(`<span style="color:#2e7d32; font-weight:600;">${cell}</span>`)
     },
-    { name: "Unkn.", width: "60px",
+    { name: gridjs.html('<span title="Anzahl der 6 Kriterien mit Gate=unknown (Evidenz reicht nicht für klares Urteil).">Unknown-Gates</span>'), width: "105px",
       formatter: (cell) => gridjs.html(`<span style="color:#b07b00;">${cell}</span>`)
     },
-    { name: "Fails", width: "55px",
+    { name: gridjs.html('<span title="Anzahl der 6 Kriterien mit Gate=fail (Hard-Fail-Trigger erfüllt).">Fail-Gates</span>'), width: "85px",
       formatter: (cell) => gridjs.html(`<span style="color:#b03a2e; font-weight:600;">${cell}</span>`)
     },
     { name: "Kategorie", width: "130px" }
