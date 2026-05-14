@@ -185,7 +185,7 @@ table.criteria td:first-child { color: var(--muted); width: 220px; }
     </div>
     <div class="hf-arrow">
       <div class="hf-arrow-icon">▶</div>
-      <div class="hf-arrow-label" id="hf-top-rule">Deep-Score ≥ 75</div>
+      <div class="hf-arrow-label" id="hf-top-rule">Deep-Score ≥ 80</div>
     </div>
     <div class="hf-stage hf-stage-top">
       <div class="hf-num" id="hf-top-num">0</div>
@@ -2972,27 +2972,20 @@ window.holdRanking = holdRanking;
 
 // =====================================================================
 // DYNAMISCHE HEADER-FUNNEL-WERTE (Pipeline / Kill-Committee / Top-Kandidaten)
-// Top-Tier-Schwelle: Effective Deep-Score >= 75 (Rubrik 85-120 Top-Tier; >=75 = obere Stark-Klasse)
+// Top-Tier-Schwelle: Effective Deep-Score >= 80 (Rubrik 85-120 Top-Tier; >=80 = oberes Stark-Quartil als Validation-Cutoff)
 // =====================================================================
 (function updateHeaderFunnel() {
-  const TOP_THRESHOLD = 75;
+  const TOP_THRESHOLD = 80;
   const pipelineCount = (typeof pipeline !== 'undefined' && Array.isArray(pipeline)) ? pipeline.length : null;
   const killComCount = holdRanking.length;
   const topCount = holdRanking.filter(i => !i.agg.redFlag && i.agg.effective >= TOP_THRESHOLD).length;
-  const strongCount = holdRanking.filter(i => !i.agg.redFlag && i.agg.effective >= 70).length;
-  // Fallback-Label: falls 0 Top-Kandidaten, zeige stärkste Stufe (>=70)
-  const useStrong = (topCount === 0 && strongCount > 0);
-  const displayThreshold = useStrong ? 70 : TOP_THRESHOLD;
-  const displayCount = useStrong ? strongCount : topCount;
-  const displaySub = useStrong
-    ? 'noch keine ≥ ' + TOP_THRESHOLD + ';<br>stärkste ≥ 70'
-    : 'für echte Validation-<br>Arbeit';
   const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
   if (pipelineCount !== null) set('hf-pipeline-num', pipelineCount);
   set('hf-killcom-num', killComCount);
-  set('hf-top-num', displayCount);
-  set('hf-top-rule', 'Deep-Score ≥ ' + displayThreshold);
-  const subEl = document.getElementById('hf-top-sub'); if (subEl) subEl.innerHTML = displaySub;
+  set('hf-top-num', topCount);
+  set('hf-top-rule', 'Deep-Score ≥ ' + TOP_THRESHOLD);
+  const subEl = document.getElementById('hf-top-sub');
+  if (subEl) subEl.innerHTML = 'für echte Validation-<br>Arbeit';
 })();
 
 // =====================================================================
