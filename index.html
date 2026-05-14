@@ -171,31 +171,6 @@ table.criteria td:first-child { color: var(--muted); width: 220px; }
     <div class="meta">Run-Datum: <strong>Donnerstag, 14. Mai 2026</strong> · Modus: 50 Ideen Triage + Top Deep-Dives · Geographie: DACH · Zielprofil: ca. 20 Mio. Umsatz in 5 Jahren, möglichst bootstrappbar</div>
   </header>
 
-  <div class="header-funnel">
-    <div class="hf-stage">
-      <div class="hf-num" id="hf-pipeline-num">402</div>
-      <div class="hf-label">Pipeline kumulativ</div>
-      <div class="hf-sub">alle gescreenten Ideen<br>(6 Tage aktiv)</div>
-    </div>
-    <div class="hf-arrow">
-      <div class="hf-arrow-icon">▶</div>
-      <div class="hf-arrow-label">Quick-Score ≥ 6</div>
-    </div>
-    <div class="hf-stage">
-      <div class="hf-num" id="hf-killcom-num">71</div>
-      <div class="hf-label">Kill-Committee</div>
-      <div class="hf-sub">volle 6-Kriterien-<br>Bewertung</div>
-    </div>
-    <div class="hf-arrow">
-      <div class="hf-arrow-icon">▶</div>
-      <div class="hf-arrow-label" id="hf-top-rule">Deep-Score ≥ 80</div>
-    </div>
-    <div class="hf-stage hf-stage-top">
-      <div class="hf-num" id="hf-top-num">0</div>
-      <div class="hf-label">Top-Kandidaten</div>
-      <div class="hf-sub" id="hf-top-sub">für echte Validation-<br>Arbeit</div>
-    </div>
-  </div>
 
   <nav class="tabs">    <button class="tab-btn active" data-tab="holdranking">🎯 Tiefenbewertung (71)</button>
     <button class="tab-btn" data-tab="pipeline">📚 Alle gescreenten Ideen (402)</button>
@@ -3036,25 +3011,6 @@ function tierClassFromItem(item) {
   if (item.agg.redFlag) return "score-1";
   return tierClassFromNorm(item.agg.effectiveNorm);
 }
-
-// =====================================================================
-// DYNAMISCHE HEADER-FUNNEL-WERTE (Pipeline / Kill-Committee / Top-Kandidaten)
-// Top-Tier-Schwelle: Effective Deep-Score >= 80 (Rubrik 85-120 Top-Tier; >=80 = oberes Stark-Quartil als Validation-Cutoff)
-// =====================================================================
-(function updateHeaderFunnel() {
-  // Top-Tier-Schwelle: normierter Score >= 75 (strenge Skala)
-  const TOP_THRESHOLD_NORM = 75;
-  const pipelineCount = (typeof pipeline !== 'undefined' && Array.isArray(pipeline)) ? pipeline.length : null;
-  const killComCount = holdRanking.length;
-  const topCount = holdRanking.filter(i => !i.agg.redFlag && i.agg.effectiveNorm >= TOP_THRESHOLD_NORM).length;
-  const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-  if (pipelineCount !== null) set('hf-pipeline-num', pipelineCount);
-  set('hf-killcom-num', killComCount);
-  set('hf-top-num', topCount);
-  set('hf-top-rule', 'Normierter Score ≥ ' + TOP_THRESHOLD_NORM);
-  const subEl = document.getElementById('hf-top-sub');
-  if (subEl) subEl.innerHTML = 'echte Top-Tier-Ideen<br>(75%+ Effective)';
-})();
 
 // =====================================================================
 // ALLE DEEP-DIVES Tab - DEAKTIVIERT (in 2-Stufen-Struktur konsolidiert)
